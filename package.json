@@ -20,7 +20,6 @@
     }
   ],
   "devDependencies": {
-    "exists": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cache": "^0.4.5",
