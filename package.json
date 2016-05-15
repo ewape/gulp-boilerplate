@@ -1,7 +1,9 @@
 {
   "name": "gulp-starter",
+  "homepage": "https://github.com/ewape/gulp-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic Gulp setup",
+  "repository": "ewape/gulp-starter",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +12,13 @@
     "node": ">= 0.12.0",
     "npm": ">=2.1.5"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ewape",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://mit-license.org/"
+    }
+  ],
   "devDependencies": {
     "exists": "^1.0.0",
     "gulp": "^3.9.1",
