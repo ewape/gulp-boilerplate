@@ -36,9 +36,7 @@
     "gulp-uglify": "^1.5.3",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
-    "main-bower-files": "^2.13.0"
-  },
-  "dependencies": {
+    "main-bower-files": "^2.13.0",
     "path-exists": "^3.0.0"
   }
 }
