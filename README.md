@@ -1,4 +1,4 @@
-### Installation 
+### Setup
 ```sh
 $ npm install
 ```
@@ -19,27 +19,19 @@ $ gulp
 $ gulp watch
 ```
 
-#####Process all files from ./src directory:
+#####Process all source files:
 ```sh
 $ gulp build
 ```
 
-#####Process scss files:
+#####Optimize resources by type:
 ```sh
 $ gulp styles
-```
-
-#####Process js files:
-```sh
 $ gulp scripts
-```
-
-#####Optimize images:
-```sh
 $ gulp images
 ```
 
-#####Copy main bower dependencies minified files to ./src/vendor directory:
+#####Copy minified bower dependencies into ./dist/vendor:
 ```sh
 $ gulp bower-copy-min
 ```
