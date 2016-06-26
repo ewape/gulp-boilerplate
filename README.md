@@ -18,6 +18,12 @@ LiveReload feature requires <a href="https://chrome.google.com/webstore/detail/l
 $ gulp
 $ gulp watch
 ```
+
+Compile all files to dist:
+```sh
+$ gulp build
+```
+
 Process scss files:
 ```sh
 $ gulp styles
