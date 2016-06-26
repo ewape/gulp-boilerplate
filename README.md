@@ -19,7 +19,7 @@ $ gulp
 $ gulp watch
 ```
 
-Compile all files to dist directory:
+Process all files from src directory:
 ```sh
 $ gulp build
 ```
