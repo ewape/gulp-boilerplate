@@ -2,7 +2,7 @@
   "name": "gulp-starter",
   "homepage": "https://github.com/ewape/gulp-starter",
   "version": "1.0.0",
-  "description": "Basic Gulp setup",
+  "description": "Gulp setup",
   "repository": "ewape/gulp-starter",
   "main": "script.js",
   "scripts": {
@@ -20,6 +20,7 @@
     }
   ],
   "devDependencies": {
+    "exists": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cache": "^0.4.5",
@@ -30,12 +31,12 @@
     "gulp-livereload": "^3.8.1",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.1",
+    "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.3",
+    "gulp-uglify": "^1.5.4",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
-    "main-bower-files": "^2.13.0",
+    "main-bower-files": "^2.13.1",
     "path-exists": "^3.0.0"
   }
 }
