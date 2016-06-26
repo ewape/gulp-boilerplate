@@ -1,17 +1,17 @@
-## Installation 
+### Installation 
 ```sh
 $ npm install
 ```
 
-## Installing npm modules:
+##### Installing npm dependencies:
 ```sh
-$ npm install <module-name> --save-dev
+$ npm install <dependency-name> --save-dev
 ```
-## Installing dependencies with bower:
+##### Installing bower dependencies:
 ```sh
 $ bower install <dependency-name> --save
 ```
-## Tasks:
+### Tasks:
 Default task is watch. 
 LiveReload feature requires <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">ChromeLiveReload extension</a> or other setup.
 ```sh
@@ -19,27 +19,27 @@ $ gulp
 $ gulp watch
 ```
 
-Process all files from src directory:
+#####Process all files from ./src directory:
 ```sh
 $ gulp build
 ```
 
-Process scss files:
+#####Process scss files:
 ```sh
 $ gulp styles
 ```
 
-Process js files:
+#####Process js files:
 ```sh
 $ gulp scripts
 ```
 
-Minify images:
+#####Optimize images:
 ```sh
 $ gulp images
 ```
 
-Copy main bower dependencies minified files to ./src/vendor/ directory:
+#####Copy main bower dependencies minified files to ./src/vendor directory:
 ```sh
 $ gulp bower-copy-min
 ```
