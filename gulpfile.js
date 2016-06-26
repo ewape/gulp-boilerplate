@@ -65,5 +65,5 @@ gulp.task('bower-copy-min', function() {
     var newPath = path.replace(/.([^.]+)$/g, '.min.$1');
     return exists(newPath) ? newPath : path;
   });
-  gulp.src(bowerWithMin).pipe(gulp.dest('./src/vendor/'));
+  gulp.src(bowerWithMin).pipe(gulp.dest('./dist/vendor/'));
 });
