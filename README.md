@@ -11,7 +11,7 @@ $ npm install <dependency-name> --save-dev
 ```sh
 $ bower install <dependency-name> --save
 ```
-### Tasks:
+### Tasks
 Default task is watch. 
 LiveReload feature requires <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">ChromeLiveReload extension</a> or other setup.
 ```sh
