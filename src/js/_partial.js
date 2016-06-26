@@ -1,1 +1,4 @@
-console.info('hello from particle');
+(function() {
+	var message = 'Hello from particle!';
+	console.info(message);
+})();

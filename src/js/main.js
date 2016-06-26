@@ -1,1 +1,4 @@
-console.info('Hello from main.js');
+(function() {
+	var message = 'Hello from main!';
+	console.info(message);
+})();
