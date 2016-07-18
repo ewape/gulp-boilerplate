@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     livereload = require('gulp-livereload'),
     notify = require('gulp-notify'),
+    fileinclude = require('gulp-file-include'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -24,9 +25,19 @@ gulp.task('watch', function() {
     gulp.watch('./src/js/**/*.js', ['scripts']);
     gulp.watch('./src/scss/**/*.scss', ['styles']);
     gulp.watch('./src/images/**/*', ['images']);
+    gulp.watch('./src/html/**/*', ['fileinclude']);
     gulp.watch('bower_components/**/*', ['bower-copy-min']);
     livereload.listen();
     gulp.watch(['./dist/**', 'index.html']).on('change', livereload.changed);
+});
+
+gulp.task('fileinclude', function() {
+  gulp.src(['./src/html/*.html'])
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('styles', function() {
