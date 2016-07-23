@@ -19,7 +19,7 @@ var gulp = require('gulp'),
     };
 
 gulp.task('default', ['watch']);
-gulp.task('build', ['styles', 'scripts', 'images', 'bower-copy-min']);
+gulp.task('build', ['styles', 'scripts-prod', 'images', 'bower-copy-min']);
 
 gulp.task('watch', function() {
     gulp.watch('./src/js/**/*.js', ['scripts']);
@@ -28,14 +28,17 @@ gulp.task('watch', function() {
     gulp.watch('./src/html/**/*', ['fileinclude']);
     gulp.watch('bower_components/**/*', ['bower-copy-min']);
     livereload.listen();
-    gulp.watch(['./dist/**', 'index.html']).on('change', livereload.changed);
+    gulp.watch(['./dist/**', '*.html']).on('change', livereload.changed);
 });
 
 gulp.task('fileinclude', function() {
   gulp.src(['./src/html/*.html'])
     .pipe(fileinclude({
       prefix: '@@',
-      basepath: '@file'
+      basepath: '@file',
+      context: {
+        jquery: false
+      }
     }))
     .pipe(gulp.dest('./'));
 });
@@ -63,12 +66,22 @@ gulp.task('scripts', function() {
         .pipe(sourcemaps.init())
         .pipe(concat('script.min.js'))
         .pipe(jshint())
-        .pipe(uglify())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/js'))
         .pipe(notify({
             message: 'Scripts task complete'
+        }));
+});
+
+gulp.task('scripts-prod', function() {
+    return gulp.src('./src/js/**/*.js')
+        .pipe(concat('script.min.js'))
+        .pipe(jshint())
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/js'))
+        .pipe(notify({
+            message: 'Scripts production task complete'
         }));
 });
 
@@ -86,6 +99,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('bower-copy-min', function() {
+    console.log(mainBowerFiles());
     var bowerWithMin = mainBowerFiles().map(function(path, index, arr) {
         var newPath = path.replace(/.([^.]+)$/g, '.min.$1');
         return exists(newPath) ? newPath : path;
