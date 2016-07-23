@@ -19,7 +19,7 @@ $ gulp
 $ gulp watch
 ```
 
-#####Process all source files:
+#####Compile production files:
 ```sh
 $ gulp build
 ```
