@@ -78,6 +78,7 @@ gulp.task('scripts-prod', function() {
     return gulp.src('./src/js/**/*.js')
         .pipe(concat('script.min.js'))
         .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js'))
         .pipe(notify({
