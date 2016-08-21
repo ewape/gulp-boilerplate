@@ -24,8 +24,8 @@ gulp.task('build', ['styles', 'scripts-prod', 'images', 'bower-copy-min']);
 gulp.task('watch', function() {
     gulp.watch('./src/js/**/*.js', ['scripts']);
     gulp.watch('./src/scss/**/*.scss', ['styles']);
-    gulp.watch('./src/images/**/*', ['images']);
-    gulp.watch('./src/html/**/*', ['fileinclude']);
+    gulp.watch('./src/images/**/*.{jpg,jpeg,png,gif,svg}', ['images']);
+    gulp.watch('./src/html/**/*.html', ['fileinclude']);
     gulp.watch('bower_components/**/*', ['bower-copy-min']);
     livereload.listen();
     gulp.watch(['./dist/**', '*.html']).on('change', livereload.changed);
@@ -87,7 +87,7 @@ gulp.task('scripts-prod', function() {
 });
 
 gulp.task('images', function() {
-    return gulp.src('./src/images/**/*')
+    return gulp.src('./src/images/**/*.{jpg,jpeg,png,gif,svg}')
         .pipe(cache(imagemin({
             optimizationLevel: 3,
             progressive: true,
