@@ -3,7 +3,10 @@
   "homepage": "https://github.com/ewape/gulp-starter",
   "version": "1.0.0",
   "description": "Gulp setup",
-  "repository": "ewape/gulp-starter",
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/ewape/gulp-starter.git"
+  },
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
