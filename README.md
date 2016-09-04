@@ -35,8 +35,3 @@ $ gulp styles
 $ gulp scripts
 $ gulp images
 ```
-
-#####Copy minified bower dependencies into ./dist/vendor:
-```sh
-$ gulp bower-copy-min
-```
