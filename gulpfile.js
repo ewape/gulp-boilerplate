@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
+    csslint = require('gulp-csslint');
     cssnano = require('gulp-cssnano'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
@@ -23,7 +24,7 @@ gulp.task('build', ['styles', 'scripts-prod', 'images', 'bower-copy-min']);
 
 gulp.task('watch', function() {
     gulp.watch('./src/js/**/*.js', ['scripts']);
-    gulp.watch('./src/scss/**/*.scss', ['styles']);
+    gulp.watch('./src/scss/**/*.scss', ['styles', 'csslint']);
     gulp.watch('./src/images/**/*.{jpg,jpeg,png,gif,svg}', ['images']);
     gulp.watch('./src/html/**/*.html', ['fileinclude']);
     gulp.watch('bower_components/**/*', ['bower-copy-min']);
@@ -41,6 +42,15 @@ gulp.task('fileinclude', function() {
       }
     }))
     .pipe(gulp.dest('./'));
+});
+
+gulp.task('csslint', ['styles'], function() {
+  gulp.src('dist/css/*.css')
+    .pipe(csslint())
+    .pipe(csslint.formatter())
+    .pipe(notify({
+        message: 'CSS lint task complete'
+    }));
 });
 
 gulp.task('styles', function() {
