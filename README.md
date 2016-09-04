@@ -32,6 +32,8 @@ $ gulp build
 #####Optimize resources by type:
 ```sh
 $ gulp styles
+$ gulp styles-prod
 $ gulp scripts
+$ gulp scripts-prod
 $ gulp images
 ```
