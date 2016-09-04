@@ -19,6 +19,11 @@ $ gulp
 $ gulp watch
 ```
 
+#####Compile dev files:
+```sh
+$ gulp build-dev
+```
+
 #####Compile production files:
 ```sh
 $ gulp build
