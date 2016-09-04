@@ -1,8 +1,11 @@
 {
   "name": "gulp-starter",
-  "authors": [
-    "Ewa Pettke <ewapettke@gmail.com>"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ewape/gulp-starter.git"
+  },
+  "authors":  "Ewa Pettke",
+  "keywords": "gulp",
   "description": "",
   "main": "",
   "moduleType": [],
@@ -15,5 +18,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
 }

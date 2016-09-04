@@ -2,10 +2,10 @@
   "name": "gulp-starter",
   "homepage": "https://github.com/ewape/gulp-starter",
   "version": "1.0.0",
-  "description": "Gulp setup",
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/ewape/gulp-starter.git"
+  "description": "Gulp starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ewape/gulp-starter.git"
   },
   "main": "script.js",
   "scripts": {
@@ -23,9 +23,11 @@
     }
   ],
   "devDependencies": {
+    "del": "^2.2.2",
     "exists": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-bower-normalize": "^1.0.6",
     "gulp-cache": "^0.4.5",
     "gulp-concat": "^2.6.0",
     "gulp-csslint": "^1.0.0",
