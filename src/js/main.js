@@ -1,4 +1,17 @@
 (function() {
-	var message = 'Hello from main!';
-	console.info(message);
+
+	var module = (function() {
+
+		function init() {
+			console.info('Module initialized.');
+		}
+
+		return {
+			init: init
+		};
+
+	})();
+
+	module.init();
+
 })();
