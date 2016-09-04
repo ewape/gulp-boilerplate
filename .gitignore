@@ -1,4 +1,6 @@
+*.DS_Store
 dist/
+lib/
 /*.html
 node_modules
 bower_components
