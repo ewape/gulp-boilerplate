@@ -10,7 +10,7 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "gulp build-dev && gulp"
+    "postinstall": "bower install && gulp build-dev && gulp"
   },
   "engines": {
     "node": ">= 0.12.0",
