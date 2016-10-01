@@ -1,6 +1,10 @@
 (function() {
 
-	var module = (function() {
+	"use strict";
+	
+	var app = app || {};
+
+	app.module = (function() {
 
 		function init() {
 			console.info('Module initialized.');
@@ -12,6 +16,6 @@
 
 	})();
 
-	module.init();
+	app.module.init();
 
 })();
