@@ -1,0 +1,40 @@
+.align-all {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.align-v {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.align-h {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.hidden-mobile {
+	@media (max-width: 767px) {
+		display: none !important;
+	}
+}
+
+.visible-mobile {
+	@media (min-width: 1025px) {
+		display: none !important;
+	}
+}
+
+.visible-desktop {
+	@media (max-width: 1024px) {
+		display: none !important;
+	}
+}
+
+.hidden {
+	display: none !important;
+}

@@ -142,7 +142,7 @@ gulp.task('scripts-prod', ['clean-lib', 'concat-libs'], function() {
 // custom vendors
 gulp.task('concat-libs', function() {
     return gulp.src([
-            paths.lib + 'path-to-vendor/file.min.js'
+            paths.src + 'js/vendors/vendor.js'
         ])
         .pipe(concat('vendors.min.js'))
         .pipe(uglify())
