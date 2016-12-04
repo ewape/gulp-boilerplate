@@ -6,7 +6,7 @@
     "description": "Gulp starter",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ewape/gulp-starter.git"
+        "url": "git+https://github.com/ewape/gulp-starter.git"
     },
     "main": "gulpfile.js",
     "scripts": {
