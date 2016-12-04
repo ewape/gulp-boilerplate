@@ -10,7 +10,7 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install && gulp build-dev && gulp"
+    "postinstall": "bower install && gulp build && gulp"
   },
   "engines": {
     "node": ">= 0.12.0",
@@ -42,6 +42,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
+    "imagemin-pngquant": "^5.0.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
     "main-bower-files": "^2.13.1",
