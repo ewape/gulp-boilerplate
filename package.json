@@ -10,7 +10,8 @@
     },
     "main": "gulpfile.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepublish": "bower install && gulp build"
     },
     "engines": {
         "node": ">= 0.12.0",
