@@ -1,21 +1,19 @@
 (function() {
 
-	"use strict";
-	
-	var app = app || {};
+    "use strict";
 
-	app.module = (function() {
+    var app = app || {};
 
-		function init() {
-			console.info('Module initialized.');
-		}
+    app.module = (function() {
 
-		return {
-			init: init
-		};
+        function init() {
+            console.info('Module initialized.');
+        }
 
-	})();
+        return {
+            init: init
+        };
 
-	app.module.init();
+    })();
 
 })();
