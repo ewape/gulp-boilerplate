@@ -7,7 +7,10 @@
     "authors": "Ewa Pettke",
     "keywords": "gulp",
     "description": "",
-    "main": "",
+    "main": [
+        "gulpfile.js",
+        "package.json"
+    ],
     "moduleType": [],
     "license": "MIT",
     "homepage": "",

@@ -2,25 +2,25 @@
     "name": "gulp-starter",
     "homepage": "https://github.com/ewape/gulp-starter",
     "version": "1.0.0",
+    "title": "Gulp starter",
     "description": "Gulp starter",
     "repository": {
         "type": "git",
         "url": "https://github.com/ewape/gulp-starter.git"
     },
-    "main": "script.js",
+    "main": "gulpfile.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "prepublish": "bower install && gulp build && gulp"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "engines": {
         "node": ">= 0.12.0",
         "npm": ">=2.1.5"
     },
     "author": "Ewa Pettke",
-    "licenses": [{
-        "type": "MIT",
-        "url": "http://mit-license.org/"
-    }],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ewape/gulp-starter/issues"
+    },
     "devDependencies": {
         "del": "^2.2.2",
         "exists": "^1.0.0",
