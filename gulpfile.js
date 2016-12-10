@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    exists = require('path-exists').sync,
     autoprefixer = require('gulp-autoprefixer'),
     bowerNormalizer = require('gulp-bower-normalize'),
     cache = require('gulp-cache'),
@@ -17,22 +16,23 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
 
-var autoprefixerOptions = {
-    browsers: ['last 2 versions', '> 1%', 'ie >= 11', 'android >= 4.4']
-};
+    autoprefixerOptions = {
+        browsers: ['last 2 versions', '> 1%', 'ie >= 11', 'android >= 4.4']
+    },
 
-var paths = {
-    bower: "./bower_components/",
-    lib: "./lib/",
-    dist: "./dist/",
-    src: "./src/"
-};
+    paths = {
+        bower: "./bower_components/",
+        lib: "./lib/",
+        dist: "./dist/",
+        src: "./src/"
+    };
 
 gulp.task('default', ['watch']);
-gulp.task('build', ['html', 'styles', 'scripts', 'images', 'minify-bower-css']);
-gulp.task('build-prod', ['html', 'styles-prod', 'scripts-prod', 'images', 'minify-bower-css']);
+
+gulp.task('build', ['concat-libs', 'html', 'styles', 'scripts', 'images']);
+gulp.task('build-prod', ['concat-libs', 'html', 'styles-prod', 'scripts-prod', 'images']);
 
 gulp.task('watch', function() {
     gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
@@ -40,22 +40,12 @@ gulp.task('watch', function() {
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles', 'csslint']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg}', ['images']);
     gulp.watch(paths.src + 'html/**/*.html', ['html']);
-    gulp.watch(paths.bower + '**/*', ['minify-bower-css']);
     livereload.listen();
     gulp.watch([paths.dist + '**', '*.html']).on('change', livereload.changed);
 });
 
-gulp.task('info', function() {
-    var info = autoprefixer(autoprefixerOptions).info();
-    console.log(info);
-});
-
 gulp.task('clean-lib', function() {
-    return del(paths.lib);
-});
-
-gulp.task('clean-dist', function() {
-    return del([paths.dist + 'css', paths.dist + 'js']);
+    return del.sync(paths.lib + '/*');
 });
 
 gulp.task('html', function() {
@@ -85,7 +75,7 @@ gulp.task('styles', function() {
         }));
 });
 
-gulp.task('styles-prod', ['clean-lib'], function() {
+gulp.task('styles-prod', function() {
     return gulp.src(paths.src + 'scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -111,7 +101,7 @@ gulp.task('csslint', ['styles'], function() {
         }));
 });
 
-gulp.task('scripts', ['concat-libs'], function() {
+gulp.task('scripts', function() {
     return gulp.src(paths.src + 'js/*.js')
         .pipe(concat('script.min.js'))
         .pipe(sourcemaps.init())
@@ -125,8 +115,8 @@ gulp.task('scripts', ['concat-libs'], function() {
         }));
 });
 
-gulp.task('scripts-prod', ['clean-lib', 'concat-libs'], function() {
-    return gulp.src(paths.src + 'js/**/*.js')
+gulp.task('scripts-prod', function() {
+    return gulp.src(paths.src + 'js/*.js')
         .pipe(concat('script.min.js'))
         .pipe(sourcemaps.init())
         .pipe(jshint())
@@ -139,10 +129,11 @@ gulp.task('scripts-prod', ['clean-lib', 'concat-libs'], function() {
         }));
 });
 
-// custom vendors
-gulp.task('concat-libs', function() {
+// Concat js dependencies into one file
+gulp.task('concat-libs', ['bower'], function() {
     return gulp.src([
-            paths.src + 'js/vendors/vendor.js'
+            //paths.lib + 'jquery/js/jquery.min.js',
+            paths.src + 'js/vendors/custom-vendor.js'
         ])
         .pipe(concat('vendors.min.js'))
         .pipe(uglify())
@@ -194,7 +185,7 @@ gulp.task('minify-bower-js', ['bower-files'], function() {
         .pipe(gulp.dest(paths.lib));
 });
 
-gulp.task('minify-bower-css', ['minify-bower-js'], function() {
+gulp.task('minify-bower-css', ['bower-files'], function() {
     return gulp.src(paths.lib + '**/*.css')
         .pipe(cssnano())
         .pipe(rename({
@@ -202,3 +193,5 @@ gulp.task('minify-bower-css', ['minify-bower-js'], function() {
         }))
         .pipe(gulp.dest(paths.lib));
 });
+
+gulp.task('bower', ['minify-bower-js', 'minify-bower-css']);
