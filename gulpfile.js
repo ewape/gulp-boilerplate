@@ -36,7 +36,7 @@ var gulp = require('gulp'),
             symbol: { // symbol mode to build the SVG
                 inline: true,
                 sprite: '../../' + paths.src + 'html/templates/sprite.svg.html',
-                example: false
+                example: true
             },
             css: {
                 sprite: '../../' + paths.dist + 'images/svg/sprite.svg',
