@@ -97,7 +97,7 @@ gulp.task('html', ['svg-sprite'], function() {
 
 gulp.task('vendors-css', function() {
     return gulp.src([
-            paths.lib + 'pagePiling.js/css/jquery.pagepiling.min.css'
+            paths.lib + 'pagePiling.js/css/jquery.pagepiling.css'
         ])
         .pipe(concat('vendors.min.css'))
         .pipe(cssnano())
@@ -129,8 +129,9 @@ gulp.task('styles', ['svg-sprite', 'vendors-css', 'sass'], function() {
 
 gulp.task('vendors-js', function() {
     return gulp.src([
-            paths.lib + 'jquery/js/jquery.min.js',
+            paths.lib + 'jquery/js/jquery.js',
             paths.lib + 'pagePiling.js/js/jquery.pagepiling.min.js',
+            paths.lib + 'svg.js/js/svg.js',
             paths.src + 'js/vendors/cookies.js'
         ])
         .pipe(concat('vendors.min.js'))
@@ -200,17 +201,11 @@ gulp.task('bower-files', function() {
 gulp.task('minify-bower-js', ['bower-files'], function() {
     return gulp.src(paths.lib + '**/*.js')
         .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(gulp.dest(paths.lib));
 });
 
 gulp.task('minify-bower-css', ['bower-files'], function() {
     return gulp.src(paths.lib + '**/*.css')
         .pipe(cssnano())
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(gulp.dest(paths.lib));
 });

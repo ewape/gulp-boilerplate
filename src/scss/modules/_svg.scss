@@ -5,11 +5,15 @@
 
 .icon-github {
 	transition: fill .2s linear;
-	fill: rgba(#fff, .8);
+	fill: #fff;
 	width: 100px;
 	height: 100px;
 	display: block;
 	margin: 2rem auto;
+
+	&:hover {
+		fill: rgba(#fff, .9);
+	}
 
 	&.sticky {
 		position: fixed;
@@ -19,10 +23,11 @@
 		height: 50px;
 		margin: 0;
 		z-index: 100;
-		fill: rgba(#fff, .6);
-	}
+		fill: rgba(#000, 0.6);
+		mix-blend-mode: soft-light;
 
-	&:hover {
-		fill: rgba(#fff, .9);
+		&:hover {
+			fill: #000;
+		}
 	}
 }

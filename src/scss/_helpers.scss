@@ -31,12 +31,20 @@
 
 .darker-box {
 	background-color: rgba(#000, 0.15);
+	box-shadow: inset 0 0 10px rgba(#000, 0.1);
 	padding: 2rem;
 	min-width: 100%;
 
 	@media (min-width: 600px) {
 		min-width: 400px;
 	}
+}
+
+.btn {
+	-webkit-appearance: none;
+    border: 2px solid #fff;
+    background-color: transparent;
+    padding: 3px 3rem;
 }
 
 .underline {
