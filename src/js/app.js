@@ -6,17 +6,17 @@
 
     app.mobileMenu = (function() {
 
-        var button = document.querySelector('.nav-btn'),
+        const button = document.querySelector('.nav-btn'),
             body = document.body,
             openMenuClass = 'menu-open';
 
-        function openMenu() {
-            body.classList.add(openMenuClass);
-        }
+        const openMenu = () => body.classList.add(openMenuClass);
 
         function closeMenu() {
             body.classList.remove(openMenuClass);
         }
+
+        const getMenuState = () => body.classList.contains(openMenuClass);
 
         function toggleMenu() {
             return body.classList.contains(openMenuClass) ? closeMenu() : openMenu();
@@ -33,7 +33,8 @@
         return {
             init: init,
             openMenu: openMenu,
-            closeMenu: closeMenu
+            closeMenu: closeMenu,
+            getMenuState: getMenuState
         };
 
     })();
@@ -43,8 +44,10 @@
             sectionSelector = 'section',
             menuSelector = '.main-menu',
             iconHiddenClass = 'icon-hidden',
+            slideSpeed = 300,
+            mobileMax = 700,
             body = document.body,
-            //$containers = $scrollContainer.find('.container'),
+            $containers = $scrollContainer.find('.container'),
             sectionsArr = Array.apply(null, body.querySelectorAll(sectionSelector)),
             menuEL = body.querySelector(menuSelector),
             currentSection = {},
@@ -67,7 +70,6 @@
 
         const menuClick = (e) => {
             app.mobileMenu.closeMenu();
-            //console.log('menu clicked ', e.target.dataset.menuanchor);
         };
 
         const addMenuEvents = () => {
@@ -83,9 +85,9 @@
             $scrollContainer.pagepiling({
                 direction: 'horizontal',
                 navigation: false,
-                menu: '.main-menu',
+                menu: menuSelector,
                 anchors: getAnchors(),
-                scrollingSpeed: 300,
+                scrollingSpeed: slideSpeed,
                 sectionSelector: sectionSelector,
                 onLeave: function(index, nextIndex, direction) {
                     //console.log(index, nextIndex, direction);

@@ -11,8 +11,8 @@ section {
 	align-items: center;
 	flex-direction: column;
 	//opacity: 0;
-	//animation-duration: 0.3s;
-	//animation-fill-mode: forwards;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
 
 	&.show-content {
 		//animation-name: showContent;

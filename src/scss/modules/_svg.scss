@@ -26,6 +26,7 @@
 		fill: rgba(#fff, .9);
 		mix-blend-mode: overlay;
 		transition: all .3s linear;
+		transition-delay: .3s;
 
 		&:hover {
 			fill: #fff;
@@ -34,16 +35,20 @@
 		.icon-hidden & {
 			transform: translate(200px);
 		}
-	}
-
-	
+	}	
 }
 
-@media (max-width: 800px) {
+@media (max-width: $mobile-menu-max) {
+	.icon-github {
+		&.sticky {
+			transition-delay: 0.15s;
+		}
+	}
+
 	.menu-open {
 		.icon-github {
 			&.sticky {
-				fill: rgba(#000, .4);
+				transform: translate(100px);
 			}
 		}
 	}
