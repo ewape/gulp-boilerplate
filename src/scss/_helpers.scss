@@ -32,7 +32,11 @@
 .darker-box {
 	background-color: rgba(#000, 0.15);
 	padding: 2rem;
-    min-width: 400px;
+	min-width: 100%;
+
+	@media (min-width: 600px) {
+		min-width: 400px;
+	}
 }
 
 .underline {
