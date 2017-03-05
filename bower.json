@@ -1,32 +1,32 @@
 {
-  "name": "gulp-starter",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ewape/gulp-starter.git"
-  },
-  "authors": "Ewa Pettke",
-  "keywords": "gulp",
-  "description": "",
-  "main": [
-    "gulpfile.js",
-    "package.json"
-  ],
-  "moduleType": [],
-  "license": "MIT",
-  "homepage": "",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "jquery": "^3.1.0",
-    "normalize-scss": "normalize.scss#^6.0.0",
-    "pagePiling.js": "pagepiling.js#^1.5.4",
-    "svg.js": "^2.4.0"
-  },
-  "devDependencies": {}
+    "name": "gulp-boilerplate",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ewape/gulp-boilerplate.git"
+    },
+    "authors": "Ewa Pettke",
+    "keywords": "gulp",
+    "description": "",
+    "main": [
+        "gulpfile.js",
+        "package.json"
+    ],
+    "moduleType": [],
+    "license": "MIT",
+    "homepage": "",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "^3.1.0",
+        "normalize-scss": "normalize.scss#^6.0.0",
+        "pagePiling.js": "pagepiling.js#^1.5.4",
+        "svg.js": "^2.4.0"
+    },
+    "devDependencies": {}
 }

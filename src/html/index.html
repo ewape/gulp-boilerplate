@@ -1,6 +1,7 @@
 @@include('./templates/header.html')
 <main>
 	<header id="header" class="">
+
 		<nav class="main-menu">
 			<ul>
 				<li><a data-menuanchor="home" href="#home" class="active" title="">Home</a></li>
@@ -11,6 +12,11 @@
 				<li><a data-menuanchor="plugins" href="#plugins" title="">Plugins</a></li>
 			</ul>
 		</nav>
+		<button type="button" class="btn nav-btn">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
 		<a href="https://github.com/ewape/gulp-starter" class="icon icon-github sticky" rel="nofollow" target="_blank">
 			<svg class="icon svg-github-dims">
 				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github"></use>
@@ -18,7 +24,7 @@
 		</a>
 	</header>
 
-	<section class="section accent-golden" id="home">
+	<section class="section accent-yellow" id="home">
 		<div class="container show-content">
 			<h1>
 				<a href="https://github.com/ewape/gulp-starter" rel="nofollow" target="_blank">Gulp boilerplate</a>
@@ -30,7 +36,7 @@
 			</a>
 		</div>
 	</section>
-	<section class="accent-blue" id="setup">
+	<section class="section accent-blue" id="setup">
 		<div class="container">
 			<h1>Project setup</h1>
 			<code>
@@ -41,7 +47,7 @@
 		</div>
 	</section>
 
-	<section class="accent-green" id="dependencies">
+	<section class="section accent-green" id="dependencies">
 		<div class="container">
 			<h1>Installing dependencies</h1>
 			<code>
@@ -51,7 +57,7 @@
 		</div>
 	</section>
 
-	<section class="accent-golden" id="clean">
+	<section class="section accent-yellow" id="clean">
 		<div class="container">
 			<h2>Clean build files</h2>
 			<code>
@@ -66,7 +72,7 @@
 		</div>
 	</section>
 
-	<section class="accent-blue" id="sprites">
+	<section class="section accent-blue" id="sprites">
 		<div class="container">
 			<h1>Symbol sprite usage</h1>
 			<p>
@@ -75,7 +81,7 @@
 		</div>
 	</section>
 
-	<section class="accent-green" id="plugins">
+	<section class="section accent-green" id="plugins">
 		<div class="container">
 			<h1>Plugins</h1>
 			<ul>
@@ -98,6 +104,5 @@
 		</div>
 	</section>
 </main>
-
 
 @@include('./templates/footer.html')

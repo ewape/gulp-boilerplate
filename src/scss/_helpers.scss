@@ -17,8 +17,8 @@
 	transform: translateX(-50%);
 }
 
-.accent-golden {
-	background-color: goldenrod;
+.accent-yellow {
+	background-color: $accent-yellow;
 }
 
 .accent-blue {
@@ -45,6 +45,12 @@
     border: 2px solid #fff;
     background-color: transparent;
     padding: 3px 3rem;
+    border-radius: 2px;
+    color: #fff;
+    font-family: $font-1;
+    cursor: pointer;
+    outline: 0;
+    box-shadow: none;
 }
 
 .underline {
@@ -59,6 +65,7 @@
 		right: 0;
 		bottom: -1px;
 		transition: all .15s linear;
+		mix-blend-mode: soft-light;
 	}
 
 	&:hover {

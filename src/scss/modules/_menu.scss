@@ -1,8 +1,11 @@
 .main-menu {
-	z-index: 100;
+	z-index: 101;
     position: fixed;
-    top: $padding-mobile;
-    left: $padding-mobile;
+    top: 1.4rem;
+    left: 6rem;
+    transform: translateX(-200%);
+    transition: transform .3s ease;
+    mix-blend-mode: overlay;
 
     ul {
     	list-style-type: decimal;
@@ -11,17 +14,114 @@
     	margin: 0;
     }
 
-    li {
-    	//display: inline-block;
+    a {
+
+        @extend .underline;
+
+        &.active {
+            mix-blend-mode: unset;
+            
+            &:after {
+                width: 100%;
+            }
+        }
     }
 
-    a {
-    	@extend .underline;
+    .menu-open & {
+        transform: translateX(0);
+    }
+}
 
-    	&.active {
-    		&:after {
-    			width: 100%;
-    		}
-    	}
+.nav-btn {
+    position: fixed;
+    top: $padding-mobile;
+    left: $padding-mobile;
+    z-index: 101;
+    border: 0 none;
+    padding: 0;
+    height: 24px;
+    width: 30px;
+    mix-blend-mode: overlay;
+    
+    span {
+        height: 0;
+        width: 3rem;
+        display: block;
+        border-bottom: 4px solid rgba(#fff, .9);
+        position: absolute;
+        left: 0;
+        transform-origin: 0% 50%;
+        transition: .3s ease;
+        
+        &:first-child {
+            top: 0;  
+        }
+
+        &:nth-child(2){
+            top: 10px;   
+        }
+
+        &:last-child {
+            top: 20px; 
+        }
+    }
+
+    .menu-open & {
+
+        span {
+
+            &:first-child {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: scale(0);
+            }
+
+            &:last-child {
+                top: 21px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &:hover {
+            span {
+                border-color: #fff;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .main-menu {
+        right: 2rem;
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin-right: 2rem;  
+            margin-bottom: 4px; 
+        }
+
+        a {
+            padding: 4px 0;
+            font-size: 2rem; 
+        }
+    }
+}
+
+@media (min-width: $desktop-min) {
+    .main-menu {
+        top: 2rem;
+        transform: translateX(0);
+        left: $padding-mobile;
+    }
+    .nav-btn {
+        display: none;
     }
 }
