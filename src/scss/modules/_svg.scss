@@ -25,11 +25,18 @@
 		z-index: 100;
 		fill: rgba(#fff, .9);
 		mix-blend-mode: overlay;
+		transition: all .3s linear;
 
 		&:hover {
 			fill: #fff;
 		}
+
+		.icon-hidden & {
+			transform: translate(200px);
+		}
 	}
+
+	
 }
 
 @media (max-width: 800px) {
