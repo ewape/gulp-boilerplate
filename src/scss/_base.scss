@@ -1,3 +1,7 @@
+:root {
+	--accent: $accent-green;
+}
+
 html {
 	font-size: 62.5%;
 }
@@ -6,6 +10,12 @@ body {
 	font-size: 1.6rem;
 	font-family: $font-1;
 	line-height: 1.4;
+	background: $accent-blue;
+	//background: radial-gradient($accent-blue, darken($accent-blue, 8%));
+	background: var(--accent);
+    min-height: 100vh;
+    box-shadow: inset 0 0 50px rgba(#fff, .1);
+    color: #fff;
 }
 
 * {
@@ -42,9 +52,15 @@ h6, .h6 {
 
 a {
 	text-decoration: none;
+	color: #fff;
 	-webkit-tap-highlight-color: transparent;
 
+    &:not(.icon-github) {
+    	@extend .underline;
+    }
+
 	&:hover, &:active, &:focus {
+		color: #fff;
 		outline: 0;
 	}
 }

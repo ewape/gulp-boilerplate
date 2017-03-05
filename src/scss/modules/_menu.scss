@@ -1,0 +1,26 @@
+.main-menu {
+	z-index: 9999;
+    position: fixed;
+    top: $padding-mobile;
+    left: $padding-mobile;
+
+    ul {
+    	list-style-type: decimal;
+    	list-style-position: inside;
+    	padding: 0;
+    }
+
+    li {
+    	//display: inline-block;
+    }
+
+    a {
+    	@extend .underline;
+
+    	&.active {
+    		&:after {
+    			width: 100%;
+    		}
+    	}
+    }
+}

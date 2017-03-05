@@ -36,7 +36,7 @@ var gulp = require('gulp'),
             symbol: { // symbol mode to build the SVG
                 inline: true,
                 sprite: '../../' + paths.src + 'html/templates/sprite.svg.html',
-                example: false
+                example: true
             },
             css: {
                 sprite: '../../' + paths.dist + 'images/svg/sprite.svg',
@@ -59,8 +59,8 @@ var gulp = require('gulp'),
             dest: 'images/svg', // Keep the intermediate files
         },
         svg: { // General options for created SVG files
-            xmlDeclaration: true, // Add XML declaration to SVG sprite
-            doctypeDeclaration: true, // Add DOCTYPE declaration to SVG sprite
+            xmlDeclaration: false, // Add XML declaration to SVG sprite
+            doctypeDeclaration: false, // Add DOCTYPE declaration to SVG sprite
             namespaceIDs: true, // Add namespace token to all IDs in SVG shapes
             namespaceClassnames: true, // Add namespace token to all CSS class names in SVG shapes
             dimensionAttributes: true // Width and height attributes on the sprite
@@ -95,7 +95,16 @@ gulp.task('html', ['svg-sprite'], function() {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('styles', ['svg-sprite'], function() {
+gulp.task('vendors-css', function() {
+    return gulp.src([
+            paths.lib + 'pagePiling.js/css/jquery.pagepiling.min.css'
+        ])
+        .pipe(concat('vendors.min.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest(paths.dist + 'css'));
+});
+
+gulp.task('sass', function() {
     return gulp.src(paths.src + 'scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -106,6 +115,12 @@ gulp.task('styles', ['svg-sprite'], function() {
             suffix: '.min'
         }))
         .pipe(sourcemaps.write('/'))
+        .pipe(gulp.dest(paths.build + 'css'));
+});
+
+gulp.task('styles', ['svg-sprite', 'vendors-css', 'sass'], function() {
+    return gulp.src([paths.build + 'css/vendors.min.css', paths.build + 'css/app.min.css'])
+        .pipe(concat('app.min.css'))
         .pipe(gulp.dest(paths.dist + 'css'))
         .pipe(notify({
             message: 'Styles ready'
@@ -114,7 +129,8 @@ gulp.task('styles', ['svg-sprite'], function() {
 
 gulp.task('vendors-js', function() {
     return gulp.src([
-            //paths.lib + 'jquery/js/jquery.min.js',
+            paths.lib + 'jquery/js/jquery.min.js',
+            paths.lib + 'pagePiling.js/js/jquery.pagepiling.min.js',
             paths.src + 'js/vendors/cookies.js'
         ])
         .pipe(concat('vendors.min.js'))
@@ -156,8 +172,7 @@ gulp.task('images', function() {
                 imagemin.gifsicle(),
                 imagemin.jpegtran({
                     progressive: true
-                }),
-                imagemin.svgo()
+                })
             ]
         })))
         .pipe(gulp.dest(paths.dist + 'images'))

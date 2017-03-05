@@ -1,10 +1,15 @@
 @import "../../bower_components/normalize-scss/sass/normalize/import-now";
 @import 'variables';
+
 @import 'base';
 @import "helpers";
 @import "sprite";
 
+@import 'modules/svg';
 @import 'modules/header';
+@import 'modules/sections';
 @import 'modules/footer';
+@import 'modules/code';
+@import 'modules/menu';
 
 @import 'pages/home';

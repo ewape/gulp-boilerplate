@@ -1,0 +1,15 @@
+.container {
+	width: 800px;
+    max-width: 90%;
+    height: 100vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	ul {
+		list-style: none;
+		@extend .darker-box;
+	}
+}

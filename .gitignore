@@ -1,9 +1,5 @@
 *.DS_Store
-dist/
 lib/
 build/
-/*.html
 node_modules
 bower_components
-src/scss/_sprite.scss
-src/html/templates/sprite.svg.html

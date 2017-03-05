@@ -17,6 +17,45 @@
 	transform: translateX(-50%);
 }
 
+.accent-golden {
+	background-color: goldenrod;
+}
+
+.accent-blue {
+	background-color: $accent-blue;
+}
+
+.accent-green {
+	background-color: $accent-green;
+}
+
+.darker-box {
+	background-color: rgba(#000, 0.15);
+	padding: 2rem;
+    min-width: 400px;
+}
+
+.underline {
+	position: relative;
+
+	&:after {
+		content: '';
+		height: 0;
+		width: 0;
+		border-bottom: 2px solid;
+		position: absolute;
+		right: 0;
+		bottom: -1px;
+		transition: all .15s linear;
+	}
+
+	&:hover {
+		&:after {
+			width: 100%;
+		}
+	}
+}
+
 .hidden-mobile {
 	@media (max-width: 767px) {
 		display: none !important;
