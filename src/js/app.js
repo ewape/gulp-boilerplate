@@ -31,7 +31,9 @@
         }
 
         return {
-            init: init
+            init: init,
+            openMenu: openMenu,
+            closeMenu: closeMenu
         };
 
     })();
@@ -42,7 +44,7 @@
             menuSelector = '.main-menu',
             iconHiddenClass = 'icon-hidden',
             body = document.body,
-            $containers = $scrollContainer.find('.container'),
+            //$containers = $scrollContainer.find('.container'),
             sectionsArr = Array.apply(null, body.querySelectorAll(sectionSelector)),
             menuEL = body.querySelector(menuSelector),
             currentSection = {},
@@ -64,6 +66,7 @@
         };
 
         const menuClick = (e) => {
+            app.mobileMenu.closeMenu();
             //console.log('menu clicked ', e.target.dataset.menuanchor);
         };
 
@@ -106,7 +109,7 @@
                 },
                 afterRender: function() {
                     let currentId = getCurrentSection().id,
-                    index = getAnchors().indexOf(currentId);
+                        index = getAnchors().indexOf(currentId);
                     //console.log(getCurrentSection().id);
                     if (index === 0) {
                         hideIcon();
