@@ -80,7 +80,6 @@ gulp.task('watch', function() {
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg}', ['images']);
     gulp.watch(paths.src + 'html/**/*.html', ['html']);
     livereload.listen();
-    gulp.watch([paths.dist + '**', '*.html']).on('change', livereload.changed);
 });
 
 gulp.task('clean-folders', function() {
