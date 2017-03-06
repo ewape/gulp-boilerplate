@@ -2,7 +2,7 @@
 
     "use strict";
 
-    var app = app || {};
+    let app = app || {};
 
     app.mobileMenu = (function() {
 
@@ -11,24 +11,11 @@
             openMenuClass = 'menu-open';
 
         const openMenu = () => body.classList.add(openMenuClass);
-
-        function closeMenu() {
-            body.classList.remove(openMenuClass);
-        }
-
+        const closeMenu = () => body.classList.remove(openMenuClass);
         const getMenuState = () => body.classList.contains(openMenuClass);
-
-        function toggleMenu() {
-            return body.classList.contains(openMenuClass) ? closeMenu() : openMenu();
-        }
-
-        function addEvents() {
-            button.addEventListener('click', toggleMenu);
-        }
-
-        function init() {
-            addEvents();
-        }
+        const toggleMenu = () => body.classList.contains(openMenuClass) ? closeMenu() : openMenu();
+        const addEvents = () => button.addEventListener('click', toggleMenu);
+        const init = () => addEvents();
 
         return {
             init: init,
@@ -45,7 +32,6 @@
             menuSelector = '.main-menu',
             iconHiddenClass = 'icon-hidden',
             slideSpeed = 300,
-            mobileMax = 700,
             body = document.body,
             $containers = $scrollContainer.find('.container'),
             sectionsArr = Array.apply(null, body.querySelectorAll(sectionSelector)),
@@ -78,10 +64,9 @@
         };
 
         const hideIcon = () => body.classList.add(iconHiddenClass);
-
         const showIcon = () => body.classList.remove(iconHiddenClass);
 
-        function init() {
+        const init = () => {
             $scrollContainer.pagepiling({
                 direction: 'horizontal',
                 navigation: false,
@@ -120,7 +105,7 @@
             });
 
             addMenuEvents();
-        }
+        };
 
         return {
             init: init
