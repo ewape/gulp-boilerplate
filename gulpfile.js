@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
+    babel = require('gulp-babel'),
     bowerNormalizer = require('gulp-bower-normalize'),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
@@ -123,11 +124,16 @@ gulp.task('vendors-js', function() {
 });
 
 gulp.task('minify-scripts', function() {
-    return gulp.src([paths.src + 'js/*.js'])
-        .pipe(concat('app.min.js'))
+    return gulp.src(paths.src + 'js/app.js')
+        .pipe(sourcemaps.init())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(babel())
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(uglify())
+        .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.build + 'js'));
 });
 
