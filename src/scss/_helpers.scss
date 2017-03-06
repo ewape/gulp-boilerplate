@@ -17,6 +17,16 @@
 	transform: translateX(-50%);
 }
 
+.icon-box {
+	height: 60px;
+	width: 60px;
+
+	svg {
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+
 .hidden-mobile {
 	@media (max-width: 767px) {
 		display: none !important;
