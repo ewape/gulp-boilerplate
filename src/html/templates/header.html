@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-	<title>Project title</title>
+	<title>@@if context.title{@@title}</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Gulp starter">
+	<meta name="description" content="@@if context.description{@@description}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="dist/css/app.min.css" />
-	<meta property="og:title" content="Project title" />
-    <meta property="og:description" content="Project description" />
+	<meta property="og:title" content="@@if context.title{@@title}" />
+    <meta property="og:description" content="@@if context.description{@@description}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://example.com" />
     <meta property="og:image" content="dist/images/js.png" /><!-- absolute url required -->
