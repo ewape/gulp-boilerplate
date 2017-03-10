@@ -3,3 +3,11 @@ $font-1: 'Arial', sans-serif;
 $padding-mobile: 2rem;
 $padding-tablet: $padding-mobile*2;
 $padding-desktop: $padding-mobile*4;
+
+$mobile-max: 1024px;
+$desktop-min: 1025px;
+
+$accent: #949494;
+
+$error: #db4437;
+$success: #4caf50;

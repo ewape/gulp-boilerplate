@@ -17,34 +17,42 @@
 	transform: translateX(-50%);
 }
 
-.icon-box {
+.icon {
 	height: 60px;
 	width: 60px;
+	fill: $accent;
+	transition: fill .15s linear;
 
 	svg {
 		max-width: 100%;
 		max-height: 100%;
 	}
+
+	&:hover {
+		fill: darken($accent, 25%);
+	}
 }
 
-.hidden-mobile {
-	@media (max-width: 767px) {
+.visible-desktop {
+	@media (max-width: $mobile-max) {
 		display: none !important;
 	}
 }
 
 .visible-mobile {
-	@media (min-width: 1025px) {
-		display: none !important;
-	}
-}
-
-.visible-desktop {
-	@media (max-width: 1024px) {
+	@media (min-width: $desktop-min) {
 		display: none !important;
 	}
 }
 
 .hidden {
 	display: none !important;
+}
+
+.success {
+	color: $success;
+}
+
+.error {
+	color: $error;
 }
