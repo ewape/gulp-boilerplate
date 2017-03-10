@@ -1,34 +1,31 @@
 (function() {
     "use strict";
 
-    var app = app || {};
+    const cookies = (function() {
 
-    app.cookies = (function() {
-
-        var cookiesMessage = {
+        const cookiesMessage = {
             text: 'Strona stosuje pliki cookies. Korzystanie ze strony oznacza zgodę na wykorzystanie plików cookies zgodnie z',
             acceptLabel: 'Akceptuj',
             linkLabel: 'Polityką cookies',
             containerId: 'cookies-message-container',
             acceptId: 'accept-cookies',
+            acceptedSlug: 'cookies-accepted',
             url: 'cookies-url'
         };
 
-        function readCookie() {
-            return localStorage.getItem('cookies-accepted');
-        }
+        const readCookie = () => localStorage.getItem(cookiesMessage.acceptedSlug);
 
-        function setCookie() {
+        const setCookie = () => {
             var acceptBtn = document.getElementById(cookiesMessage.acceptId),
                 messageContainer = document.getElementById(cookiesMessage.containerId);
             acceptBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                localStorage.setItem('cookies-accepted', 1);
-                messageContainer.classList.add('cookies-accepted');
+                localStorage.setItem(cookiesMessage.acceptedSlug, 1);
+                messageContainer.classList.add(cookiesMessage.acceptedSlug);
             });
-        }
+        };
 
-        function addCookieMessage() {
+        const addCookieMessage = () => {
             var messageContainer = document.createElement('div');
             messageContainer.setAttribute('id', cookiesMessage.containerId);
             messageContainer.setAttribute('class', cookiesMessage.containerId);
@@ -42,23 +39,23 @@
             messageContainer.innerHTML = htmlCode;
             document.body.appendChild(messageContainer);
             setCookie();
-        }
+        };
 
-        function checkCookiesAccepted() {
+        const checkCookiesAccepted = () => {
             var cookie = readCookie();
             if (cookie === null) {
                 addCookieMessage();
             }
-        }
+        };
 
-        function init() {
-            checkCookiesAccepted();
-        }
+        const init = () => checkCookiesAccepted();
 
         return {
             init: init
         };
 
     })();
+
+    cookies.init();
 
 })();

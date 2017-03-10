@@ -21,6 +21,7 @@
 	height: 60px;
 	width: 60px;
 	fill: $accent;
+	fill: var(--color-var);
 	transition: fill .15s linear;
 
 	svg {
