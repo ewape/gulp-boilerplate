@@ -1,0 +1,16 @@
+.cookies-message-container {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: transform .3s linear;
+	font-size: .8em;
+}
+
+.cookies-container {
+	text-align: center;
+}
+
+.cookies-accepted {
+	transform: translateY(100%);
+}
