@@ -118,6 +118,7 @@ gulp.task('vendors-js', function() {
             paths.src + 'js/vendors/cookies.js'
         ])
         .pipe(concat('vendors.min.js'))
+        .pipe(babel())
         .pipe(uglify())
         .pipe(gulp.dest(paths.build + 'js'));
 });
@@ -128,9 +129,9 @@ gulp.task('minify-scripts', function() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(babel())
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(babel())
         .pipe(uglify())
         .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.build + 'js'));
