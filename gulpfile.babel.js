@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     babel = require('gulp-babel'),
     bowerNormalizer = require('gulp-bower-normalize'),
@@ -74,7 +74,7 @@ gulp.task('bower', ['minify-bower-js', 'minify-bower-css']);
 gulp.task('build', ['images', 'styles', 'scripts', 'html']);
 gulp.task('clean', ['clean-folders']);
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
     gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg}', ['images']);
@@ -82,12 +82,10 @@ gulp.task('watch', function() {
     livereload.listen();
 });
 
-gulp.task('clean-folders', function() {
-    return del.sync([paths.dist, paths.build, paths.lib]);
-});
+gulp.task('clean-folders', () => del.sync([paths.dist, paths.build, paths.lib]));
 
-gulp.task('html', ['svg-sprite'], function() {
-    return gulp.src([paths.src + 'html/*.html'])
+gulp.task('html', ['svg-sprite'], () => {
+    gulp.src([paths.src + 'html/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
@@ -95,8 +93,8 @@ gulp.task('html', ['svg-sprite'], function() {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('styles', ['svg-sprite'], function() {
-    return gulp.src(paths.src + 'scss/**/*.scss')
+gulp.task('styles', ['svg-sprite'], () => {
+    gulp.src(paths.src + 'scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed'
@@ -112,8 +110,8 @@ gulp.task('styles', ['svg-sprite'], function() {
         }));
 });
 
-gulp.task('vendors-js', function() {
-    return gulp.src([
+gulp.task('vendors-js', () => {
+    gulp.src([
             //paths.lib + 'jquery/js/jquery.min.js',
             paths.src + 'js/vendors/cookies.js'
         ])
@@ -123,8 +121,8 @@ gulp.task('vendors-js', function() {
         .pipe(gulp.dest(paths.build + 'js'));
 });
 
-gulp.task('minify-scripts', function() {
-    return gulp.src(paths.src + 'js/app.js')
+gulp.task('minify-scripts', () => {
+    gulp.src(paths.src + 'js/app.js')
         .pipe(sourcemaps.init())
         .pipe(rename({
             suffix: '.min'
@@ -137,8 +135,8 @@ gulp.task('minify-scripts', function() {
         .pipe(gulp.dest(paths.build + 'js'));
 });
 
-gulp.task('scripts', ['vendors-js', 'minify-scripts'], function() {
-    return gulp.src([paths.build + 'js/vendors.min.js', paths.build + 'js/app.min.js'])
+gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
+    gulp.src([paths.build + 'js/vendors.min.js', paths.build + 'js/app.min.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.js'))
         .pipe(sourcemaps.write('/'))
@@ -148,8 +146,8 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], function() {
         }));
 });
 
-gulp.task('images', function() {
-    return gulp.src(paths.src + 'images/**/*.{jpg,jpeg,png,gif}')
+gulp.task('images', () => {
+    gulp.src(paths.src + 'images/**/*.{jpg,jpeg,png,gif}')
         .pipe(cache(imagemin({
             progressive: true,
             verbose: true,
@@ -172,14 +170,14 @@ gulp.task('images', function() {
         }));
 });
 
-gulp.task('svg-sprite', function() {
-    return gulp.src(paths.src + 'images/svg/*.svg')
+gulp.task('svg-sprite', () => {
+    gulp.src(paths.src + 'images/svg/*.svg')
         .pipe(svgSprite(svgConfig))
         .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('bower-files', function() {
-    return gulp.src(mainBowerFiles(), {
+gulp.task('bower-files', () => {
+    gulp.src(mainBowerFiles(), {
             base: paths.bower
         })
         .pipe(bowerNormalizer({
@@ -188,8 +186,8 @@ gulp.task('bower-files', function() {
         .pipe(gulp.dest(paths.lib));
 });
 
-gulp.task('minify-bower-js', ['bower-files'], function() {
-    return gulp.src(paths.lib + '**/*.js')
+gulp.task('minify-bower-js', ['bower-files'], () => {
+    gulp.src(paths.lib + '**/*.js')
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
@@ -197,8 +195,8 @@ gulp.task('minify-bower-js', ['bower-files'], function() {
         .pipe(gulp.dest(paths.lib));
 });
 
-gulp.task('minify-bower-css', ['bower-files'], function() {
-    return gulp.src(paths.lib + '**/*.css')
+gulp.task('minify-bower-css', ['bower-files'], () => {
+    gulp.src(paths.lib + '**/*.css')
         .pipe(cssnano())
         .pipe(rename({
             suffix: '.min'
