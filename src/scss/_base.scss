@@ -71,3 +71,8 @@ a {
 		outline: 0;
 	}
 }
+
+::selection {
+	background-color: #000;
+	opacity: 1;
+}
