@@ -2,7 +2,7 @@
 	z-index: 101;
     position: fixed;
     top: 1rem;
-    left: 6rem; 
+    left: 6rem;
     transition: transform .5s linear;
     mix-blend-mode: overlay;
 
@@ -19,7 +19,7 @@
 
         &.active {
             mix-blend-mode: unset;
-            
+
             &:after {
                 width: 100%;
             }
@@ -41,7 +41,7 @@
     height: 24px;
     width: 24px;
     mix-blend-mode: overlay;
-    
+
     span {
         height: 0;
         width: 3rem;
@@ -51,17 +51,17 @@
         left: 0;
         transform-origin: 0% 50%;
         transition: .3s ease;
-        
+
         &:first-child {
-            top: 0;  
+            top: 0;
         }
 
         &:nth-child(2){
-            top: 10px;   
+            top: 10px;
         }
 
         &:last-child {
-            top: 20px; 
+            top: 20px;
         }
     }
 
@@ -102,18 +102,18 @@
             justify-content: flex-start;
             align-items: center;
             flex-wrap: wrap;
-            background-color: rgba(#000, .3); 
+            background-color: rgba(#000, .3);
             padding: 3px 10px;
             min-height: 68px;
         }
 
         li {
-            margin-right: 2rem;   
+            margin-right: 2rem;
         }
 
         a {
-            padding: 4px 0;
-            font-size: 2rem; 
+            padding: 2px 0;
+            font-size: 2rem;
         }
     }
 }
@@ -125,12 +125,12 @@
         transform: translateX(0);
         left: $padding-mobile;
     }
-      .nav-btn {
+    .nav-btn {
         display: none;
     }
 }
 
 @media (min-width: $desktop-min) {
-   
-  
+
+
 }

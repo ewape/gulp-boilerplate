@@ -24,6 +24,11 @@ section {
 	}
 }
 
+@media (max-width: $mobile-menu-max) {
+	h1, h2 {
+		font-size: 2.2rem;
+	}
+}
 
 @keyframes showContent {
 	0% {
@@ -31,7 +36,6 @@ section {
 
 		transform: scale(0.7);
 	}
-
 	// 50% {
 	// 	opacity: 1;
 	// }

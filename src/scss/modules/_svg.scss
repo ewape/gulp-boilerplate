@@ -4,18 +4,23 @@
 }
 
 .icon-github {
-	transition: fill .2s linear;
 	fill: #fff;
 	width: 100px;
 	height: 100px;
 	display: block;
 	margin: 2rem auto;
+	border-radius: 50%;
+	transition: fill .1s linear;
 
-	&:hover {
-		fill: rgba(#fff, .9);
+	&.icon-main {
+		&:hover {
+			fill: $accent-yellow;
+			background-color: #fff;
+			border: 2px solid #fff;
+		}
 	}
 
-	&.sticky {
+	&.icon-sticky {
 		position: fixed;
 		top: $padding-mobile;
 		right: $padding-mobile;
@@ -27,29 +32,68 @@
 		mix-blend-mode: overlay;
 		transition: all .3s linear;
 		transition-delay: .3s;
+		// animation-name: icon-hover;
+		// animation-duration: .5s;
+		// animation-fill-mode: forwards;
+		//animation: icon-hover 10s steps(10) infinite alternate;
 
 		&:hover {
-			fill: #fff;
+			fill: rgba(#fff, .8);
+			//animation-name: icon-hover;
+			//animation-duration: .5s;
+			//animation-direction: alternate;
+			//animation-fill-mode: backwards;
+			//animation: 10s steps(10) infinite alternate;
 		}
 
 		.icon-hidden & {
 			transform: translate(200px);
 		}
-	}	
+	}
 }
 
 @media (max-width: $mobile-menu-max) {
 	.icon-github {
-		&.sticky {
+		&.icon-sticky {
 			transition-delay: 0.15s;
 		}
 	}
 
 	.menu-open {
 		.icon-github {
-			&.sticky {
+			&.icon-sticky {
 				transform: translate(100px);
 			}
 		}
 	}
 }
+
+@keyframes icon-hover {
+	0% {
+		transform: scale(1);
+	}
+	25% {
+		transform: scale(0.9);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	75% {
+		transform: scale(0.9);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+// @keyframes icon-hover {
+// 	 from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
