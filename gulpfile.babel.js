@@ -112,7 +112,7 @@ gulp.task('styles', ['svg-sprite'], () => {
 
 gulp.task('vendors-js', () => {
     gulp.src([
-            //paths.lib + 'jquery/js/jquery.min.js',
+            paths.src + 'js/vendors/mobile-menu.js',
             paths.src + 'js/vendors/cookies.js'
         ])
         .pipe(concat('vendors.min.js'))
