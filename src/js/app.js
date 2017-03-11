@@ -4,9 +4,9 @@
 
     const app = {};
 
-    app.mod = (() => {
+    app.module = (() => {
 
-        const generateColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
+        const generateColor = () => '#' + Math.random().toString(16).slice(2, 8);
 
         const updateColorVar = () => {
             document.body.style.setProperty('--color-var', generateColor());
@@ -20,6 +20,6 @@
 
     })();
 
-    app.mod.init();
+    app.module.init();
 
 })();

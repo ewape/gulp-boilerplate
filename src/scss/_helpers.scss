@@ -22,7 +22,8 @@
 	width: 60px;
 	fill: $accent;
 	fill: var(--color-var);
-	transition: fill .15s linear;
+	border-radius: 50%;
+	transition: fill .1s linear;
 
 	svg {
 		max-width: 100%;
@@ -30,7 +31,11 @@
 	}
 
 	&:hover {
-		fill: darken($accent, 25%);
+		fill: #fff;
+		background-color: $accent;
+		background-color: var(--color-var);
+		border: 2px solid $accent;
+		border: 2px solid var(--color-var);
 	}
 }
 
