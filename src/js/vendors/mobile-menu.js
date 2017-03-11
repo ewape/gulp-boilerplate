@@ -8,15 +8,21 @@
             body = document.body,
             menuSelector = '.main-menu',
             menu = body.querySelector(menuSelector),
+            transitionDelay = 300,
             openMenuClass = 'menu-open';
 
         const openMenu = () => body.classList.add(openMenuClass);
         const closeMenu = () => body.classList.remove(openMenuClass);
         const getMenuState = () => body.classList.contains(openMenuClass);
         const toggleMenu = () => body.classList.contains(openMenuClass) ? closeMenu() : openMenu();
+        const menuClick = () => {
+            setTimeout(() => {
+                closeMenu();
+            }, transitionDelay);
+        };
         const addEvents = () => {
             let links = Array.apply(null, menu.childNodes);
-            links.map((link) => link.addEventListener('click', openMenu));
+            links.map((link) => link.addEventListener('click', menuClick));
             button.addEventListener('click', toggleMenu);
         };
 

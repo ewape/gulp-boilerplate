@@ -1,23 +1,24 @@
 .main-menu {
     z-index: 101;
     position: fixed;
-    top: 1rem;
-    left: 6rem;
+    top: 0;
+    left: $padding-mobile;
+    right: $padding-mobile;
+    transform: translateX(0);
 
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     a {
         color: currentColor;
-        @extend .underline;
-
-        &.active {
-            &:after {
-                width: 100%;
-            }
+        span {
+            @extend .underline;
         }
     }
 
@@ -33,6 +34,7 @@
     z-index: 101;
     border: 0 none;
     padding: 0;
+    margin: 0;
     height: 2.4rem;
     width: 3rem;
 
@@ -92,32 +94,27 @@
         right: 0;
         bottom: 0;
         left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         transition: transform .3s linear;
         transform: translateX(-$mobile-max);
+        overflow-y: scroll;
 
         ul {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
             background-color: rgba(#000, .8);
             padding: $padding-mobile;
-            height: 100%;
             width: 100%;
+            min-height: 100%;
         }
 
         li {
-            flex: 1;
             text-align: center;
+            width: 100%;
         }
 
         a {
+            display: block;
             color: #fff;
-            padding: 2px 0;
+            padding: 1rem 0;
             font-size: 2rem;
         }
     }
@@ -129,6 +126,10 @@
         top: 2rem;
         transform: translateX(0);
         left: $padding-mobile;
+
+        a {
+                padding: 1rem 2rem;
+        }
     }
     .nav-btn {
         display: none;
