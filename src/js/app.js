@@ -4,7 +4,7 @@
 
     const app = {};
 
-    app.module = (() => {
+    app.colorModule = (() => {
 
         const generateColor = () => '#' + Math.random().toString(16).slice(2, 8);
 
@@ -20,6 +20,6 @@
 
     })();
 
-    app.module.init();
+    app.colorModule.init();
 
 })();
