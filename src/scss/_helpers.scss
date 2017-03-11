@@ -62,3 +62,51 @@
 .error {
 	color: $error;
 }
+
+.btn {
+	-webkit-appearance: none;
+    border: 2px solid currentColor;
+	color: currentColor;
+    background-color: transparent;
+    padding: 1rem 3rem;
+    border-radius: 0;
+    font-family: $font-1;
+    cursor: pointer;
+    outline: 0;
+    box-shadow: none;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    &:active, &:focus, &:hover {
+    	border-color: $accent;
+    	color: $accent;
+    }
+}
+
+@media (min-width: $desktop-min) {
+
+	.underline {
+		position: relative;
+
+		&:after {
+			content: '';
+			height: 0;
+			width: 0;
+			border-bottom: 2px solid;
+			position: absolute;
+			right: 0;
+			bottom: -1px;
+			transition: all .15s linear;
+		}
+
+		&:hover {
+			&:after {
+				width: 100%;
+			}
+		}
+	}
+
+}
