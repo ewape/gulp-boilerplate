@@ -2,7 +2,7 @@
 
     "use strict";
 
-    const mobileMenu = (function() {
+    const mobileMenu = (() => {
 
         const button = document.querySelector('.nav-btn'),
             body = document.body,

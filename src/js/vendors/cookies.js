@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    const cookies = (function() {
+    const cookies = (() => {
 
         const cookiesMessage = {
             text: 'Strona stosuje pliki cookies. Korzystanie ze strony oznacza zgodę na wykorzystanie plików cookies zgodnie z',
