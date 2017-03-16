@@ -22,14 +22,14 @@ $ gulp
 $ gulp watch
 ```
 
-#####Optimize resources by type:
+##### Optimize resources by type:
 ```sh
 $ gulp styles
 $ gulp scripts
 $ gulp images
 ```
 
-#####Clean build files:
+##### Clean build files:
 ```sh
 $ gulp clean
 ```
