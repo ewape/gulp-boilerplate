@@ -7,3 +7,4 @@ node_modules
 bower_components
 src/scss/_sprite.scss
 src/html/templates/sprite.svg.html
+src/images/favicon
