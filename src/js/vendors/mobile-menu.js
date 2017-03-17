@@ -7,9 +7,9 @@
         const button = document.querySelector('.nav-btn'),
             body = document.body,
             menuSelector = '.main-menu',
+            openMenuClass = 'menu-open',
             menu = body.querySelector(menuSelector),
-            transitionDelay = 300,
-            openMenuClass = 'menu-open';
+            transitionDelay = 300;
 
         const openMenu = () => body.classList.add(openMenuClass);
         const closeMenu = () => body.classList.remove(openMenuClass);
@@ -20,6 +20,7 @@
                 closeMenu();
             }, transitionDelay);
         };
+
         const addEvents = () => {
             let links = Array.apply(null, menu.childNodes);
             links.map((link) => link.addEventListener('click', menuClick));
