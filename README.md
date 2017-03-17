@@ -22,11 +22,9 @@ $ gulp
 $ gulp watch
 ```
 
-##### Optimize resources by type:
+##### Generate favicon:
 ```sh
-$ gulp styles
-$ gulp scripts
-$ gulp images
+$ gulp favicon
 ```
 
 ##### Clean build files:
