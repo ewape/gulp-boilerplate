@@ -265,16 +265,12 @@ gulp.task('minify-bower-css', ['bower-files'], () => {
 // You should run it at least once to create the icons. Then,
 // you should run it whenever RealFaviconGenerator updates its
 // package (see the check-for-favicon-update task below).
-gulp.task('generate-favicon-images', function(done) {
-    realFavicon.generateFavicon(faviconConfig, function() {
-        done();
-    });
-});
+gulp.task('generate-favicon-images', (done) => realFavicon.generateFavicon(faviconConfig, () => done()));
 
 // Inject the favicon markups in your HTML pages. You should run
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
-gulp.task('inject-favicon-markups', ['generate-favicon-images'], function() {
+gulp.task('inject-favicon-markups', ['generate-favicon-images'], () => {
     return gulp.src([paths.src + 'html/templates/favicons.html'])
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
         .pipe(gulp.dest(paths.src + 'html/templates/'));
@@ -284,9 +280,9 @@ gulp.task('inject-favicon-markups', ['generate-favicon-images'], function() {
 // released a new Touch icon along with the latest version of iOS).
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
-gulp.task('check-for-favicon-update', function() {
+gulp.task('check-for-favicon-update', () => {
     var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
-    realFavicon.checkForUpdates(currentVersion, function(err) {
+    realFavicon.checkForUpdates(currentVersion, (err) => {
         if (err) {
             throw err;
         }
