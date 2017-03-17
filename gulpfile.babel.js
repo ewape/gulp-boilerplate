@@ -6,13 +6,16 @@ const gulp = require('gulp'),
     concat = require('gulp-concat'),
     cssnano = require('gulp-cssnano'),
     del = require('del'),
+    FAVICON_DATA_FILE = 'faviconData.json',
     fileinclude = require('gulp-file-include'),
+    fs = require('fs'),
     imagemin = require('gulp-imagemin'),
     jshint = require('gulp-jshint'),
     livereload = require('gulp-livereload'),
     mainBowerFiles = require('main-bower-files'),
     notify = require('gulp-notify'),
     pngquant = require('imagemin-pngquant'),
+    realFavicon = require('gulp-real-favicon'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -66,6 +69,59 @@ const gulp = require('gulp'),
             namespaceClassnames: true, // Add namespace token to all CSS class names in SVG shapes
             dimensionAttributes: true // Width and height attributes on the sprite
         }
+    },
+
+    faviconConfig = {
+        masterPicture: paths.src + 'images/svg/github.svg',
+        dest: paths.src + 'images/favicon',
+        iconsPath: 'http://example.com/dist/images/favicon/',
+        design: {
+            ios: {
+                pictureAspect: 'backgroundAndMargin',
+                backgroundColor: '#ffffff',
+                margin: '25%',
+                assets: {
+                    ios6AndPriorIcons: false,
+                    ios7AndLaterIcons: false,
+                    precomposedIcons: false,
+                    declareOnlyDefaultIcon: true
+                }
+            },
+            desktopBrowser: {},
+            windows: {
+                pictureAspect: 'noChange',
+                backgroundColor: '#2d89ef',
+                onConflict: 'override',
+                assets: {
+                    windows80Ie10Tile: false,
+                    windows10Ie11EdgeTiles: {
+                        small: false,
+                        medium: true,
+                        big: false,
+                        rectangle: false
+                    }
+                }
+            },
+            androidChrome: {
+                pictureAspect: 'noChange',
+                themeColor: '#ffffff',
+                manifest: {
+                    display: 'standalone',
+                    orientation: 'notSet',
+                    onConflict: 'override',
+                    declared: true
+                },
+                assets: {
+                    legacyIcon: false,
+                    lowResolutionIcons: false
+                }
+            }
+        },
+        settings: {
+            scalingAlgorithm: 'Mitchell',
+            errorOnImageTooSmall: false
+        },
+        markupFile: FAVICON_DATA_FILE
     };
 
 
@@ -73,11 +129,12 @@ gulp.task('default', ['watch']);
 gulp.task('bower', ['minify-bower-js', 'minify-bower-css']);
 gulp.task('build', ['images', 'styles', 'scripts', 'html']);
 gulp.task('clean', ['clean-folders']);
+gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', () => {
     gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
-    gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg}', ['images']);
+    gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
     gulp.watch(paths.src + 'html/**/*.html', ['html']);
     livereload.listen();
 });
@@ -147,7 +204,7 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
 });
 
 gulp.task('images', () => {
-    gulp.src(paths.src + 'images/**/*.{jpg,jpeg,png,gif}')
+    gulp.src(paths.src + 'images/**/*.{jpg,jpeg,png,gif,ico}')
         .pipe(cache(imagemin({
             progressive: true,
             verbose: true,
@@ -202,4 +259,36 @@ gulp.task('minify-bower-css', ['bower-files'], () => {
             suffix: '.min'
         }))
         .pipe(gulp.dest(paths.lib));
+});
+
+// Generate the icons. This task takes a few seconds to complete.
+// You should run it at least once to create the icons. Then,
+// you should run it whenever RealFaviconGenerator updates its
+// package (see the check-for-favicon-update task below).
+gulp.task('generate-favicon-images', function(done) {
+    realFavicon.generateFavicon(faviconConfig, function() {
+        done();
+    });
+});
+
+// Inject the favicon markups in your HTML pages. You should run
+// this task whenever you modify a page. You can keep this task
+// as is or refactor your existing HTML pipeline.
+gulp.task('inject-favicon-markups', ['generate-favicon-images'], function() {
+    return gulp.src([paths.src + 'html/templates/favicons.html'])
+        .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
+        .pipe(gulp.dest(paths.src + 'html/templates/'));
+});
+
+// Check for updates on RealFaviconGenerator (think: Apple has just
+// released a new Touch icon along with the latest version of iOS).
+// Run this task from time to time. Ideally, make it part of your
+// continuous integration system.
+gulp.task('check-for-favicon-update', function() {
+    var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
+    realFavicon.checkForUpdates(currentVersion, function(err) {
+        if (err) {
+            throw err;
+        }
+    });
 });
