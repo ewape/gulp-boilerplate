@@ -7,7 +7,7 @@ $ gulp build
 
 ##### Installing npm dependencies:
 ```sh
-$ npm install <dependency-name> --save-dev
+$ npm install <dependency-name> -D
 ```
 ##### Installing bower dependencies:
 ```sh
@@ -20,6 +20,11 @@ LiveReload feature requires <a href="https://chrome.google.com/webstore/detail/l
 ```sh
 $ gulp
 $ gulp watch
+```
+
+##### Generate svg sprite:
+```sh
+$ gulp svg-sprite
 ```
 
 ##### Generate favicon:
