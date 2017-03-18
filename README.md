@@ -22,6 +22,11 @@ $ gulp
 $ gulp watch
 ```
 
+##### Generate svg sprite:
+```sh
+$ gulp svg-sprite
+```
+
 ##### Generate favicon:
 ```sh
 $ gulp favicon
