@@ -1,0 +1,34 @@
+%svg-common {
+	background: url("../../dist/images/svg/sprite-dcadeb56.svg") no-repeat;
+}
+
+.svg-HTML5-logo {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.svg-HTML5-logo-dims {
+	width: 240px;
+	height: 240px;
+}
+
+.svg-github {
+	@extend %svg-common;
+	background-position: 100% 0;
+}
+
+.svg-github-dims {
+	width: 240px;
+	height: 240px;
+}
+
+.svg-svg-logo {
+	@extend %svg-common;
+	background-position: 0 100%;
+}
+
+.svg-svg-logo-dims {
+	width: 240px;
+	height: 240px;
+}
+
