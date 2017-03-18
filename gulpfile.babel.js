@@ -10,6 +10,7 @@ const gulp = require('gulp'),
     fileinclude = require('gulp-file-include'),
     fs = require('fs'),
     imagemin = require('gulp-imagemin'),
+    imageminGuetzli = require('imagemin-guetzli'),
     jshint = require('gulp-jshint'),
     livereload = require('gulp-livereload'),
     mainBowerFiles = require('main-bower-files'),
@@ -141,7 +142,7 @@ gulp.task('watch', () => {
 
 gulp.task('clean-folders', () => del.sync([paths.dist, paths.build, paths.lib]));
 
-gulp.task('html', ['svg-sprite'], () => {
+gulp.task('html', () => {
     gulp.src([paths.src + 'html/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
@@ -150,7 +151,7 @@ gulp.task('html', ['svg-sprite'], () => {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('styles', ['svg-sprite'], () => {
+gulp.task('styles', () => {
     gulp.src(paths.src + 'scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -203,8 +204,8 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
         }));
 });
 
-gulp.task('images', () => {
-    gulp.src(paths.src + 'images/**/*.{jpg,jpeg,png,gif,ico}')
+gulp.task('images', ['images-hq'], () => {
+    gulp.src(['!' + paths.src + 'images/hq/*.{jpg,jpeg}', paths.src + 'images/**/*.{jpg,jpeg,png,gif,ico}'])
         .pipe(cache(imagemin({
             progressive: true,
             verbose: true,
@@ -227,10 +228,17 @@ gulp.task('images', () => {
         }));
 });
 
-gulp.task('svg-sprite', () => {
+gulp.task('images-hq', () => {
+    gulp.src(paths.src + 'images/hq/*.{jpg,jpeg}')
+        .pipe(imagemin([imageminGuetzli()]))
+        .pipe(gulp.dest(paths.dist + 'images'));
+});
+
+gulp.task('svg-sprite', (done) => {
     gulp.src(paths.src + 'images/svg/*.svg')
         .pipe(svgSprite(svgConfig))
         .pipe(gulp.dest(paths.dist));
+    done();
 });
 
 gulp.task('bower-files', () => {
