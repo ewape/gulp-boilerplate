@@ -7,7 +7,7 @@ $ gulp build
 
 ##### Installing npm dependencies:
 ```sh
-$ npm install <dependency-name> --save-dev
+$ npm install <dependency-name> --D
 ```
 ##### Installing bower dependencies:
 ```sh
