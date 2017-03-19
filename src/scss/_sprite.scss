@@ -1,20 +1,10 @@
 %svg-common {
-	background: url("../../dist/images/svg/sprite-dcadeb56.svg") no-repeat;
-}
-
-.svg-HTML5-logo {
-	@extend %svg-common;
-	background-position: 0 0;
-}
-
-.svg-HTML5-logo-dims {
-	width: 240px;
-	height: 240px;
+	background: url("../../dist/images/svg/sprite-ee78b81a.svg") no-repeat;
 }
 
 .svg-github {
 	@extend %svg-common;
-	background-position: 100% 0;
+	background-position: 0 0;
 }
 
 .svg-github-dims {
@@ -24,7 +14,7 @@
 
 .svg-svg-logo {
 	@extend %svg-common;
-	background-position: 0 100%;
+	background-position: 100% 0;
 }
 
 .svg-svg-logo-dims {
