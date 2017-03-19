@@ -22,6 +22,7 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     svgSprite = require('gulp-svg-sprite'),
     uglify = require('gulp-uglify'),
+    w3cjs = require('gulp-w3cjs'),
 
     autoprefixerOptions = {
         browsers: ['last 2 versions', '> 1%', 'ie >= 11', 'android >= 4.4']
@@ -207,7 +208,6 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
 gulp.task('images', ['images-hq'], () => {
     gulp.src(['!' + paths.src + 'images/hq/*.{jpg,jpeg}', paths.src + 'images/**/*.{jpg,jpeg,png,gif,ico}'])
         .pipe(cache(imagemin({
-            progressive: true,
             verbose: true,
             use: [
                 pngquant({
@@ -215,7 +215,10 @@ gulp.task('images', ['images-hq'], () => {
                     speed: 10,
                     quality: "65-80"
                 }),
-                imagemin.gifsicle(),
+                imagemin.gifsicle({
+                    interlaced: true,
+                    optimizationLevel: 3
+                }),
                 imagemin.jpegtran({
                     progressive: true
                 }),
@@ -295,4 +298,11 @@ gulp.task('check-for-favicon-update', () => {
             throw err;
         }
     });
+});
+
+
+gulp.task('w3cjs', function() {
+    gulp.src('./*.html')
+        .pipe(w3cjs())
+        .pipe(w3cjs.reporter());
 });
