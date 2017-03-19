@@ -96,7 +96,7 @@
         left: 0;
         transition: transform .3s linear;
         transform: translateX(-$mobile-max);
-        overflow-y: scroll;
+        overflow-y: auto;
 
         ul {
             flex-direction: column;
