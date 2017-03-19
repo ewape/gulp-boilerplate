@@ -205,43 +205,36 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
         }));
 });
 
-gulp.task('images', ['images-hq'], () => {
-    gulp.src(['!' + paths.src + 'images/hq/*.{jpg,jpeg}', paths.src + 'images/**/*.{jpg,jpeg,png,gif,ico}'])
+gulp.task('images', ['images-jpg'], () => {
+    gulp.src([paths.src + 'images/**/*.{png,gif,ico,svg}'])
         .pipe(cache(imagemin({
             verbose: true,
-            use: [
+            plugins: [
                 pngquant({
-                    verbose: true,
                     speed: 10,
                     quality: "65-80"
-                }),
-                imagemin.gifsicle({
-                    interlaced: true,
-                    optimizationLevel: 3
-                }),
-                imagemin.jpegtran({
-                    progressive: true
-                }),
-                imagemin.svgo()
+                })
             ]
         })))
-        .pipe(gulp.dest(paths.dist + 'images'))
-        .pipe(notify({
-            message: 'Images task complete'
-        }));
-});
-
-gulp.task('images-hq', () => {
-    gulp.src(paths.src + 'images/hq/*.{jpg,jpeg}')
-        .pipe(imagemin([imageminGuetzli()]))
         .pipe(gulp.dest(paths.dist + 'images'));
 });
 
-gulp.task('svg-sprite', (done) => {
+gulp.task('images-jpg', () => {
+    gulp.src(paths.src + 'images/**/*.{jpg,jpeg}')
+        .pipe(imagemin([imageminGuetzli()]))
+        .pipe(cache(imagemin({
+            verbose: true,
+            plugins: [imagemin.jpegtran({
+                progressive: true
+            })]
+        })))
+        .pipe(gulp.dest(paths.dist + 'images'));
+});
+
+gulp.task('svg-sprite', () => {
     gulp.src(paths.src + 'images/svg/*.svg')
         .pipe(svgSprite(svgConfig))
         .pipe(gulp.dest(paths.dist));
-    done();
 });
 
 gulp.task('bower-files', () => {
@@ -282,7 +275,7 @@ gulp.task('generate-favicon-images', (done) => realFavicon.generateFavicon(favic
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
 gulp.task('inject-favicon-markups', ['generate-favicon-images'], () => {
-    return gulp.src([paths.src + 'html/templates/favicons.html'])
+    return gulp.src([paths.src + 'html/templates/favicon.html'])
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
         .pipe(gulp.dest(paths.src + 'html/templates/'));
 });
