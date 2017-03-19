@@ -92,19 +92,19 @@
 	&:after {
 		content: '';
 		height: 0;
-		border-bottom: 2px solid;
-		border-bottom: 2px solid var(--color-var);
+		border-bottom: 3px solid;
+		border-bottom: 3px solid var(--color-var);
 		position: absolute;
-		right: 50%;
-		left: 50%;
-		bottom: -1px;
+		right: 0;
+		left: 0;
+		bottom: -5px;
+		transform: translateY(-5px) scaleX(0);
 		transition: all .15s linear;
 	}
 
 	&.active {
 		&:after {
-			right: 0;
-			left: 0;
+			transform: translateY(0) scaleX(1);
 		}
 	}
 
@@ -117,8 +117,7 @@
 
 		&:hover {
 			&:after {
-				right: 0;
-				left: 0;
+				transform: translateY(0) scaleX(1);
 			}
 		}
 	}

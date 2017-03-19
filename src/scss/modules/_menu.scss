@@ -128,15 +128,10 @@
         left: $padding-mobile;
 
         a {
-                padding: 1rem 2rem;
+            padding: 1rem 2rem;
         }
     }
     .nav-btn {
         display: none;
     }
-}
-
-@media (min-width: $desktop-min) {
-
-
 }
