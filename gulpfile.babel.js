@@ -62,7 +62,7 @@ var gulp = require('gulp'),
         svg: { // General options for created SVG files
             xmlDeclaration: false, // Add XML declaration to SVG sprite
             doctypeDeclaration: false, // Add DOCTYPE declaration to SVG sprite
-            namespaceIDs: true, // Add namespace token to all IDs in SVG shapes
+        namespaceIDs: true, // Add namespace token to all IDs in SVG shapes
             namespaceClassnames: true, // Add namespace token to all CSS class names in SVG shapes
             dimensionAttributes: true // Width and height attributes on the sprite
         }

@@ -5,10 +5,11 @@
 		<nav class="main-menu">
 			<ul>
 				<li><a data-menuanchor="home" href="#home" class="active" title="">Home</a></li>
-				<li><a data-menuanchor="setup" href="#setup" title="">Setup</a></li>
+				<li><a data-menuanchor="build" href="#build" title="">Build</a></li>
 				<li><a data-menuanchor="dependencies" href="#dependencies" title="">Dependencies</a></li>
-				<li><a data-menuanchor="clean" href="#clean" title="">Cleaning up</a></li>
-				<li><a data-menuanchor="sprites" href="#sprites" title="">Sprites</a></li>
+				<li><a data-menuanchor="clean" href="#clean" title="">Clean</a></li>
+				<li><a data-menuanchor="sprite" href="#sprite" title="">Sprite</a></li>
+				<li><a data-menuanchor="favicon" href="#favicon" title="">Favicon</a></li>
 				<li><a data-menuanchor="plugins" href="#plugins" title="">Plugins</a></li>
 			</ul>
 		</nav>
@@ -17,92 +18,42 @@
 			<span></span>
 			<span></span>
 		</button>
-		<a href="https://github.com/ewape/gulp-starter" class="icon icon-github icon-sticky" rel="nofollow" target="_blank">
+		<a href="https://github.com/ewape/gulp-starter" class="icon-github icon-sticky" rel="nofollow" target="_blank">
 			<svg class="icon svg-github-dims">
 				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github"></use>
 			</svg>
 		</a>
+
 	</header>
 
-	<section class="section accent-yellow" id="home">
-		<div class="container show-content">
-			<h1>
-				<a href="https://github.com/ewape/gulp-starter" rel="nofollow" target="_blank">Gulp boilerplate</a>
-			</h1>
-			<a href="https://github.com/ewape/gulp-starter" class="icon icon-github icon-main" rel="nofollow" target="_blank">
-				<svg class="icon svg-github-dims" >
-					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#github"></use>
-				</svg>
-			</a>
-		</div>
-	</section>
-	<section class="section accent-blue" id="setup">
-		<div class="container">
-			<h1>Project setup</h1>
-			<code>
-				$ npm install <br>
-				$ gulp bower <br>
-				$ gulp build
-			</code>
-		</div>
-	</section>
+	@@include('./sections/home.html', {
+		"color": "blue"
+	})
 
-	<section class="section accent-green" id="dependencies">
-		<div class="container">
-			<h1>Installing dependencies</h1>
-			<code>
-				$ npm install dependency-name --save-dev <br>
-				$ bower install dependency-name --save
-			</code>
-		</div>
-	</section>
+	@@include('./sections/build.html', {
+		"color": "green"
+	})
 
-	<section class="section accent-yellow" id="clean">
-		<div class="container">
-			<h2>Clean build files</h2>
-			<code>
-				$ gulp clean
-			</code>
+	@@include('./sections/dependencies.html', {
+		"color": "yellow"
+	})
 
-			<h2>Rebuild project after clean</h2>
-			<code>
-				$ gulp bower <br>
-				$ gulp build
-			</code>
-		</div>
-	</section>
+	@@include('./sections/clean.html', {
+		"color": "red"
+	})
 
-	<section class="section accent-blue" id="sprites">
-		<div class="container">
-			<h1>Symbol sprite usage</h1>
-			<p class="darker-box">
-				Preview: <a href="dist/symbol/sprite.symbol.html" target="_blank">dist/symbol/sprite.symbol.html</a>
-			</p>
-		</div>
-	</section>
+	@@include('./sections/sprite.html', {
+		"color": "blue"
+	})
 
-	<section class="section accent-green" id="plugins">
-		<div class="container">
-			<h1>Plugins</h1>
-			<ul>
-				<li>
-					<a href="https://github.com/sindresorhus/gulp-autoprefixer" target="_blank">gulp-autoprefixer</a>
-				</li>
-				<li>
-					<a href="https://github.com/coderhaoxin/gulp-file-include" target="_blank">gulp-file-include</a>
-				</li>
-				<li>
-					<a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank">gulp-imagemin</a>
-				</li>
-				<li>
-					<a href="https://github.com/vohof/gulp-livereload" target="_blank">gulp-livereload</a>
-				</li>
-				<li>
-					<a href="https://github.com/jkphl/gulp-svg-sprite" target="_blank">gulp-svg-sprite</a>
-				</li>
-			</ul>
-		</div>
-	</section>
+	@@include('./sections/favicon.html', {
+		"color": "green"
+	})
+
+	@@include('./sections/plugins.html', {
+		"color": "yellow"
+	})
+
 </main>
 
 @@include('./templates/footer.html')

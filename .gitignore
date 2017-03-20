@@ -3,3 +3,5 @@ lib/
 build/
 node_modules
 bower_components
+src/images/favicon/
+dist/images/favicon/

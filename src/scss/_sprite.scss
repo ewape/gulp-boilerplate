@@ -1,5 +1,65 @@
 %svg-common {
-	background: url("../../dist/images/svg/sprite-78f8c3a0.svg") no-repeat;
+	background: url("../../dist/images/svg/sprite-b6f00561.svg") no-repeat;
+}
+
+.svg-arrow-right {
+	@extend %svg-common;
+	background-position: 80.64516129032258% 0;
+}
+
+.svg-arrow-right-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-bookmark {
+	@extend %svg-common;
+	background-position: 19.35483870967742% 100%;
+}
+
+.svg-bookmark-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-build {
+	@extend %svg-common;
+	background-position: 80.64516129032258% 24%;
+}
+
+.svg-build-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-delete {
+	@extend %svg-common;
+	background-position: 80.64516129032258% 48%;
+}
+
+.svg-delete-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-description {
+	@extend %svg-common;
+	background-position: 80.64516129032258% 72%;
+}
+
+.svg-description-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-extension {
+	@extend %svg-common;
+	background-position: 0 100%;
+}
+
+.svg-extension-dims {
+	width: 24px;
+	height: 24px;
 }
 
 .svg-github {
@@ -8,7 +68,57 @@
 }
 
 .svg-github-dims {
-	width: 240px;
-	height: 240px;
+	width: 100px;
+	height: 100px;
+}
+
+.svg-home {
+	@extend %svg-common;
+	background-position: 38.70967741935484% 100%;
+}
+
+.svg-home-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-image {
+	@extend %svg-common;
+	background-position: 58.064516129032256% 100%;
+}
+
+.svg-image-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-plugins {
+	@extend %svg-common;
+	background-position: 77.41935483870968% 100%;
+}
+
+.svg-plugins-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-renew {
+	@extend %svg-common;
+	background-position: 100% 0;
+}
+
+.svg-renew-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-settings {
+	@extend %svg-common;
+	background-position: 100% 24%;
+}
+
+.svg-settings-dims {
+	width: 24px;
+	height: 24px;
 }
 
