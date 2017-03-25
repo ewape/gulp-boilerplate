@@ -8,6 +8,8 @@ engines:
         enabled: false
       PropertySortOrder:
         enabled: false
+      FinalNewline:
+        enabled: false
   duplication:
     enabled: true
     config:
