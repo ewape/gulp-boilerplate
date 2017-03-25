@@ -17,6 +17,7 @@
 
     a {
         color: currentColor;
+        
         span {
             @extend .underline;
         }
@@ -42,7 +43,7 @@
         display: block;
         height: 0;
         width: 100%;
-        border-bottom: 4px solid rgba(#000, .9);
+        border-bottom: 4px solid rgba($fill-dark, .9);
         position: absolute;
         left: 0;
         transform-origin: 0% 50%;
@@ -52,7 +53,7 @@
             top: 0;
         }
 
-        &:nth-child(2){
+        &:nth-child(2) {
             top: 10px;
         }
 
@@ -66,6 +67,7 @@
         span {
             border-color: $fill-light;
             border-color: var(--color-var);
+            
             &:first-child {
                 transform: rotate(45deg);
             }
@@ -81,6 +83,7 @@
         }
 
         &:hover {
+
             span {
                 border-color: $fill-light;
             }
@@ -100,7 +103,7 @@
 
         ul {
             flex-direction: column;
-            background-color: rgba(#000, .8);
+            background-color: rgba($fill-dark, .8);
             padding: $padding-mobile;
             width: 100%;
             min-height: 100%;
@@ -131,6 +134,7 @@
             padding: 1rem 2rem;
         }
     }
+    
     .nav-btn {
         display: none;
     }
