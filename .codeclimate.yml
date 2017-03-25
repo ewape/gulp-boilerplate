@@ -1,7 +1,6 @@
-eslint:
-  enabled: true
-    config:
-      wrap-iife: ["error", "any"]
+engines:
+  eslint:
+    enabled: true   
   scss-lint:
     enabled: true
   duplication:
@@ -9,3 +8,20 @@ eslint:
     config:
       languages:
       - javascript
+ratings:
+  paths:
+    - "**.js"
+    - "**.scss"
+exclude_paths: []
+parserOptions:
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+env:
+  amd: true
+  browser: true
+  es6: true
+  jquery: true
+  node: true
+rules:
+  wrap-iife: ["error", "any"]
