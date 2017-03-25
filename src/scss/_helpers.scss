@@ -91,7 +91,7 @@
 %underline {
 	position: relative;
 
-	&:after {
+	&::after {
 		content: '';
 		height: 0;
 		border-bottom: 3px solid;
@@ -105,7 +105,7 @@
 	}
 
 	&.active {
-		&:after {
+		&::after {
 			transform: translateY(0) scaleX(1);
 		}
 	}
@@ -118,7 +118,7 @@
 	%underline {
 
 		&:hover {
-			&:after {
+			&::after {
 				transform: translateY(0) scaleX(1);
 			}
 		}
