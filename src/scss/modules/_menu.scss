@@ -17,7 +17,7 @@
 
     a {
         color: currentColor;
-        
+
         span {
             @extend .underline;
         }
@@ -67,7 +67,7 @@
         span {
             border-color: $fill-light;
             border-color: var(--color-var);
-            
+
             &:first-child {
                 transform: rotate(45deg);
             }
@@ -134,7 +134,7 @@
             padding: 1rem 2rem;
         }
     }
-    
+
     .nav-btn {
         display: none;
     }
