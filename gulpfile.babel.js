@@ -1,20 +1,21 @@
 const gulp = require('gulp'),
+    fs = require('fs'),
     autoprefixer = require('gulp-autoprefixer'),
     babel = require('gulp-babel'),
     bowerNormalizer = require('gulp-bower-normalize'),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
+    config = JSON.parse(fs.readFileSync('config.json')),
     cssnano = require('gulp-cssnano'),
     del = require('del'),
-    FAVICON_DATA_FILE = 'faviconData.json',
-    fileinclude = require('gulp-file-include'),
-    fs = require('fs'),
+    faviconDataFile = config.faviconDataFile,
     imagemin = require('gulp-imagemin'),
     imageminGuetzli = require('imagemin-guetzli'),
     jshint = require('gulp-jshint'),
     livereload = require('gulp-livereload'),
     mainBowerFiles = require('main-bower-files'),
     notify = require('gulp-notify'),
+    nunjucks = require('gulp-nunjucks-render'),
     pngquant = require('imagemin-pngquant'),
     realFavicon = require('gulp-real-favicon'),
     rename = require('gulp-rename'),
@@ -24,24 +25,16 @@ const gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     w3cjs = require('gulp-w3cjs'),
 
-    autoprefixerOptions = {
-        browsers: ['last 2 versions', '> 1%', 'ie >= 11', 'android >= 4.4']
-    },
+    autoprefixerOptions = config.autoprefixerOptions,
 
-    paths = {
-        bower: "./bower_components/",
-        lib: "./lib/",
-        dist: "./dist/",
-        src: "./src/",
-        build: "./build/"
-    },
+    paths = config.paths,
 
     svgConfig = {
         dest: '.',
         mode: {
             symbol: { // symbol mode to build the SVG
                 inline: true,
-                sprite: '../../' + paths.src + 'html/templates/sprite.svg.html',
+                sprite: '../../' + paths.src + 'html/templates/partials/sprite.svg.nunjucks',
                 example: true
             },
             css: {
@@ -74,14 +67,14 @@ const gulp = require('gulp'),
     },
 
     faviconConfig = {
-        masterPicture: paths.src + 'images/svg/github.svg',
+        masterPicture: config.faviconImage,
         dest: paths.src + 'images/favicon',
-        iconsPath: 'http://example.com/dist/images/favicon/',
+        iconsPath: config.data.url + 'dist/images/favicon/',
         design: {
             ios: {
                 pictureAspect: 'backgroundAndMargin',
                 backgroundColor: '#ffffff',
-                margin: '25%',
+                margin: '10%',
                 assets: {
                     ios6AndPriorIcons: false,
                     ios7AndLaterIcons: false,
@@ -123,7 +116,7 @@ const gulp = require('gulp'),
             scalingAlgorithm: 'Mitchell',
             errorOnImageTooSmall: false
         },
-        markupFile: FAVICON_DATA_FILE
+        markupFile: faviconDataFile
     };
 
 
@@ -137,20 +130,21 @@ gulp.task('watch', () => {
     gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
-    gulp.watch(paths.src + 'html/**/*.html', ['html']);
+    gulp.watch(paths.src + 'html/**/*.+(html|nunjucks)', ['html']);
     livereload.listen();
 });
 
 gulp.task('clean-folders', () => del.sync([paths.dist, paths.build, paths.lib]));
 
 gulp.task('html', () => {
-    gulp.src([paths.src + 'html/*.html'])
-        .pipe(fileinclude({
-            prefix: '@@',
-            basepath: '@file'
+    gulp.src([paths.src + 'html/pages/**/*.+(html|nunjucks)'])
+        .pipe(nunjucks({
+            data: config.data,
+            path: [paths.src + 'html/templates']
         }))
         .pipe(gulp.dest('./'));
 });
+
 
 gulp.task('styles', () => {
     gulp.src(paths.src + 'scss/**/*.scss')
@@ -275,9 +269,9 @@ gulp.task('generate-favicon-images', (done) => realFavicon.generateFavicon(favic
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
 gulp.task('inject-favicon-markups', ['generate-favicon-images'], () => {
-    return gulp.src([paths.src + 'html/templates/favicon.html'])
-        .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
-        .pipe(gulp.dest(paths.src + 'html/templates/'));
+    return gulp.src([paths.src + 'html/templates/partials/favicon.nunjucks'])
+        .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(faviconDataFile)).favicon.html_code))
+        .pipe(gulp.dest(paths.src + 'html/templates/partials/'));
 });
 
 // Check for updates on RealFaviconGenerator (think: Apple has just
@@ -285,7 +279,7 @@ gulp.task('inject-favicon-markups', ['generate-favicon-images'], () => {
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
 gulp.task('check-for-favicon-update', () => {
-    var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
+    var currentVersion = JSON.parse(fs.readFileSync(faviconDataFile)).version;
     realFavicon.checkForUpdates(currentVersion, (err) => {
         if (err) {
             throw err;

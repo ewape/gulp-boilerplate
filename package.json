@@ -10,8 +10,8 @@
     },
     "main": "gulpfile.babel.js",
     "scripts": {
-        "test": "gulp build",
-        "prepare": "bower install"
+        "test": "gulp favicon && gulp svg-sprite && gulp build",
+        "prepare": "bower install && gulp check-for-favicon-update"
     },
     "engines": {
         "node": ">= 0.12.0",
@@ -24,8 +24,8 @@
     },
     "devDependencies": {
         "babel-core": "^6.24.0",
-        "babel-register": "^6.24.0",
         "babel-preset-es2015": "^6.24.0",
+        "babel-register": "^6.24.0",
         "del": "^2.2.2",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^3.1.0",
@@ -39,6 +39,7 @@
         "gulp-jshint": "^2.0.1",
         "gulp-livereload": "^3.8.1",
         "gulp-notify": "^2.2.0",
+        "gulp-nunjucks-render": "^2.0.0",
         "gulp-real-favicon": "^0.2.2",
         "gulp-rename": "^1.2.2",
         "gulp-sass": "^2.3.2",

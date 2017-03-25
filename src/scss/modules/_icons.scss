@@ -1,0 +1,25 @@
+.icon {
+	height: 60px;
+	width: 60px;
+	fill: $accent;
+	fill: var(--color-var);
+	border-radius: 50%;
+	transition: fill .1s linear;
+
+	svg {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	&:hover {
+		fill: $fill-light;
+		background-color: $accent;
+		background-color: var(--color-var);
+		border: 2px solid $accent;
+		border: 2px solid var(--color-var);
+	}
+}
+
+.icon-main {
+	@extend %align-all;
+}

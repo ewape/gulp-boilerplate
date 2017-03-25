@@ -1,0 +1,28 @@
+{
+    "data": {
+        "lang": "pl",
+        "title": "Project title",
+        "description": "Project description",
+        "url": "http://example.com/",
+
+        "og": {
+            "type": "website",
+            "image": "http://example.com/dist/images/js.png",
+            "image_type": "image/png",
+            "image_width": 200,
+            "image_height": 200
+        }
+    },
+    "faviconDataFile": "faviconData.json",
+    "faviconImage": "src/images/svg/github.svg",
+    "autoprefixerOptions": {
+        "browsers": ["last 2 versions", "> 1%", "ie >= 11", "android >= 4.4"]
+    },
+    "paths": {
+        "bower": "./bower_components/",
+        "lib": "./lib/",
+        "dist": "./dist/",
+        "src": "./src/",
+        "build": "./build/"
+    }
+}
