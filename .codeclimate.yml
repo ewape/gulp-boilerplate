@@ -1,8 +1,8 @@
 eslint:
   enabled: true
     config:
-      wrap-iife: ["error", "inside"]
-  csslint:
+      wrap-iife: ["error", "any"]
+  scss-lint:
     enabled: true
   duplication:
     enabled: true
