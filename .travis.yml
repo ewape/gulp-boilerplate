@@ -13,3 +13,8 @@ branches:
   only:
     - master
     - nunjucks
+
+cache:
+  directories:
+  - node_modules
+  - bower_components
