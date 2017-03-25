@@ -3,6 +3,9 @@ engines:
     enabled: true   
   scss-lint:
     enabled: true
+    checks:
+      Indentation:
+        enabled: false
   duplication:
     enabled: true
     config:

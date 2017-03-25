@@ -80,7 +80,9 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 
-    &:active, &:focus, &:hover {
+    &:active, 
+    &:focus, 
+    &:hover {
     	border-color: $accent;
     	color: $accent;
     }
