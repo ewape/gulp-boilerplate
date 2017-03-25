@@ -31,4 +31,4 @@ env:
   jquery: true
   node: true
 rules:
-  wrap-iife: ["error", "any"]
+  wrap-iife: any
