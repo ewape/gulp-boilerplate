@@ -1,6 +1,9 @@
 engines:
   eslint:
-    enabled: true   
+    enabled: true  
+    checks:
+      wrap-iife:
+        enabled: false
   scss-lint:
     enabled: true
     checks:
@@ -32,5 +35,3 @@ env:
   es6: true
   jquery: true
   node: true
-rules:
-  wrap-iife: any
