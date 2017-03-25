@@ -1,0 +1,11 @@
+eslint:
+  enabled: true
+    config:
+      wrap-iife: ["error", "inside"]
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
