@@ -64,7 +64,7 @@
     .menu-open & {
 
         span {
-            border-color: #fff;
+            border-color: $fill-light;
             border-color: var(--color-var);
             &:first-child {
                 transform: rotate(45deg);
@@ -82,7 +82,7 @@
 
         &:hover {
             span {
-                border-color: #fff;
+                border-color: $fill-light;
             }
         }
     }
@@ -113,7 +113,7 @@
 
         a {
             display: block;
-            color: #fff;
+            color: $fill-light;
             padding: 1rem 0;
             font-size: 2rem;
         }

@@ -6,6 +6,8 @@ engines:
     checks:
       Indentation:
         enabled: false
+      PropertySortOrder:
+        enabled: false
   duplication:
     enabled: true
     config:
