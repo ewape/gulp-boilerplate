@@ -14,7 +14,7 @@
         "prepare": "bower install && gulp check-for-favicon-update"
     },
     "engines": {
-        "node": ">= 0.12.0",
+        "node": ">= 6.0",
         "npm": ">=2.1.5"
     },
     "author": "Ewa Pettke",
