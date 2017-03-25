@@ -40,3 +40,7 @@ $ gulp favicon
 ```sh
 $ gulp clean
 ```
+##### Validate HTML:
+```sh
+$ gulp w3cjs
+```
