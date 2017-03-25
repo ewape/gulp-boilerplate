@@ -18,3 +18,4 @@ cache:
   directories:
   - node_modules
   - bower_components
+  - src/images/favicon
