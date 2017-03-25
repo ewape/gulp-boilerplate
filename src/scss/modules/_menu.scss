@@ -19,7 +19,7 @@
         color: currentColor;
 
         span {
-            @extend .underline;
+            @extend %underline;
         }
     }
 
