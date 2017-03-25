@@ -23,6 +23,7 @@
         "url": "https://github.com/ewape/gulp-boilerplate/issues"
     },
     "devDependencies": {
+        "babel-core": "^6.24.0",
         "babel-preset-es2015": "^6.24.0",
         "del": "^2.2.2",
         "gulp": "^3.9.1",
