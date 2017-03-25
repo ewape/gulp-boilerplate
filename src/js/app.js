@@ -9,6 +9,7 @@
         const generateColor = () => '#' + Math.random().toString(16).slice(2, 8);
 
         const updateColorVar = () => {
+            console.log('some stuff');
             document.body.style.setProperty('--color-var', generateColor());
         };
 
