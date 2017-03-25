@@ -52,7 +52,7 @@ const gulp = require('gulp'),
                         dest: '../../' + paths.src + 'scss/_sprite.scss'
                     }
                 }
-            },
+            }
         },
         shape: {
             dimension: { // Set maximum dimensions
@@ -62,7 +62,7 @@ const gulp = require('gulp'),
             spacing: { // Add padding
                 padding: 0
             },
-            dest: 'images/svg', // Keep the intermediate files
+            dest: 'images/svg' // Keep the intermediate files
         },
         svg: { // General options for created SVG files
             xmlDeclaration: true, // Add XML declaration to SVG sprite
