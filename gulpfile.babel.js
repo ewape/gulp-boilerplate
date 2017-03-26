@@ -142,7 +142,10 @@ gulp.task('html', () => {
             data: config.data,
             path: [paths.src + 'html/templates']
         }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('./'))
+        .pipe(notify({
+            message: 'HTML ready'
+        }));
 });
 
 
