@@ -42,16 +42,23 @@ const gulp = require('gulp'),
             symbol: { // symbol mode to build the SVG
                 inline: true,
                 sprite: '../../' + paths.src + 'html/templates/sprite.svg.html',
-                example: true
+                example: {
+                    dest: '../../docs/symbol.html'
+                }
             },
             css: {
-                sprite: '../../' + paths.dist + 'images/svg/sprite.svg',
+                sprite: '../../' + paths.dist + 'images/sprite/sprite.svg',
+                bust: false,
                 render: {
                     css: false,
                     scss: {
                         dest: '../../' + paths.src + 'scss/_sprite.scss'
+
                     }
-                }
+                },
+                prefix: '.icon-%s',
+                mixin: 'icon',
+                dimensions: true
             }
         },
         shape: {
@@ -62,14 +69,7 @@ const gulp = require('gulp'),
             spacing: { // Add padding
                 padding: 0
             },
-            dest: 'images/svg' // Keep the intermediate files
-        },
-        svg: { // General options for created SVG files
-            xmlDeclaration: true, // Add XML declaration to SVG sprite
-            doctypeDeclaration: true, // Add DOCTYPE declaration to SVG sprite
-            namespaceIDs: true, // Add namespace token to all IDs in SVG shapes
-            namespaceClassnames: true, // Add namespace token to all CSS class names in SVG shapes
-            dimensionAttributes: true // Width and height attributes on the sprite
+            dest: 'images/icons' // Keep the intermediate files
         }
     },
 
