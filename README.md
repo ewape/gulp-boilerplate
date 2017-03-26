@@ -45,8 +45,5 @@ $ gulp clean
 $ gulp w3cjs
 ```
 ### Templating
-Nunjucks templating docs:
-https://mozilla.github.io/nunjucks/templating.html
-
-Nunjucks syntax for Sublime Text:
-https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage
+<a href="https://mozilla.github.io/nunjucks/templating.html" target="_blank">Nunjucks templating docs</a><br>
+<a href="https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage" target="_blank">Nunjucks syntax for Sublime Text:</a>
