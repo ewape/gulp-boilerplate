@@ -13,8 +13,6 @@ engines:
         enabled: false
       FinalNewline:
         enabled: false
-      StringQuotes:
-        style: double_quotes
   duplication:
     enabled: true
     config:
