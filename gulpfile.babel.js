@@ -133,7 +133,7 @@ gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', () => {
     livereload.listen();
-    gulp.watch(paths.src + 'js/**/*.js', ['scripts-watch']);
+    gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
     gulp.watch(paths.src + 'html/**/*.html', ['html']);
@@ -199,19 +199,6 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
         .pipe(concat('app.min.js'))
         .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.dist + 'js'));
-});
-
-gulp.task('scripts-watch', ['minify-scripts'], () => {
-    gulp.src([paths.build + 'js/vendors.js', paths.build + 'js/app.js'])
-        .pipe(sourcemaps.init({
-            loadMaps: true
-        }))
-        .pipe(concat('app.min.js'))
-        .pipe(sourcemaps.write('/'))
-        .pipe(gulp.dest(paths.dist + 'js'))
-        .pipe(notify({
-            message: 'Scripts ready'
-        }));
 });
 
 gulp.task('images', ['images-jpg'], () => {
