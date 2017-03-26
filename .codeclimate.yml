@@ -6,6 +6,8 @@ engines:
         enabled: false
   scss-lint:
     enabled: true
+    exclude_fingerprints:
+    - b85b5176ec3e2c2c5e0206fc906c62cd
     checks:
       Indentation:
         enabled: false
