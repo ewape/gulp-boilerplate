@@ -4,7 +4,6 @@ const gulp = require('gulp'),
     bowerNormalizer = require('gulp-bower-normalize'),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
-    cssnano = require('gulp-cssnano'),
     del = require('del'),
     FAVICON_DATA_FILE = 'faviconData.json',
     fileinclude = require('gulp-file-include'),
@@ -128,8 +127,7 @@ const gulp = require('gulp'),
 
 
 gulp.task('default', ['watch']);
-gulp.task('bower', ['minify-bower-js', 'minify-bower-css']);
-gulp.task('build', ['images', 'styles', 'scripts', 'html']);
+gulp.task('build', ['styles', 'scripts', 'html', 'images']);
 gulp.task('clean', ['clean-folders']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
@@ -171,17 +169,17 @@ gulp.task('styles', () => {
 
 gulp.task('vendors-js', () => {
     gulp.src([
-            paths.src + 'js/vendors/mobile-menu.js',
-            paths.src + 'js/vendors/cookies.js'
+            paths.lib + 'jquery/js/*.js'
         ])
         .pipe(concat('vendors.min.js'))
-        .pipe(babel())
-        .pipe(uglify())
         .pipe(gulp.dest(paths.build + 'js'));
 });
 
 gulp.task('minify-scripts', () => {
-    gulp.src(paths.src + 'js/app.js')
+    gulp.src([
+            paths.src + 'js/vendors/*.js',
+            paths.src + 'js/app.js'
+        ])
         .pipe(sourcemaps.init())
         .pipe(rename({
             suffix: '.min'
@@ -190,13 +188,16 @@ gulp.task('minify-scripts', () => {
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(babel())
         .pipe(uglify())
+        .pipe(concat('app.js'))
         .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.build + 'js'));
 });
 
 gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
-    gulp.src([paths.build + 'js/vendors.min.js', paths.build + 'js/app.min.js'])
-        .pipe(sourcemaps.init())
+    gulp.src([paths.build + 'js/vendors.min.js', paths.build + 'js/app.js'])
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
         .pipe(concat('app.min.js'))
         .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.dist + 'js'))
@@ -237,30 +238,13 @@ gulp.task('svg-sprite', () => {
         .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('bower-files', () => {
+gulp.task('bower', () => {
     gulp.src(mainBowerFiles(), {
             base: paths.bower
         })
         .pipe(bowerNormalizer({
-            bowerJson: './bower.json'
-        }))
-        .pipe(gulp.dest(paths.lib));
-});
-
-gulp.task('minify-bower-js', ['bower-files'], () => {
-    gulp.src(paths.lib + '**/*.js')
-        .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest(paths.lib));
-});
-
-gulp.task('minify-bower-css', ['bower-files'], () => {
-    gulp.src(paths.lib + '**/*.css')
-        .pipe(cssnano())
-        .pipe(rename({
-            suffix: '.min'
+            bowerJson: './bower.json',
+            checkPath: true
         }))
         .pipe(gulp.dest(paths.lib));
 });
