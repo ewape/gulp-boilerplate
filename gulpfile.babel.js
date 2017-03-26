@@ -132,11 +132,12 @@ gulp.task('clean', ['clean-folders']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', () => {
-    gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
+    livereload.listen();
+    gulp.watch(paths.src + 'js/**/*.js', ['scripts-watch']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
     gulp.watch(paths.src + 'html/**/*.html', ['html']);
-    livereload.listen();
+    gulp.watch([paths.dist + '**', '*.html']).on('change', livereload.changed);
 });
 
 gulp.task('clean-folders', () => del.sync([paths.dist, paths.build, paths.lib]));
@@ -171,7 +172,7 @@ gulp.task('vendors-js', () => {
     gulp.src([
             paths.lib + 'jquery/js/*.js'
         ])
-        .pipe(concat('vendors.min.js'))
+        .pipe(concat('vendors.js'))
         .pipe(gulp.dest(paths.build + 'js'));
 });
 
@@ -181,9 +182,6 @@ gulp.task('minify-scripts', () => {
             paths.src + 'js/app.js'
         ])
         .pipe(sourcemaps.init())
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(babel())
@@ -194,7 +192,17 @@ gulp.task('minify-scripts', () => {
 });
 
 gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
-    gulp.src([paths.build + 'js/vendors.min.js', paths.build + 'js/app.js'])
+    gulp.src([paths.build + 'js/vendors.js', paths.build + 'js/app.js'])
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
+        .pipe(concat('app.min.js'))
+        .pipe(sourcemaps.write('/'))
+        .pipe(gulp.dest(paths.dist + 'js'));
+});
+
+gulp.task('scripts-watch', ['minify-scripts'], () => {
+    gulp.src([paths.build + 'js/vendors.js', paths.build + 'js/app.js'])
         .pipe(sourcemaps.init({
             loadMaps: true
         }))
