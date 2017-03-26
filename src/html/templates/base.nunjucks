@@ -14,7 +14,7 @@
 	{% block sprites %}
 		{% include 'partials/sprite.svg.nunjucks' %}
 	{% endblock %}
-  	{% block content %} {% endblock %}
+  	{% block content %}{% endblock %}
 	<script async type="text/javascript" src="dist/js/app.min.js"></script>
 </body>
 </html>

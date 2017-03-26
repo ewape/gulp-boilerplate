@@ -1,8 +1,8 @@
 <!-- index.nunjucks -->
 {% extends "base.nunjucks" %}
+{% import 'macros/menu.nunjucks' as menu %}
 {% block content %}
 	<header class="header">
-		{% import 'macros/menu.nunjucks' as menu %}
 		{{menu.active('home')}}
 	</header>
 	<a href="https://github.com/ewape/gulp-boilerplate" class="icon icon-main" rel="nofollow" target="_blank">

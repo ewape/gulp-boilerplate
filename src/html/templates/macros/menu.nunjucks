@@ -1,8 +1,8 @@
-{% macro active(activePage='home') %}
+{% macro active(activePage = 'home') %}
 	<nav class="main-menu">
 		<ul>
 			<li>
-				<a href="#"><span class="{%if activePage == 'home' %}active{% endif %}">Home</span></a>
+				<a href=""><span class="{%if activePage == 'home' -%} active {%- endif %}">Home</span></a>
 			</li>
 		</ul>
 	</nav>
