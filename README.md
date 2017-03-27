@@ -1,13 +1,13 @@
 ### Project setup
 ```sh
-$ npm install
+$ npm i
 $ gulp bower
 $ gulp build
 ```
 
 ##### Installing npm dependencies:
 ```sh
-$ npm install <dependency-name> -D
+$ npm i <dependency-name> -D
 ```
 ##### Installing bower dependencies:
 ```sh
