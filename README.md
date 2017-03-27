@@ -1,3 +1,8 @@
+### Status:
+[![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=master)](https://travis-ci.org/ewape/gulp-boilerplate)
+[![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
+<img src="https://david-dm.org/ewape/gulp-boilerplate/dev-status.svg" alt="dependency check" />
+
 ### Project setup
 ```sh
 $ npm i
@@ -35,4 +40,8 @@ $ gulp favicon
 ##### Clean build files:
 ```sh
 $ gulp clean
+```
+##### Validate HTML:
+```sh
+$ gulp w3cjs
 ```

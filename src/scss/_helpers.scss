@@ -31,7 +31,7 @@
 	}
 
 	&:hover {
-		fill: #fff;
+		fill: $fill-light;
 		background-color: $accent;
 		background-color: var(--color-var);
 		border: 2px solid $accent;
@@ -65,31 +65,33 @@
 
 .btn {
 	-webkit-appearance: none;
-    border: 2px solid currentColor;
+	border: 2px solid currentColor;
 	color: currentColor;
-    background-color: transparent;
-    padding: 1rem 3rem;
-    border-radius: 0;
-    font-family: $font-1;
-    cursor: pointer;
-    outline: 0;
-    box-shadow: none;
-    white-space: nowrap;
-    display: inline-block;
-    line-height: 1;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+	background-color: transparent;
+	padding: 1rem 3rem;
+	border-radius: 0;
+	font-family: $font-1;
+	cursor: pointer;
+	outline: 0;
+	box-shadow: none;
+	white-space: nowrap;
+	display: inline-block;
+	line-height: 1;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 
-    &:active, &:focus, &:hover {
-    	border-color: $accent;
-    	color: $accent;
-    }
+	&:active,
+	&:focus,
+	&:hover {
+		border-color: $accent;
+		color: $accent;
+	}
 }
 
-.underline {
+%underline {
 	position: relative;
 
-	&:after {
+	&::after {
 		content: '';
 		height: 0;
 		border-bottom: 3px solid;
@@ -103,7 +105,7 @@
 	}
 
 	&.active {
-		&:after {
+		&::after {
 			transform: translateY(0) scaleX(1);
 		}
 	}
@@ -113,10 +115,10 @@
 
 @media (min-width: $desktop-min) {
 
-	.underline {
+	%underline {
 
 		&:hover {
-			&:after {
+			&::after {
 				transform: translateY(0) scaleX(1);
 			}
 		}

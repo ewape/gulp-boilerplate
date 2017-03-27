@@ -1,0 +1,37 @@
+engines:
+  eslint:
+    enabled: true  
+    checks:
+      wrap-iife:
+        enabled: false
+  scss-lint:
+    enabled: true
+    exclude_fingerprints:
+    - b85b5176ec3e2c2c5e0206fc906c62cd
+    checks:
+      Indentation:
+        enabled: false
+      PropertySortOrder:
+        enabled: false
+      FinalNewline:
+        enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+ratings:
+  paths:
+    - "**.js"
+    - "**.scss"
+exclude_paths: []
+parserOptions:
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+env:
+  amd: true
+  browser: true
+  es6: true
+  jquery: true
+  node: true
