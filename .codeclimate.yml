@@ -1,6 +1,6 @@
 engines:
   eslint:
-    enabled: true  
+    enabled: true
     checks:
       wrap-iife:
         enabled: false
@@ -24,7 +24,7 @@ ratings:
   paths:
     - "**.js"
     - "**.scss"
-exclude_paths: []
+exclude_paths: [],
 parserOptions:
   sourceType: module
   ecmaFeatures:
