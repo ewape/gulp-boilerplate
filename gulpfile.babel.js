@@ -38,7 +38,7 @@ const gulp = require('gulp'),
                 example: {
                     dest: '../../docs/symbol.html'
                 }
-            },
+            }
         },
         shape: {
             dimension: {
