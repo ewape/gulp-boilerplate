@@ -29,7 +29,7 @@ const gulp = require('gulp'),
     paths = config.paths,
 
     svgConfig = {
-        log: 'debug',
+        //log: 'debug', // info, verbose, debug
         dest: '.',
         mode: {
             symbol: {
