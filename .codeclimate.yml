@@ -8,6 +8,9 @@ engines:
     enabled: true
     exclude_fingerprints:
     - b85b5176ec3e2c2c5e0206fc906c62cd
+    - fc3f8fab628d42e71a73e3614c8ab4c7
+    - e787c34e10f2dbd3c62b3f07950a1978
+    - 10cc63692b8bf5353cf9fcd835f672fa
     checks:
       Indentation:
         enabled: false
