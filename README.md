@@ -1,5 +1,5 @@
 ### Status:
-[![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=master)](https://travis-ci.org/ewape/gulp-boilerplate)
+[![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=nunjucks)](https://travis-ci.org/ewape/gulp-boilerplate)
 [![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
 <img src="https://david-dm.org/ewape/gulp-boilerplate/dev-status.svg" alt="dependency check" />
 
@@ -45,3 +45,6 @@ $ gulp clean
 ```sh
 $ gulp w3cjs
 ```
+### Templating
+<a href="https://mozilla.github.io/nunjucks/templating.html" target="_blank">Nunjucks templating docs</a><br>
+<a href="https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage" target="_blank">Nunjucks syntax for Sublime Text:</a>

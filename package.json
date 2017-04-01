@@ -1,7 +1,7 @@
 {
     "name": "gulp-boilerplate",
     "homepage": "http://ewape.github.io/gulp-boilerplate/",
-    "version": "1.0.0",
+    "version": "2.0.0-beta",
     "title": "Gulp boilerplate",
     "description": "Gulp boilerplate",
     "repository": {
@@ -11,7 +11,7 @@
     "main": "gulpfile.babel.js",
     "scripts": {
         "test": "gulp favicon && gulp svg-sprite && gulp build && gulp w3cjs",
-        "prepare": "bower install && gulp check-for-favicon-update"
+        "prepare": "bower install && gulp bower && gulp check-for-favicon-update"
     },
     "engines": {
         "node": ">= 6.0",
@@ -33,11 +33,11 @@
         "gulp-bower-normalize": "^1.0.6",
         "gulp-cache": "^0.4.6",
         "gulp-concat": "^2.6.0",
-        "gulp-file-include": "^0.13.7",
         "gulp-imagemin": "^3.2.0",
         "gulp-jshint": "^2.0.1",
         "gulp-livereload": "^3.8.1",
         "gulp-notify": "^2.2.0",
+        "gulp-nunjucks-render": "^2.0.0",
         "gulp-real-favicon": "^0.2.2",
         "gulp-rename": "^1.2.2",
         "gulp-sass": "^2.3.2",

@@ -1,42 +1,20 @@
-.align-all {
+%align-all {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.align-v {
+%align-v {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-.align-h {
+%align-h {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-}
-
-.icon {
-	height: 60px;
-	width: 60px;
-	fill: $accent;
-	fill: var(--color-var);
-	border-radius: 50%;
-	transition: fill .1s linear;
-
-	svg {
-		max-width: 100%;
-		max-height: 100%;
-	}
-
-	&:hover {
-		fill: $fill-light;
-		background-color: $accent;
-		background-color: var(--color-var);
-		border: 2px solid $accent;
-		border: 2px solid var(--color-var);
-	}
 }
 
 .visible-desktop {

@@ -1,0 +1,13 @@
+<!-- index.nunjucks -->
+{% extends "base.nunjucks" %}
+{% import 'macros/menu.nunjucks' as menu %}
+{% block content %}
+	<header class="header">
+		{{menu.active('home')}}
+	</header>
+	<a href="https://github.com/ewape/gulp-boilerplate" class="icon-main" rel="nofollow" target="_blank">
+		<svg class="icon icon-github">
+			<use xlink:href="#icon-github"></use>
+		</svg>
+	</a>
+{% endblock %}
