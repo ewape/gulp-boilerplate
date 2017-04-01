@@ -49,41 +49,39 @@
 		transform-origin: 0% 50%;
 		transition: .3s ease;
 
+		.menu-open & {
+			border-color: $fill-light;
+			border-color: var(--color-var);
+		}
+
 		&:first-child {
 			top: 0;
+
+			.menu-open & {
+				transform: rotate(45deg);
+			}
 		}
 
 		&:nth-child(2) {
 			top: 10px;
+
+			.menu-open & {
+				transform: scale(0);
+			}
 		}
 
 		&:last-child {
 			top: 20px;
-		}
-	}
 
-	.menu-open & {
-
-		span {
-			border-color: $fill-light;
-			border-color: var(--color-var);
-
-			&:first-child {
-				transform: rotate(45deg);
-			}
-
-			&:nth-child(2) {
-				transform: scale(0);
-			}
-
-			&:last-child {
+			.menu-open & {
 				top: 21px;
 				transform: rotate(-45deg);
 			}
 		}
+	}
 
+	.menu-open & {
 		&:hover {
-
 			span {
 				border-color: $fill-light;
 			}
@@ -125,7 +123,7 @@
 
 @media (min-width: $desktop-min) {
 
-	 .main-menu {
+	.main-menu {
 		top: 2rem;
 		transform: translateX(0);
 		left: $padding-mobile;
