@@ -3,6 +3,22 @@
 [![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
 
+  - [Getting started](#getting-started)
+    - [Downloading](#downloading)
+    - [Setup](#setup)
+  - [Usage](#usage)
+    - [Watch file changes](#watch-file-changes)
+    - [Svg sprite](#svg-sprite)
+    - [Favicon](#favicon)
+    - [Fonts](#fonts)
+    - [HTML validation](#html-validation)
+    - [Rebuilding project files](#rebuilding-project-files)
+    - [Templating](#templating)
+    - [Adding dependencies](#adding-dependencies)
+  - [Options](#options)
+  - [License](#license)
+
+
 ## Getting started
 
 ### Downloading
