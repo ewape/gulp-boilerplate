@@ -38,7 +38,7 @@ const gulp = require('gulp'),
                 inline: true,
                 sprite: '../../' + paths.src + 'html/templates/partials/symbol.nunjucks',
                 example: {
-                    dest: '../../docs/symbol.html'
+                    dest: '../../' + paths.docs + 'symbol.html'
                 }
             }
         },

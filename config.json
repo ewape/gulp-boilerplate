@@ -28,6 +28,7 @@
         "lib": "./lib/",
         "dist": "./dist/",
         "src": "./src/",
-        "build": "./build/"
+        "build": "./build/",
+        "docs": "./docs/"
     }
 }
