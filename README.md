@@ -37,6 +37,11 @@ $ gulp svg-sprite
 $ gulp favicon
 ```
 
+##### Download Google webfonts and generate a stylesheet:
+```sh
+$ gulp fonts
+```
+
 ##### Clean build files:
 ```sh
 $ gulp clean
