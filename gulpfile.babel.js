@@ -8,6 +8,7 @@ const gulp = require('gulp'),
     config = JSON.parse(fs.readFileSync('config.json')),
     del = require('del'),
     faviconDataFile = config.faviconDataFile,
+    googleWebFonts = require('gulp-google-webfonts'),
     imagemin = require('gulp-imagemin'),
     imageminGuetzli = require('imagemin-guetzli'),
     jshint = require('gulp-jshint'),
@@ -24,9 +25,14 @@ const gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     w3cjs = require('gulp-w3cjs'),
 
+    paths = config.paths,
     autoprefixerOptions = config.autoprefixerOptions,
 
-    paths = config.paths,
+    fontOptions = {
+        fontsDir: '../fonts',
+        cssDir: '../scss/modules/',
+        cssFilename: '_fonts.scss'
+    },
 
     svgConfig = {
         //log: 'debug', // info, verbose, debug
@@ -108,10 +114,10 @@ const gulp = require('gulp'),
         markupFile: faviconDataFile
     };
 
-
 gulp.task('default', ['watch']);
-gulp.task('build', ['styles', 'scripts', 'html', 'images']);
+gulp.task('build', ['styles', 'scripts', 'html', 'images', 'copy']);
 gulp.task('clean', ['clean-folders']);
+gulp.task('copy', ['copy-fonts']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', () => {
@@ -136,7 +142,6 @@ gulp.task('html', () => {
             message: 'HTML ready'
         }));
 });
-
 
 gulp.task('styles', () => {
     gulp.src(paths.src + 'scss/**/*.scss')
@@ -214,6 +219,17 @@ gulp.task('images-jpg', () => {
         .pipe(gulp.dest(paths.dist + 'images'));
 });
 
+gulp.task('fonts', () => {
+    gulp.src('./fonts.list')
+        .pipe(googleWebFonts(fontOptions))
+        .pipe(gulp.dest(paths.src + 'fonts'));
+});
+
+gulp.task('copy-fonts', () => {
+    gulp.src([paths.src + 'fonts/*'])
+        .pipe(gulp.dest(paths.dist + 'fonts'));
+});
+
 gulp.task('svg-sprite', () => {
     gulp.src(paths.src + 'images/icons/*.svg')
         .pipe(svgSprite(svgConfig))
@@ -258,7 +274,6 @@ gulp.task('check-for-favicon-update', () => {
         }
     });
 });
-
 
 gulp.task('w3cjs', function() {
     gulp.src('./*.html')
