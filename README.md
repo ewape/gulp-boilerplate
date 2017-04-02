@@ -2,20 +2,20 @@
 [![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
 
-### Downloading
+### Getting started
 Clone github repository:
 ```sh
 $ git clone https://github.com/ewape/gulp-boilerplate.git
 ```
 
-### Installation
+### Setup
 After downloading this repository use following commands inside main directory to build local version of a project:
 ```sh
 $ npm i
 $ gulp build
 ```
 
-### Utilities
+### Usage
 
 #### Watch file changes
 Default task is equal to watch.
@@ -60,11 +60,23 @@ $ gulp clean
 $ gulp build
 ```
 
-### Templating
+#### Templating
 This project uses Mozilla's [Nunjucks templating](https://mozilla.github.io/nunjucks/templating.html).  
 To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file](https://raw.githubusercontent.com/mogga/sublime-nunjucks/master/Nunjucks.tmLanguage) as Nunjucks.tmLanguage in Sublime Text 3/Packages/Nunjucks Syntax directory.
 
-### Configuration
+#### Adding dependencies
+
+##### Installing npm dependencies:
+```sh
+$ npm i <dependency-name> -D
+```
+##### Installing bower dependencies:
+```sh
+$ bower install <dependency-name> --save
+```
+
+
+### Options
 
 gulpfile.babel.js:
 - svgConfig: svg sprite settings
@@ -84,14 +96,4 @@ font.list
 - use [Google Web Fons syntax](https://developers.google.com/fonts/docs/getting_started#specifying_font_families_and_styles_in_a_stylesheet_url) to set fonts available in project.  
 This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download fonts .woff files and create scss file containing @font-face declarations.
 
-### Adding dependencies
-
-#### Installing npm dependencies:
-```sh
-$ npm i <dependency-name> -D
-```
-#### Installing bower dependencies:
-```sh
-$ bower install <dependency-name> --save
-```
 
