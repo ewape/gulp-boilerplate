@@ -98,6 +98,7 @@ font.list
 This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download fonts .woff files and create scss file containing @font-face declarations.
 
 
+#### Options by type:
 
 Usage			  | Variable				| File		
 ---					| ---					    | ---			
