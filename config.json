@@ -15,6 +15,11 @@
     },
     "faviconDataFile": "faviconData.json",
     "faviconImage": "src/images/icons/github.svg",
+    "fontOptions": {
+        "fontsDir": "../fonts",
+        "cssDir": "../scss/modules/",
+        "cssFilename": "_fonts.scss"
+    },
     "autoprefixerOptions": {
         "browsers": ["last 2 versions", "> 1%", "ie >= 11", "android >= 4.4"]
     },

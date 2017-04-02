@@ -28,11 +28,7 @@ const gulp = require('gulp'),
     paths = config.paths,
     autoprefixerOptions = config.autoprefixerOptions,
 
-    fontOptions = {
-        fontsDir: '../fonts',
-        cssDir: '../scss/modules/',
-        cssFilename: '_fonts.scss'
-    },
+    fontOptions = config.fontOptions,
 
     svgConfig = {
         //log: 'debug', // info, verbose, debug
