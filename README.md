@@ -24,11 +24,9 @@ $ gulp watch
 ```
 
 #### Svg sprite
-Default configuration generates svg <symbol> sprite along with usage example in ./docs directory.
-
-Online [configuration kickstarter](http://jkphl.github.io/svg-sprite/#json)
-
-Svg-sprite documentation: (https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md)
+Default configuration generates svg <symbol> sprite along with usage example in ./docs directory.  
+Svg-sprite documentation: (https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md)  
+Online configuration kickstarter for gulp: (http://jkphl.github.io/svg-sprite/#gulp)  
 
 ```sh
 $ gulp svg-sprite
