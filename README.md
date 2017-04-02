@@ -1,21 +1,22 @@
-### Status:
 [![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=nunjucks)](https://travis-ci.org/ewape/gulp-boilerplate)
 [![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
 
-## Installation
+### Downloading
 ```sh
 $ git clone https://github.com/ewape/gulp-boilerplate.git
 ```
 
-### Project setup
-Inside project folder use commands:
+### Installation
+After downloading this repository use following commands inside main directory to build local version of a project:
 ```sh
 $ npm i
 $ gulp build
 ```
 
 ### Utilities
+
+#### Watch file changes
 Default task is equal to watch.
 LiveReload feature requires <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">ChromeLiveReload extension</a> or other setup.
 ```sh
@@ -24,7 +25,7 @@ $ gulp watch
 ```
 
 #### Svg sprite
-Default configuration generates svg <symbol> sprite along with usage example in ./docs directory.  
+Default configuration generates svg «symbol» mode sprite along with usage example in ./docs directory.  
 Svg-sprite documentation: (https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md)  
 Online configuration kickstarter for gulp: (http://jkphl.github.io/svg-sprite/#gulp)  
 
@@ -39,34 +40,49 @@ Favicon files are generated with [gulp-real-favicon](https://github.com/RealFavi
 $ gulp favicon
 ```
 
-##### Download Google webfonts and generate a stylesheet:
+#### Fonts
+Download Google webfonts and generate a stylesheet:
 ```sh
 $ gulp fonts
 ```
 
-##### Validate HTML:
+#### HTML validation:
 ```sh
 $ gulp w3cjs
 ```
 
-##### Rebuild project files:
+#### Rebuilding project files:
 ```sh
 $ gulp clean
 $ gulp build
 ```
 
-##### Nunjucks templating engine:
-<a href="https://mozilla.github.io/nunjucks/templating.html" target="_blank">Docs</a><br>
-<a href="https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage" target="_blank">Syntax support for Sublime Text</a>
+#### Templating:
+Nunjucks [documentation](https://mozilla.github.io/nunjucks/templating.html)  
 
+[Nunjucks syntax support for Sublime Text](https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage)
+
+### Configuration
+config.json: 
+- data: variables available in nunjucks templates, including Open graph tags
+- faviconImage: favicon image path
+- autoprefixerOptions: Autoprefixer options
+- paths: project directory structure
+
+bower.json:
+- overrides: overrides defaults from dependency package bower.json. Here you can explicitly set what files will be included in ./lib directory by $ gulp bower task.
+
+font.list
+- use [Google Web Fons syntax](https://developers.google.com/fonts/docs/getting_started#specifying_font_families_and_styles_in_a_stylesheet_url) to set fonts available in project.  
+This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download fonts .woff files and create scss file containing @font-face declarations.
 
 ### Adding dependencies
 
-##### Installing npm dependencies:
+#### Installing npm dependencies:
 ```sh
 $ npm i <dependency-name> -D
 ```
-##### Installing bower dependencies:
+#### Installing bower dependencies:
 ```sh
 $ bower install <dependency-name> --save
 ```
