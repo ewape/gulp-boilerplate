@@ -40,7 +40,7 @@ const gulp = require('gulp'),
         mode: {
             symbol: {
                 inline: true,
-                sprite: '../../' + paths.src + 'html/templates/sprite.svg.html',
+                sprite: '../../' + paths.src + 'html/templates/partials/symbol.nunjucks',
                 example: {
                     dest: '../../docs/symbol.html'
                 }
