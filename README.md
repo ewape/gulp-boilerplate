@@ -3,6 +3,7 @@
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
 
 ### Downloading
+Clone github repository:
 ```sh
 $ git clone https://github.com/ewape/gulp-boilerplate.git
 ```
