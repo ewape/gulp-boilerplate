@@ -44,10 +44,10 @@ Options are defined in gulpfile.babel.js under faviconConfig variable. This setu
 Input image supported formats: .png, .jpg, .svg.
 
 ### Fonts
-Download Google webfonts and update @font-face declarations in ./src/scss/modules/_fonts.scss file:
 ```sh
 $ gulp fonts
 ```
+Downloads Google webfonts and updates @font-face declarations in ./src/scss/modules/_fonts.scss.
 
 ### HTML validation
 ```sh
