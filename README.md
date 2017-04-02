@@ -111,4 +111,6 @@ Templating   		  | `data`			| *config.json*
 Browser prefixes   	  | `autoprefixerOptions`	| *config.json*
 Bower dependencies 	  | `overrides`			| *bower.json*
 Directory tree    	  | `paths`			| *config.json*		
-	
+
+### License
+This project is licensed under the MIT License - see the [LICENSE](gulp-boilerplate/LICENSE) file for details.
