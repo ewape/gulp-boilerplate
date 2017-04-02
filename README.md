@@ -70,7 +70,7 @@ To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file]
 ```sh
 $ npm i <dependency-name> -D
 ```
-##### Installing bower dependencies:
+##### Installing Bower dependencies:
 ```sh
 $ bower install <dependency-name> --save
 ```
@@ -100,15 +100,15 @@ This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-
 
 #### Options by type:
 
-Usage			  | Variable				| File		
----					| ---					    | ---			
-Sprite		  | `svgConfig`	    | *gulpfile.babel.js*		
-Favicon		    | `faviconConfig`	| *gulpfile.babel.js*	
-&nbsp;      | `faviconImage`  | *config.json*	
-Fonts       | `fontOptions`		| *config.json*
-&nbsp;       |    &nbsp; 	    | *font.list*	
-Templating   | `data`		      | *config.json*	
-Browser prefixes   | `autoprefixerOptions`		| *config.json*
-Bower dependencies | `overrides`		| *bower.json*
-Directory tree    | `paths`		| *config.json*		
+Usage			  | Variable			| File		
+---			  | ---				| ---			
+Sprite		  	  | `svgConfig`	    		| *gulpfile.babel.js*		
+Favicon		    	  | `faviconConfig`		| *gulpfile.babel.js*	
+&nbsp;      		  | `faviconImage`  		| *config.json*	
+Fonts       		  | `fontOptions`		| *config.json*
+&nbsp;       		  |  - 		    		| *font.list*	
+Templating   		  | `data`			| *config.json*	
+Browser prefixes   	  | `autoprefixerOptions`	| *config.json*
+Bower dependencies 	  | `overrides`			| *bower.json*
+Directory tree    	  | `paths`			| *config.json*		
 	
