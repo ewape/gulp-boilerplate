@@ -60,7 +60,7 @@ $ gulp build
 
 ### Templating
 This project uses Mozilla's [Nunjucks templating](https://mozilla.github.io/nunjucks/templating.html).  
-[Nunjucks syntax support for Sublime Text](https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage)
+To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file](https://raw.githubusercontent.com/mogga/sublime-nunjucks/master/Nunjucks.tmLanguage) as Nunjucks.tmLanguage in Sublime Text 3/Packages/Nunjucks Syntax directory.
 
 ### Configuration
 config.json: 
