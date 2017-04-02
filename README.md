@@ -23,12 +23,20 @@ $ gulp
 $ gulp watch
 ```
 
-##### Generate svg sprite:
+#### Svg sprite
+Default configuration generates svg <symbol> sprite along with usage example in ./docs directory.
+
+Online [configuration kickstarter](http://jkphl.github.io/svg-sprite/#json)
+
+Svg-sprite documentation: (https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md)
+
 ```sh
 $ gulp svg-sprite
 ```
 
-##### Generate favicon:
+#### Favicon
+Favicon files are generated with [gulp-real-favicon](https://github.com/RealFaviconGenerator/gulp-real-favicon). Vector images are supported as source file.
+
 ```sh
 $ gulp favicon
 ```
