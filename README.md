@@ -121,15 +121,15 @@ This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-
 
 Usage			  | Variable			| File		
 ---			  | ---				| ---			
-Sprite		  	  | `svgConfig`	    		| *gulpfile.babel.js*		
-Favicon		    	  | `faviconConfig`		| *gulpfile.babel.js*	
-&nbsp;      		  | `faviconImage`  		| *config.json*	
-Fonts       		  | `fontOptions`		| *config.json*
-&nbsp;       		  |  - 		    		| *font.list*	
-Templating   		  | `data`			| *config.json*	
-Browser prefixes   	  | `autoprefixerOptions`	| *config.json*
-Bower dependencies 	  | `overrides`			| *bower.json*
-Directory tree    	  | `paths`			| *config.json*		
+Sprite		  	  | `svgConfig`	    		| [gulpfile.babel.js](https://github.com/ewape/gulp-boilerplate/blob/master/gulpfile.babel.js#L33)		
+Favicon		    	  | `faviconConfig`		| [gulpfile.babel.js](https://github.com/ewape/gulp-boilerplate/blob/master/gulpfile.babel.js#L60)
+&nbsp;      		  | `faviconImage`  		| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L17)	
+Fonts       		  | `fontOptions`		| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L18)
+&nbsp;       		  |  - 		    		| [font.list](https://github.com/ewape/gulp-boilerplate/blob/master/fonts.list)	
+Templating   		  | `data`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L2)
+Browser prefixes   	  | `autoprefixerOptions`	| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L23)
+Bower dependencies 	  | `overrides`			| [bower.json](https://github.com/ewape/gulp-boilerplate/blob/master/bower.json#L32)
+Directory tree    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/ewape/gulp-boilerplate/blob/master/LICENSE.md) file for details.
