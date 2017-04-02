@@ -4,12 +4,14 @@
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
 
 ## Getting started
+
+### Downloading
 Clone github repository:
 ```sh
 $ git clone https://github.com/ewape/gulp-boilerplate.git
 ```
 
-## Setup
+### Setup
 Use following commands inside main directory to build local version of a project:
 ```sh
 $ npm i
