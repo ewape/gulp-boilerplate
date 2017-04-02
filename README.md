@@ -78,22 +78,36 @@ $ bower install <dependency-name> --save
 
 ### Options
 
+
 gulpfile.babel.js:
-- svgConfig: svg sprite settings
-- faviconConfig: favicon images settings
+- `svgConfig` svg sprite settings
+- `faviconConfig` favicon images settings
 
 config.json: 
-- data: variables available in nunjucks templates, including Open Graph protocol settings
-- faviconImage: favicon image path
-- fontOptions: font related directory paths
-- autoprefixerOptions: Autoprefixer options
-- paths: project directory structure
+- `data` variables available in nunjucks templates, including Open Graph protocol settings
+- `faviconImage` favicon image path
+- `fontOptions` font related directory paths
+- `autoprefixerOptions` Autoprefixer options
+- `paths` project directory structure
 
 bower.json:
-- overrides: overrides defaults from dependency package bower.json. Here you can explicitly set what files will be included in ./lib directory by $ gulp bower task.
+- `overrides` overrides defaults from dependency package bower.json. Here you can explicitly set what files will be included in ./lib directory by $ gulp bower task.
 
 font.list
 - use [Google Web Fons syntax](https://developers.google.com/fonts/docs/getting_started#specifying_font_families_and_styles_in_a_stylesheet_url) to set fonts available in project.  
 This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download fonts .woff files and create scss file containing @font-face declarations.
 
 
+
+Usage			  | Variable				| File		
+---					| ---					    | ---			
+Sprite		  | `svgConfig`	    | *gulpfile.babel.js*		
+Favicon		    | `faviconConfig`	| *gulpfile.babel.js*	
+&nbsp;      | `faviconImage`  | *config.json*	
+Fonts       | `fontOptions`		| *config.json*
+&nbsp;       |    &nbsp; 	    | *font.list*	
+Templating   | `data`		      | *config.json*	
+Browser prefixes   | `autoprefixerOptions`		| *config.json*
+Bower dependencies | `overrides`		| *bower.json*
+Directory tree    | `paths`		| *config.json*		
+	
