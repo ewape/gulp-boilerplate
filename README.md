@@ -58,9 +58,8 @@ $ gulp clean
 $ gulp build
 ```
 
-#### Templating:
-Nunjucks [documentation](https://mozilla.github.io/nunjucks/templating.html)  
-
+### Templating
+This project uses Mozilla's [Nunjucks templating](https://mozilla.github.io/nunjucks/templating.html).  
 [Nunjucks syntax support for Sublime Text](https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage)
 
 ### Configuration
