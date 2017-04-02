@@ -35,7 +35,9 @@ $ gulp svg-sprite
 ```
 
 #### Favicon
-Favicon files are generated with [gulp-real-favicon](https://github.com/RealFaviconGenerator/gulp-real-favicon). Vector images are supported as source file.
+Favicon files are generated with [gulp-real-favicon](https://github.com/RealFaviconGenerator/gulp-real-favicon).  
+Options are defined in gulpfile.babel.js under faviconConfig variable. This setup uses faviconDataFile.json to generate HTML markup in ./src/html/templates/partials/favicon.nunjucks file.  
+Input image supported formats: .png, .jpg, .svg.
 
 ```sh
 $ gulp favicon
@@ -63,6 +65,11 @@ This project uses Mozilla's [Nunjucks templating](https://mozilla.github.io/nunj
 To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file](https://raw.githubusercontent.com/mogga/sublime-nunjucks/master/Nunjucks.tmLanguage) as Nunjucks.tmLanguage in Sublime Text 3/Packages/Nunjucks Syntax directory.
 
 ### Configuration
+
+gulpfile.babel.js:
+- svgConfig: svg sprite settings
+- faviconConfig: favicon images settings
+
 config.json: 
 - data: variables available in nunjucks templates, including Open Graph protocol settings
 - faviconImage: favicon image path
