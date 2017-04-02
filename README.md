@@ -9,7 +9,7 @@ $ git clone https://github.com/ewape/gulp-boilerplate.git
 ```
 
 ### Setup
-After downloading this repository use following commands inside main directory to build local version of a project:
+Use following commands inside main directory to build local version of a project:
 ```sh
 $ npm i
 $ gulp build
@@ -26,7 +26,7 @@ $ gulp watch
 ```
 
 #### Svg sprite
-Default configuration generates svg «symbol» mode sprite along with usage example in ./docs directory.  
+Default configuration generates svg «symbol» mode sprite template based on .svg files from ./src/images/icons directory along with usage example in ./docs.  
 Svg-sprite documentation: https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md  
 Online configuration kickstarter for gulp: http://jkphl.github.io/svg-sprite/#gulp  
 
