@@ -38,17 +38,20 @@ $ gulp favicon
 $ gulp fonts
 ```
 
-##### Clean build files:
-```sh
-$ gulp clean
-```
 ##### Validate HTML:
 ```sh
 $ gulp w3cjs
 ```
-##### Templating
-<a href="https://mozilla.github.io/nunjucks/templating.html" target="_blank">Nunjucks templating docs</a><br>
-<a href="https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage" target="_blank">Nunjucks syntax support for Sublime Text</a>
+
+##### Rebuild project files:
+```sh
+$ gulp clean
+$ gulp build
+```
+
+##### Nunjucks templating engine:
+<a href="https://mozilla.github.io/nunjucks/templating.html" target="_blank">Docs</a><br>
+<a href="https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage" target="_blank">Syntax support for Sublime Text</a>
 
 
 ### Adding dependencies
