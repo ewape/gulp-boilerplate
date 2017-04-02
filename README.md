@@ -113,4 +113,4 @@ Bower dependencies 	  | `overrides`			| *bower.json*
 Directory tree    	  | `paths`			| *config.json*		
 
 ### License
-This project is licensed under the MIT License - see the [LICENSE](gulp-boilerplate/LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ewape/gulp-boilerplate/blob/master/LICENSE.md) file for details.
