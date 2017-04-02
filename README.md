@@ -41,7 +41,7 @@ $ gulp favicon
 ```
 
 #### Fonts
-Download Google webfonts and generate a stylesheet:
+Download Google webfonts and update @font-face declarations in ./src/scss/modules/_fonts.scss file:
 ```sh
 $ gulp fonts
 ```
@@ -64,8 +64,9 @@ Nunjucks [documentation](https://mozilla.github.io/nunjucks/templating.html)
 
 ### Configuration
 config.json: 
-- data: variables available in nunjucks templates, including Open graph tags
+- data: variables available in nunjucks templates, including Open Graph protocol settings
 - faviconImage: favicon image path
+- fontOptions: font related directory paths
 - autoprefixerOptions: Autoprefixer options
 - paths: project directory structure
 
