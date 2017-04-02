@@ -103,7 +103,7 @@ gulpfile.babel.js:
 - `faviconConfig` favicon images settings
 
 config.json: 
-- `data` variables available in nunjucks templates, including Open Graph protocol settings
+- `data` variables available in nunjucks templates, including [Open Graph](http://ogp.me/) protocol settings
 - `faviconImage` favicon image path
 - `fontOptions` font related directory paths
 - `autoprefixerOptions` Autoprefixer options
@@ -114,7 +114,7 @@ bower.json:
 
 font.list
 - use [Google Web Fons syntax](https://developers.google.com/fonts/docs/getting_started#specifying_font_families_and_styles_in_a_stylesheet_url) to set fonts available in project.  
-This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download fonts .woff files and create scss file containing @font-face declarations.
+This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download font files and create scss file containing @font-face declarations.
 
 
 ### Options by type
