@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=nunjucks)](https://travis-ci.org/ewape/gulp-boilerplate)
 [![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
-[![Known Vulnerabilities](https://snyk.io/test/github/ewape/gulp-boilerplate/badge.svg)](https://snyk.io/test/github/ewape/gulp-boilerplate)
 
 # Gulp boilerplate
 
