@@ -9,21 +9,13 @@ $ git clone https://github.com/ewape/gulp-boilerplate.git
 ```
 
 ### Project setup
+Inside project folder use commands:
 ```sh
 $ npm i
 $ gulp build
 ```
 
-##### Installing npm dependencies:
-```sh
-$ npm i <dependency-name> -D
-```
-##### Installing bower dependencies:
-```sh
-$ bower install <dependency-name> --save
-```
-
-### Tasks
+### Utilities
 Default task is equal to watch.
 LiveReload feature requires <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">ChromeLiveReload extension</a> or other setup.
 ```sh
@@ -54,6 +46,19 @@ $ gulp clean
 ```sh
 $ gulp w3cjs
 ```
-### Templating
+##### Templating
 <a href="https://mozilla.github.io/nunjucks/templating.html" target="_blank">Nunjucks templating docs</a><br>
 <a href="https://github.com/mogga/sublime-nunjucks/blob/master/Nunjucks.tmLanguage" target="_blank">Nunjucks syntax support for Sublime Text</a>
+
+
+### Adding dependencies
+
+##### Installing npm dependencies:
+```sh
+$ npm i <dependency-name> -D
+```
+##### Installing bower dependencies:
+```sh
+$ bower install <dependency-name> --save
+```
+
