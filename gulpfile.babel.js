@@ -271,7 +271,7 @@ gulp.task('check-for-favicon-update', () => {
     });
 });
 
-gulp.task('w3cjs', function() {
+gulp.task('w3c', function() {
     gulp.src('./*.html')
         .pipe(w3cjs())
         .pipe(w3cjs.reporter());
