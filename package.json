@@ -10,7 +10,7 @@
     },
     "main": "gulpfile.babel.js",
     "scripts": {
-        "test": "gulp favicon && gulp svg-sprite && gulp build && gulp w3cjs",
+        "test": "gulp favicon && gulp svg-sprite && gulp build && gulp w3c",
         "prepare": "bower install && gulp bower && gulp check-for-favicon-update"
     },
     "engines": {
