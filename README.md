@@ -5,7 +5,7 @@
 # Gulp boilerplate
 
   - [Getting started](#getting-started)
-    - [Downloading](#downloading)
+    - [Download](#download)
     - [Setup](#setup)
   - [Usage](#usage)
     - [Watch file changes](#watch-file-changes)
@@ -22,7 +22,7 @@
 
 ## Getting started
 
-### Downloading
+### Download
 Clone github repository:
 ```sh
 $ git clone https://github.com/ewape/gulp-boilerplate.git
@@ -138,7 +138,7 @@ Fonts       		  | `fontOptions`		| [config.json](https://github.com/ewape/gulp-b
 Templating   		  | `data`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L2)
 Browser prefixes   	  | `autoprefixerOptions`	| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L23)
 Bower dependencies 	  | `overrides`			| [bower.json](https://github.com/ewape/gulp-boilerplate/blob/master/bower.json#L32)
-Directory tree    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
+Project directories    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/ewape/gulp-boilerplate/blob/master/LICENSE.md) file for details.
