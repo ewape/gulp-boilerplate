@@ -13,9 +13,9 @@
     - [Favicon](#favicon)
     - [Fonts](#fonts)
     - [HTML validation](#html-validation)
-    - [Rebuilding project files](#rebuilding-project-files)
     - [Templating](#templating)
-    - [Adding dependencies](#adding-dependencies)
+    - [Dependencies](#dependencies)
+    - [Rebuilding project files](#rebuilding-project-files)
   - [Options](#options)
   - [License](#license)
 
@@ -73,17 +73,11 @@ Downloads Google webfonts and updates @font-face declarations in ./src/scss/modu
 $ gulp w3cjs
 ```
 
-### Rebuilding project files
-```sh
-$ gulp clean
-$ gulp build
-```
-
 ### Templating
 This project uses Mozilla's [Nunjucks templating](https://mozilla.github.io/nunjucks/templating.html).  
 To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file](https://raw.githubusercontent.com/mogga/sublime-nunjucks/master/Nunjucks.tmLanguage) as Nunjucks.tmLanguage in Sublime Text 3/Packages/Nunjucks Syntax directory.
 
-### Adding dependencies
+### Dependencies
 
 #### Installing npm dependencies
 ```sh
@@ -92,6 +86,13 @@ $ npm i <dependency-name> -D
 #### Installing Bower dependencies
 ```sh
 $ bower install <dependency-name> --save
+```
+
+### Rebuilding project files
+After updating sprites, favicons, fonts and dependencies rebuild project:
+```sh
+$ gulp clean
+$ gulp build
 ```
 
 
@@ -112,9 +113,17 @@ config.json:
 bower.json:
 - `overrides` overrides defaults from dependency package bower.json. Here you can explicitly set what files will be included in ./lib directory by $ gulp bower task.
 
-font.list
-- use [Google Web Fons syntax](https://developers.google.com/fonts/docs/getting_started#specifying_font_families_and_styles_in_a_stylesheet_url) to set fonts available in project.  
-This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download font files and create scss file containing @font-face declarations.
+font.list  
+This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download .woff files from [Google Fonts](https://fonts.google.com/) and update @font-face declarations in ./src/scss/modules/_fonts.scss.  
+Supported formats:
+
+    
+      # Tab-delimeted format
+      Oswald  400,700 latin,latin-ext
+
+      # Google format
+      Roboto:300,400,700&subset=latin-ext
+      Lato:300,400,700&subset=latin-ext
 
 
 ### Options by type
