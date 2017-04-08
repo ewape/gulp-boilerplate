@@ -3,6 +3,7 @@ const gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     babel = require('gulp-babel'),
     bowerNormalizer = require('gulp-bower-normalize'),
+    browserSync = require('browser-sync').create(),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
     config = JSON.parse(fs.readFileSync('config.json')),
@@ -12,7 +13,6 @@ const gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     imageminGuetzli = require('imagemin-guetzli'),
     jshint = require('gulp-jshint'),
-    livereload = require('gulp-livereload'),
     mainBowerFiles = require('main-bower-files'),
     notify = require('gulp-notify'),
     nunjucks = require('gulp-nunjucks-render'),
@@ -116,13 +116,20 @@ gulp.task('clean', ['clean-folders']);
 gulp.task('copy', ['copy-fonts']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
-gulp.task('watch', () => {
-    livereload.listen();
+gulp.task('watch', ['browser-sync'], () => {
     gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
     gulp.watch(paths.src + 'html/**/*.+(html|nunjucks)', ['html']);
-    gulp.watch([paths.dist + '**', '*.html']).on('change', livereload.changed);
+    gulp.watch(["*.html", paths.dist + 'js/*.js']).on('change', browserSync.reload);
+});
+
+gulp.task('browser-sync', () => {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
 });
 
 gulp.task('clean-folders', () => del.sync([paths.dist, paths.build, paths.lib]));
@@ -153,6 +160,9 @@ gulp.task('styles', () => {
         .pipe(gulp.dest(paths.dist + 'css'))
         .pipe(notify({
             message: 'Styles ready'
+        }))
+        .pipe(browserSync.stream({
+            match: '**/*.css'
         }));
 });
 
@@ -200,7 +210,8 @@ gulp.task('images', ['images-jpg'], () => {
                 })
             ]
         })))
-        .pipe(gulp.dest(paths.dist + 'images'));
+        .pipe(gulp.dest(paths.dist + 'images'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('images-jpg', () => {
