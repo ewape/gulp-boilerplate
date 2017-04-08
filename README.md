@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=nunjucks)](https://travis-ci.org/ewape/gulp-boilerplate)
+[![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=master)](https://travis-ci.org/ewape/gulp-boilerplate)
 [![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
 [![bitHound Overall Score](https://www.bithound.io/github/ewape/gulp-boilerplate/badges/score.svg)](https://www.bithound.io/github/ewape/gulp-boilerplate)
@@ -58,7 +58,7 @@ Online configuration kickstarter for gulp: http://jkphl.github.io/svg-sprite/#gu
 $ gulp favicon
 ```
 Favicon files are generated with [gulp-real-favicon](https://github.com/RealFaviconGenerator/gulp-real-favicon).  
-Options are defined in gulpfile.babel.js under faviconConfig variable. This setup uses faviconDataFile.json to generate HTML markup in ./src/html/templates/partials/favicon.nunjucks file.  
+Options are defined in gulpfile.babel.js under faviconConfig variable. This setup uses faviconDataFile.json to generate HTML markup in ./src/html/templates/partials/favicon.njk file.  
 Input image supported formats: .png, .jpg, .svg.
 
 ### Fonts

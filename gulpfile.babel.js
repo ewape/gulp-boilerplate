@@ -6,7 +6,7 @@ const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
-    config = JSON.parse(fs.readFileSync('config.json')),
+    config = require('./config.json'),
     del = require('del'),
     faviconDataFile = config.faviconDataFile,
     googleWebFonts = require('gulp-google-webfonts'),
@@ -36,7 +36,7 @@ const gulp = require('gulp'),
         mode: {
             symbol: {
                 inline: true,
-                sprite: '../../' + paths.src + 'html/templates/partials/symbol.nunjucks',
+                sprite: '../../' + paths.src + 'html/templates/partials/symbol.njk',
                 example: {
                     dest: '../../' + paths.docs + 'symbol.html'
                 }
@@ -120,7 +120,7 @@ gulp.task('watch', ['browser-sync'], () => {
     gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
-    gulp.watch(paths.src + 'html/**/*.+(html|nunjucks)', ['html']);
+    gulp.watch(paths.src + 'html/**/*.+(html|njk)', ['html']);
     gulp.watch(["*.html", paths.dist + 'js/*.js']).on('change', browserSync.reload);
 });
 
@@ -135,7 +135,7 @@ gulp.task('browser-sync', () => {
 gulp.task('clean-folders', () => del.sync([paths.dist, paths.build, paths.lib]));
 
 gulp.task('html', () => {
-    gulp.src([paths.src + 'html/pages/**/*.+(html|nunjucks)'])
+    gulp.src([paths.src + 'html/pages/**/*.+(html|njk)'])
         .pipe(nunjucks({
             data: config.data,
             path: [paths.src + 'html/templates']
@@ -158,11 +158,11 @@ gulp.task('styles', () => {
         }))
         .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.dist + 'css'))
-        .pipe(notify({
-            message: 'Styles ready'
-        }))
         .pipe(browserSync.stream({
             match: '**/*.css'
+        }))
+        .pipe(notify({
+            message: 'Styles ready'
         }));
 });
 
@@ -264,7 +264,7 @@ gulp.task('generate-favicon-images', (done) => realFavicon.generateFavicon(favic
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
 gulp.task('inject-favicon-markups', ['generate-favicon-images'], () => {
-    return gulp.src([paths.src + 'html/templates/partials/favicon.nunjucks'])
+    return gulp.src([paths.src + 'html/templates/partials/favicon.njk'])
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(faviconDataFile)).favicon.html_code))
         .pipe(gulp.dest(paths.src + 'html/templates/partials/'));
 });
