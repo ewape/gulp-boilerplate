@@ -8,7 +8,7 @@
     - [Download](#download)
     - [Setup](#setup)
   - [Usage](#usage)
-    - [Watch file changes](#watch-file-changes)
+    - [Watch](#watch)
     - [Svg sprite](#svg-sprite)
     - [Favicon](#favicon)
     - [Fonts](#fonts)
@@ -37,11 +37,9 @@ $ gulp build
 
 ## Usage
 
-### Watch file changes
-Default task is equal to watch.
-LiveReload feature requires <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">ChromeLiveReload extension</a> or other setup.
+### Watch
+Watching changes in files is handled by [Browsersync](https://github.com/Browsersync/browser-sync).
 ```sh
-$ gulp
 $ gulp watch
 ```
 
