@@ -9,7 +9,8 @@
             menuSelector = '.main-menu',
             openMenuClass = 'menu-open',
             menu = body.querySelector(menuSelector),
-            transitionDelay = 300;
+            transitionDelay = 300,
+            singlePage = true;
 
         const openMenu = () => body.classList.add(openMenuClass);
         const closeMenu = () => body.classList.remove(openMenuClass);
@@ -22,9 +23,10 @@
         };
 
         const addEvents = () => {
-            let links = Array.apply(null, menu.childNodes);
-            links.map((link) => link.addEventListener('click', menuClick));
             button.addEventListener('click', toggleMenu);
+            if (singlePage) {
+                Array.from(menu.childNodes).map((link) => link.addEventListener('click', menuClick));
+            }
         };
 
         const init = () => addEvents();

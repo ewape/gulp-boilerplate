@@ -19,6 +19,7 @@
         const setCookie = () => {
             var acceptBtn = document.getElementById(cookiesMessage.acceptId),
                 messageContainer = document.getElementById(cookiesMessage.containerId);
+
             acceptBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 localStorage.setItem(cookiesMessage.acceptedSlug, 1);
