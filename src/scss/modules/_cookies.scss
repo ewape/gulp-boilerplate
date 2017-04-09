@@ -6,6 +6,10 @@
 	transition: transform .3s linear;
 	font-size: .8em;
 	background-color: rgba(#000, .1);
+
+	a {
+		@extend %content-link;
+	}
 }
 
 .cookies-container {

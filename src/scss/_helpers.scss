@@ -65,6 +65,17 @@
 
 }
 
+%content-link {
+	text-decoration: underline;
+	color: $accent;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: $accent-dark;
+		}
+}
+
 
 @media (min-width: $desktop-min) {
 

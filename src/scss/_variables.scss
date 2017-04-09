@@ -7,8 +7,8 @@ $padding-desktop: $padding-mobile * 4;
 $mobile-max: 1024px;
 $desktop-min: 1025px;
 
-$accent: #65a02a;
-$accent-dark: darken(#65a02a, 10%);
+$accent: #2a95f3;
+$accent-dark: darken($accent, 15%);
 
 $error: #db4437;
 $success: #4caf50;
