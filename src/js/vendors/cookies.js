@@ -1,42 +1,45 @@
-(function() {
+(() => {
 
     "use strict";
 
     const cookies = (() => {
 
-        const cookiesMessage = {
+        const options = {
             text: 'Strona stosuje pliki cookies. Korzystanie ze strony oznacza zgodę na wykorzystanie plików cookies zgodnie z',
-            acceptLabel: 'Akceptuj',
             linkLabel: 'Polityką cookies',
+            acceptLabel: 'Akceptuj',
             containerId: 'cookies-message-container',
             acceptId: 'accept-cookies',
             acceptedSlug: 'cookies-accepted',
+            btnClasses: 'btn cookies-accept-btn',
             url: 'cookies-url'
         };
 
-        const readCookie = () => localStorage.getItem(cookiesMessage.acceptedSlug);
+        const readCookie = () => localStorage.getItem(options.acceptedSlug);
 
         const setCookie = () => {
-            var acceptBtn = document.getElementById(cookiesMessage.acceptId),
-                messageContainer = document.getElementById(cookiesMessage.containerId);
+            let acceptBtn = document.getElementById(options.acceptId),
+                messageContainer = document.getElementById(options.containerId);
 
-            acceptBtn.addEventListener('click', function(e) {
+            acceptBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                localStorage.setItem(cookiesMessage.acceptedSlug, 1);
-                messageContainer.classList.add(cookiesMessage.acceptedSlug);
+                localStorage.setItem(options.acceptedSlug, 1);
+                messageContainer.classList.add(options.acceptedSlug);
             });
         };
 
         const addCookieMessage = () => {
-            var messageContainer = document.createElement('div');
-            messageContainer.setAttribute('id', cookiesMessage.containerId);
-            messageContainer.setAttribute('class', cookiesMessage.containerId);
-            var htmlCode = '<div class="container cookies-container"><p class="cookies-message-text">' +
-                cookiesMessage.text +
-                ' <a class="cookies-link" target="_blank" href="' + location.protocol + '//' + location.host + cookiesMessage.url + '">' + cookiesMessage.linkLabel +
-                '</a>. </p><button type="button" id="' + cookiesMessage.acceptId + '" class="btn cookies-accept-btn">' +
-                cookiesMessage.acceptLabel +
-                '</button></div>';
+            let messageContainer = document.createElement('div');
+            messageContainer.setAttribute('id', options.containerId);
+            messageContainer.setAttribute('class', options.containerId);
+
+            let htmlCode = `<div class="container cookies-container"><p class="cookies-message-text">` +
+                `${options.text} ` +
+                `<a class="cookies-link" target="_blank" href="${location.protocol}//${location.host}${options.url}">` +
+                options.linkLabel +
+                `</a>. </p><button type="button" id="${options.acceptId}" class="${options.btnClasses}">` +
+                options.acceptLabel +
+                `</button></div>`;
 
             messageContainer.innerHTML = htmlCode;
             document.body.appendChild(messageContainer);
@@ -44,7 +47,7 @@
         };
 
         const checkCookiesAccepted = () => {
-            var cookie = readCookie();
+            let cookie = readCookie();
             if (cookie === null) {
                 addCookieMessage();
             }
@@ -53,7 +56,7 @@
         const init = () => checkCookiesAccepted();
 
         return {
-            init: init
+            init
         };
 
     })();

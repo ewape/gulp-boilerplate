@@ -1,4 +1,4 @@
-(function() {
+(() => {
 
     "use strict";
 
@@ -32,10 +32,10 @@
         const init = () => addEvents();
 
         return {
-            init: init,
-            openMenu: openMenu,
-            closeMenu: closeMenu,
-            getMenuState: getMenuState
+            init,
+            openMenu,
+            closeMenu,
+            getMenuState
         };
 
     })();
