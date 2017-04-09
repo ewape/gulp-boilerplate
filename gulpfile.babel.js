@@ -264,7 +264,7 @@ gulp.task('generate-favicon-images', (done) => realFavicon.generateFavicon(favic
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
 gulp.task('inject-favicon-markups', ['generate-favicon-images'], () => {
-    return gulp.src([paths.src + 'html/templates/partials/favicon.njk'])
+    gulp.src([paths.src + 'html/templates/partials/favicon.njk'])
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(faviconDataFile)).favicon.html_code))
         .pipe(gulp.dest(paths.src + 'html/templates/partials/'));
 });
@@ -274,7 +274,7 @@ gulp.task('inject-favicon-markups', ['generate-favicon-images'], () => {
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
 gulp.task('check-for-favicon-update', () => {
-    var currentVersion = JSON.parse(fs.readFileSync(faviconDataFile)).version;
+    let currentVersion = JSON.parse(fs.readFileSync(faviconDataFile)).version;
     realFavicon.checkForUpdates(currentVersion, (err) => {
         if (err) {
             throw err;
