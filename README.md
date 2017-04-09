@@ -140,4 +140,4 @@ Bower dependencies 	  | `overrides`			| [bower.json](https://github.com/ewape/gu
 Project directories    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/ewape/gulp-boilerplate/blob/master/LICENSE.md) file for details.
+[MIT License](https://en.wikipedia.org/wiki/MIT_License)
