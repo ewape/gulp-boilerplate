@@ -7,38 +7,39 @@
         const options = {
             text: 'Strona stosuje pliki cookies. Korzystanie ze strony oznacza zgodę na wykorzystanie plików cookies zgodnie z',
             linkLabel: 'Polityką cookies',
-            acceptLabel: 'Akceptuj',
-            containerId: 'cookies-message-container',
-            acceptId: 'accept-cookies',
-            acceptedSlug: 'cookies-accepted',
             btnClasses: 'btn cookies-accept-btn',
-            url: 'cookies-url'
+            btnId: 'accept-cookies',
+            btnLabel: 'Akceptuj',
+            containerId: 'cookies-message-container',
+            cookieKey: 'cookies-accepted',
+            policyUrl: '/cookies-policy.html'
         };
 
-        const readCookie = () => localStorage.getItem(options.acceptedSlug);
+        const readCookie = () => localStorage.getItem(options.cookieKey);
 
         const setCookie = () => {
-            let acceptBtn = document.getElementById(options.acceptId),
+            let acceptBtn = document.getElementById(options.btnId),
                 messageContainer = document.getElementById(options.containerId);
 
             acceptBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                localStorage.setItem(options.acceptedSlug, 1);
-                messageContainer.classList.add(options.acceptedSlug);
+                localStorage.setItem(options.cookieKey, 1);
+                messageContainer.classList.add(options.cookieKey);
             });
         };
 
         const addCookieMessage = () => {
             let messageContainer = document.createElement('div');
+
             messageContainer.setAttribute('id', options.containerId);
             messageContainer.setAttribute('class', options.containerId);
 
             let htmlCode = `<div class="container cookies-container"><p class="cookies-message-text">` +
                 `${options.text} ` +
-                `<a class="cookies-link" target="_blank" href="${location.protocol}//${location.host}${options.url}">` +
+                `<a class="cookies-link" target="_blank" href="${location.protocol}//${location.host}${options.policyUrl}">` +
                 options.linkLabel +
-                `</a>. </p><button type="button" id="${options.acceptId}" class="${options.btnClasses}">` +
-                options.acceptLabel +
+                `</a>. </p><button type="button" id="${options.btnId}" class="${options.btnClasses}">` +
+                options.btnLabel +
                 `</button></div>`;
 
             messageContainer.innerHTML = htmlCode;
