@@ -7,4 +7,5 @@ docs/
 node_modules
 bower_components
 src/images/favicon
-gulpfile.babel.js.orig
+*.orig
+
