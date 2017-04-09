@@ -1,0 +1,28 @@
+%btn-base {
+	-webkit-appearance: none;
+	background-color: transparent;
+	border: 2px solid $accent;
+	border-radius: 0;
+	color: $accent;
+	font-family: $font-1;
+	line-height: 1;
+	cursor: pointer;
+
+	&:active,
+	&:focus,
+	&:hover {
+		outline: 0;
+		box-shadow: none;
+		border-color: $accent-dark;
+		color: $accent-dark;
+	}
+}
+
+.btn {
+	@extend %btn-base;
+	padding: 1rem 3rem;
+	white-space: nowrap;
+	display: inline-block;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
