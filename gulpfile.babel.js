@@ -282,7 +282,7 @@ gulp.task('check-for-favicon-update', () => {
     });
 });
 
-gulp.task('w3c', function() {
+gulp.task('w3c', () => {
     gulp.src('./*.html')
         .pipe(w3cjs())
         .pipe(w3cjs.reporter());
