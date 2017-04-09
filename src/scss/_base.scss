@@ -41,12 +41,13 @@ h6, .h6 {
 }
 
 a {
-	text-decoration: none;
 	-webkit-tap-highlight-color: transparent;
+	color: $accent;
 
 	&:hover,
 	&:active,
 	&:focus {
 		outline: 0;
+		color: $accent-dark;
 	}
 }
