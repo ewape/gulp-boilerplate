@@ -3,11 +3,11 @@
         "lang": "pl",
         "title": "Project title",
         "description": "Project description",
-        "url": "http://example.com/",
+        "url": "http://localhost:3000/",
 
         "og": {
             "type": "website",
-            "image": "http://example.com/dist/images/js.png",
+            "image": "http://localhost:3000/dist/images/js.png",
             "image_type": "image/png",
             "image_width": 200,
             "image_height": 200
