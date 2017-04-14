@@ -59,8 +59,8 @@ const gulp = require('gulp'),
 
     faviconConfig = {
         masterPicture: config.faviconImage,
-        dest: paths.src + 'images/favicon',
-        iconsPath: config.data.url + 'dist/images/favicon/',
+        dest: paths.dist + 'favicon',
+        iconsPath: config.data.url + 'dist/favicon/',
         design: {
             ios: {
                 pictureAspect: 'backgroundAndMargin',
