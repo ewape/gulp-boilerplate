@@ -6,6 +6,6 @@ docs/
 /*.html
 node_modules
 bower_components
-src/images/favicon
+src/favicon
 *.orig
 .vscode/
