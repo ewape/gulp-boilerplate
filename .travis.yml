@@ -5,9 +5,6 @@ node_js:
 
 install:
   - npm install
-  - npm install -g bower
-  - bower install
-  - gulp bower
 
 branches:
   only:
@@ -18,4 +15,4 @@ cache:
   directories:
   - node_modules
   - bower_components
-  - src/images/favicon
+  - src/favicon

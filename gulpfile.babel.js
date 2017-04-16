@@ -5,7 +5,6 @@ const gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	babel = require('gulp-babel'),
 	bowerNormalizer = require('gulp-bower-normalize'),
-	browserify = require('browserify'),
 	browserSync = require('browser-sync')
 	.create(),
 	cache = require('gulp-cache'),
