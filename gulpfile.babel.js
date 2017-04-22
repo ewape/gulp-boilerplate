@@ -113,7 +113,7 @@ const gulp = require('gulp'),
 gulp.task('default', ['watch']);
 gulp.task('build', ['styles', 'scripts', 'html', 'images', 'copy']);
 gulp.task('clean', ['clean-folders']);
-gulp.task('copy', ['copy-fonts']);
+gulp.task('copy', ['copy-fonts', 'copy-favicon']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', ['browser-sync'], () => {
@@ -235,6 +235,20 @@ gulp.task('fonts', () => {
 gulp.task('copy-fonts', () => {
     gulp.src([paths.src + 'fonts/*'])
         .pipe(gulp.dest(paths.dist + 'fonts'));
+});
+
+gulp.task('copy-favicon', () => {
+    gulp.src([paths.src + 'favicon/*'])
+        .pipe(cache(imagemin({
+            verbose: true,
+            plugins: [
+                pngquant({
+                    speed: 10,
+                    quality: "65-80"
+                })
+            ]
+        })))
+        .pipe(gulp.dest(paths.dist + 'favicon'));
 });
 
 gulp.task('svg-sprite', () => {

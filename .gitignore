@@ -8,3 +8,5 @@ node_modules
 bower_components
 src/favicon
 gulpfile.babel.js.orig
+*.orig
+.vscode/
