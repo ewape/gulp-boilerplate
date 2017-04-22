@@ -1,4 +1,4 @@
-@import '../../lib/normalize-scss/scss/normalize/import-now';
+@import '../../node_modules/normalize-scss/sass/normalize/import-now';
 @import 'variables';
 @import 'base';
 @import 'helpers';
@@ -9,5 +9,4 @@
 @import 'modules/menu';
 @import 'modules/icons';
 @import 'modules/cookies';
-
 @import 'pages/home';

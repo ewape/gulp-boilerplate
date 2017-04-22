@@ -80,11 +80,8 @@ To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file]
 
 #### Installing npm dependencies
 ```sh
-$ npm i <dependency-name> -D
-```
-#### Installing Bower dependencies
-```sh
-$ bower install <dependency-name> --save
+$ npm i <devDependency-name> -D
+$ npm i <dependency-name> --save
 ```
 
 ### Rebuilding project files
@@ -109,8 +106,6 @@ config.json:
 - `autoprefixerOptions` Autoprefixer options
 - `paths` project directory structure
 
-bower.json:
-- `overrides` overrides defaults from dependency package bower.json. Here you can explicitly set what files will be included in ./lib directory by $ gulp bower task.
 
 font.list  
 This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download .woff files from [Google Fonts](https://fonts.google.com/) and update @font-face declarations in ./src/scss/modules/_fonts.scss.  
@@ -136,7 +131,6 @@ Fonts       		  | `fontOptions`		| [config.json](https://github.com/ewape/gulp-b
 &nbsp;       		  |  - 		    		| [font.list](https://github.com/ewape/gulp-boilerplate/blob/master/fonts.list)	
 Templating   		  | `data`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L2)
 Browser prefixes   	  | `autoprefixerOptions`	| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L23)
-Bower dependencies 	  | `overrides`			| [bower.json](https://github.com/ewape/gulp-boilerplate/blob/master/bower.json#L32)
 Project directories    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
 
 ## License

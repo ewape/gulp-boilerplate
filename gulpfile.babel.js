@@ -2,7 +2,6 @@ const gulp = require('gulp'),
     fs = require('fs'),
     autoprefixer = require('gulp-autoprefixer'),
     babel = require('gulp-babel'),
-    bowerNormalizer = require('gulp-bower-normalize'),
     browserSync = require('browser-sync').create(),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
@@ -13,7 +12,6 @@ const gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     imageminGuetzli = require('imagemin-guetzli'),
     jshint = require('gulp-jshint'),
-    mainBowerFiles = require('main-bower-files'),
     notify = require('gulp-notify'),
     nunjucks = require('gulp-nunjucks-render'),
     pngquant = require('imagemin-pngquant'),
@@ -142,7 +140,7 @@ gulp.task('browser-sync', () => {
     });
 });
 
-gulp.task('clean-folders', () => del.sync([paths.dist, paths.build, paths.lib]));
+gulp.task('clean-folders', () => del.sync([paths.dist, paths.build]));
 
 gulp.task('html', () => {
     gulp.src([paths.src + 'html/pages/**/*.+(html|njk)'])
@@ -178,7 +176,7 @@ gulp.task('styles', () => {
 
 gulp.task('vendors-js', () => {
     gulp.src([
-            paths.lib + 'jquery/js/*.js'
+            'node_modules/jquery/dist/jquery.min.js'
         ])
         .pipe(concat('vendors.js'))
         .pipe(gulp.dest(paths.build + 'js'));
@@ -244,17 +242,6 @@ gulp.task('svg-sprite', () => {
     gulp.src(paths.src + 'images/icons/*.svg')
         .pipe(svgSprite(svgConfig))
         .pipe(gulp.dest(paths.dist));
-});
-
-gulp.task('bower', () => {
-    gulp.src(mainBowerFiles(), {
-            base: paths.bower
-        })
-        .pipe(bowerNormalizer({
-            bowerJson: './bower.json',
-            checkPath: true
-        }))
-        .pipe(gulp.dest(paths.lib));
 });
 
 // Generate the icons. This task takes a few seconds to complete.

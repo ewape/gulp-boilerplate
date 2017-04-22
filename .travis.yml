@@ -1,13 +1,10 @@
 language: node_js
 
-node_js: 
+node_js:
   - 6.0
 
 install:
   - npm install
-  - npm install -g bower
-  - bower install
-  - gulp bower
 
 branches:
   only:
@@ -16,5 +13,4 @@ branches:
 cache:
   directories:
   - node_modules
-  - bower_components
-  - src/images/favicon
+  - src/favicon

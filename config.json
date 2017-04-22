@@ -24,8 +24,6 @@
         "browsers": ["last 2 versions", "> 1%", "ie >= 11", "android >= 4.4"]
     },
     "paths": {
-        "bower": "./bower_components/",
-        "lib": "./lib/",
         "dist": "./dist/",
         "src": "./src/",
         "build": "./build/",
