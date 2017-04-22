@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/ewape/gulp-boilerplate.svg?branch=master)](https://travis-ci.org/ewape/gulp-boilerplate)
 [![Code Climate](https://codeclimate.com/github/ewape/gulp-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/ewape/gulp-boilerplate)
+[![dependencies Status](https://david-dm.org/ewape/gulp-boilerplate/status.svg)](https://david-dm.org/ewape/gulp-boilerplate)
 [![devDependency Status](https://img.shields.io/david/dev/ewape/gulp-boilerplate.svg)](https://david-dm.org/ewape/gulp-boilerplate?type=dev)
 [![bitHound Overall Score](https://www.bithound.io/github/ewape/gulp-boilerplate/badges/score.svg)](https://www.bithound.io/github/ewape/gulp-boilerplate)
 
