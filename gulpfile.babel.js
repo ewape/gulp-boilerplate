@@ -30,6 +30,16 @@ const gulp = require('gulp'),
 
     fontOptions = config.fontOptions,
 
+    imageminOptions = {
+        verbose: true,
+        plugins: [
+            pngquant({
+                speed: 10,
+                quality: "65-80"
+            })
+        ]
+    },
+
     svgConfig = {
         //log: 'debug', // info, verbose, debug
         dest: '.',
@@ -201,15 +211,7 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
 
 gulp.task('images', ['images-jpg'], () => {
     gulp.src([paths.src + 'images/**/*.{png,gif,ico,svg}'])
-        .pipe(cache(imagemin({
-            verbose: true,
-            plugins: [
-                pngquant({
-                    speed: 10,
-                    quality: "65-80"
-                })
-            ]
-        })))
+        .pipe(cache(imagemin(imageminOptions)))
         .pipe(gulp.dest(paths.dist + 'images'))
         .pipe(browserSync.stream());
 });
@@ -217,12 +219,7 @@ gulp.task('images', ['images-jpg'], () => {
 gulp.task('images-jpg', () => {
     gulp.src(paths.src + 'images/**/*.{jpg,jpeg}')
         .pipe(imagemin([imageminGuetzli()]))
-        .pipe(cache(imagemin({
-            verbose: true,
-            plugins: [imagemin.jpegtran({
-                progressive: true
-            })]
-        })))
+        .pipe(cache(imagemin(imageminOptions)))
         .pipe(gulp.dest(paths.dist + 'images'));
 });
 
@@ -239,15 +236,7 @@ gulp.task('copy-fonts', () => {
 
 gulp.task('copy-favicon', () => {
     gulp.src([paths.src + 'favicon/*'])
-        .pipe(cache(imagemin({
-            verbose: true,
-            plugins: [
-                pngquant({
-                    speed: 10,
-                    quality: "65-80"
-                })
-            ]
-        })))
+        .pipe(cache(imagemin(imageminOptions)))
         .pipe(gulp.dest(paths.dist + 'favicon'));
 });
 
