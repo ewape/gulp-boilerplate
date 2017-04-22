@@ -121,7 +121,6 @@ const gulp = require('gulp'),
 gulp.task('default', ['watch']);
 gulp.task('build', ['styles', 'scripts', 'html', 'images', 'copy']);
 gulp.task('clean', ['clean-folders']);
-gulp.task('copy', ['copy-fonts', 'copy-favicon']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', ['browser-sync'], () => {
@@ -227,13 +226,10 @@ gulp.task('fonts', () => {
         .pipe(gulp.dest(paths.src + 'fonts'));
 });
 
-gulp.task('copy-fonts', () => {
-    gulp.src([paths.src + 'fonts/*'])
-        .pipe(gulp.dest(paths.dist + 'fonts'));
-});
-
-gulp.task('copy-favicon', () => {
-    gulp.src([paths.src + 'favicon/*'])
+gulp.task('copy', () => {
+    gulp.src(paths.src + 'fonts/*')
+        .pipe(gulp.dest(paths.dist + 'fonts'))
+    gulp.src(paths.src + 'favicon/*')
         .pipe(cache(imagemin(imageminOptions)))
         .pipe(gulp.dest(paths.dist + 'favicon'));
 });
