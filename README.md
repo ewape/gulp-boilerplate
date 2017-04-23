@@ -10,7 +10,7 @@
     - [Download](#download)
     - [Setup](#setup)
   - [Usage](#usage)
-    - [Watch](#watch)
+    - [Hot reloading](#hot-reloading)
     - [Svg sprite](#svg-sprite)
     - [Favicon](#favicon)
     - [Fonts](#fonts)
@@ -39,7 +39,7 @@ $ gulp build
 
 ## Usage
 
-### Watch
+### Hot reloading
 Watching changes in files is handled by [Browsersync](https://github.com/Browsersync/browser-sync).
 ```sh
 $ gulp watch
