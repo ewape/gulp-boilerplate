@@ -10,7 +10,7 @@
     - [Download](#download)
     - [Setup](#setup)
   - [Usage](#usage)
-    - [Watch](#watch)
+    - [Hot reloading](#hot-reloading)
     - [Svg sprite](#svg-sprite)
     - [Favicon](#favicon)
     - [Fonts](#fonts)
@@ -39,7 +39,7 @@ $ gulp build
 
 ## Usage
 
-### Watch
+### Hot reloading
 Watching changes in files is handled by [Browsersync](https://github.com/Browsersync/browser-sync).
 ```sh
 $ gulp watch
@@ -131,7 +131,7 @@ Favicon		    	  | `faviconConfig`		| [gulpfile.babel.js](https://github.com/ewap
 Fonts       		  | `fontOptions`		| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L18)
 &nbsp;       		  |  - 		    		| [font.list](https://github.com/ewape/gulp-boilerplate/blob/master/fonts.list)	
 Templating   		  | `data`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L2)
-Browser prefixes   	  | `autoprefixerOptions`	| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L23)
+CSS prefixes   	  | `autoprefixerOptions`	| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L23)
 Project directories    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
 
 ## License
