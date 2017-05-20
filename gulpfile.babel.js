@@ -100,8 +100,11 @@ const gulp = require('gulp'),
                 pictureAspect: 'noChange',
                 themeColor: '#ffffff',
                 manifest: {
+                    name: config.data.title,
+                    // short_name: config.data.title,
                     display: 'standalone',
-                    orientation: 'notSet',
+                    start_url: "/",
+                    orientation: 'portrait',
                     onConflict: 'override',
                     declared: true
                 },
@@ -113,7 +116,7 @@ const gulp = require('gulp'),
         },
         settings: {
             scalingAlgorithm: 'Mitchell',
-            errorOnImageTooSmall: false
+            errorOnImageTooSmall: true
         },
         markupFile: faviconDataFile
     };
