@@ -43,7 +43,6 @@
 
 %underline {
 	position: relative;
-
 	&::after {
 		content: '';
 		height: 0;
@@ -56,36 +55,29 @@
 		transform: translateY(-5px) scaleX(0);
 		transition: all .15s linear;
 	}
-
 	&.active {
 		&::after {
 			transform: translateY(0) scaleX(1);
 		}
 	}
-
 }
 
 %content-link {
 	text-decoration: underline;
 	color: $accent;
-
-		&:hover,
-		&:active,
-		&:focus {
-			color: $accent-dark;
-		}
+	&:hover,
+	&:active,
+	&:focus {
+		color: $accent-dark;
+	}
 }
 
-
 @media (min-width: $desktop-min) {
-
 	%underline {
-
 		&:hover {
 			&::after {
 				transform: translateY(0) scaleX(1);
 			}
 		}
 	}
-
 }

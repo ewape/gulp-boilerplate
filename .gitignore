@@ -9,3 +9,4 @@ src/favicon
 gulpfile.babel.js.orig
 *.orig
 .vscode/
+tests/

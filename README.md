@@ -95,16 +95,14 @@ $ gulp build
 
 ## Options
 
-
-gulpfile.babel.js:
-- `svgConfig` svg sprite settings
-- `faviconConfig` favicon images settings
-
-config.json: 
-- `data` variables available in nunjucks templates, including [Open Graph](http://ogp.me/) protocol settings
-- `faviconImage` favicon image path
-- `fontOptions` font related directory paths
 - `autoprefixerOptions` Autoprefixer options
+- `faviconConfig` favicon image settings
+- `imageminOptions` image compression using Imagemin
+- `svgConfig` svg sprite settings
+
+config.json  
+- `data` variables available in nunjucks templates, including [Open Graph](http://ogp.me/) protocol settings
+- `fontOptions` font related directory paths
 - `paths` project directory structure
 
 

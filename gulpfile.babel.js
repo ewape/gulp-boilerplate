@@ -5,9 +5,8 @@ const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
-    config = require('./config.json'),
+    config = require('./config/config.json'),
     del = require('del'),
-    faviconDataFile = config.faviconDataFile,
     googleWebFonts = require('gulp-google-webfonts'),
     imagemin = require('gulp-imagemin'),
     imageminGuetzli = require('imagemin-guetzli'),
@@ -24,99 +23,12 @@ const gulp = require('gulp'),
     w3cjs = require('gulp-w3cjs'),
 
     paths = config.paths,
-    autoprefixerOptions = config.autoprefixerOptions,
-
-    fontOptions = config.fontOptions,
-
-    imageminOptions = {
-        verbose: true,
-        plugins: [
-            pngquant({
-                speed: 10,
-                quality: "65-80"
-            })
-        ]
-    },
-
-    svgConfig = {
-        //log: 'debug', // info, verbose, debug
-        dest: '.',
-        mode: {
-            symbol: {
-                inline: true,
-                sprite: '../../' + paths.src + 'html/templates/partials/symbol.njk',
-                example: {
-                    dest: '../../' + paths.docs + 'symbol.html'
-                }
-            }
-        },
-        shape: {
-            dimension: {
-                maxWidth: 100,
-                maxHeight: 100
-            },
-            id: {
-                generator: 'icon-%s',
-                whitespace: '-'
-            },
-            spacing: {
-                padding: 0
-            }
-        }
-    },
-
-    faviconConfig = {
-        masterPicture: config.faviconImage,
-        dest: paths.src + 'favicon',
-        iconsPath: config.data.url + 'dist/favicon/',
-        design: {
-            ios: {
-                pictureAspect: 'backgroundAndMargin',
-                backgroundColor: '#ffffff',
-                margin: '10%',
-                assets: {
-                    ios6AndPriorIcons: false,
-                    ios7AndLaterIcons: false,
-                    precomposedIcons: false,
-                    declareOnlyDefaultIcon: true
-                }
-            },
-            desktopBrowser: {},
-            windows: {
-                pictureAspect: 'noChange',
-                backgroundColor: '#2d89ef',
-                onConflict: 'override',
-                assets: {
-                    windows80Ie10Tile: false,
-                    windows10Ie11EdgeTiles: {
-                        small: false,
-                        medium: true,
-                        big: false,
-                        rectangle: false
-                    }
-                }
-            },
-            androidChrome: {
-                pictureAspect: 'noChange',
-                themeColor: '#ffffff',
-                manifest: {
-                    display: 'standalone',
-                    orientation: 'notSet',
-                    onConflict: 'override',
-                    declared: true
-                },
-                assets: {
-                    legacyIcon: false,
-                    lowResolutionIcons: false
-                }
-            }
-        },
-        settings: {
-            scalingAlgorithm: 'Mitchell',
-            errorOnImageTooSmall: false
-        },
-        markupFile: faviconDataFile
-    };
+    autoprefixerOptions = require('./config/css').autoprefixerOptions,
+    faviconConfig = require('./config/favicon').faviconConfig,
+    faviconDataFile = faviconConfig.markupFile,
+    fontOptions = config.paths.font,
+    imageminOptions = require('./config/images').imageminOptions,
+    svgConfig = require('./config/images').svgConfig;
 
 gulp.task('default', ['watch']);
 gulp.task('build', ['styles', 'scripts', 'html', 'images', 'copy']);
@@ -221,8 +133,8 @@ gulp.task('images-jpg', () => {
 });
 
 gulp.task('fonts', () => {
-    gulp.src('./fonts.list')
-        .pipe(googleWebFonts(fontOptions))
+    gulp.src('./config/fonts.list')
+        .pipe(googleWebFonts(paths.font))
         .pipe(gulp.dest(paths.src + 'fonts'));
 });
 
@@ -263,7 +175,7 @@ gulp.task('check-for-favicon-update', () => {
     let currentVersion = JSON.parse(fs.readFileSync(faviconDataFile)).version;
     realFavicon.checkForUpdates(currentVersion, (err) => {
         if (err) {
-            throw err;
+            console.log('\x1b[31m', 'To update favicon run: \n gulp favicon && gulp build');
         }
     });
 });
