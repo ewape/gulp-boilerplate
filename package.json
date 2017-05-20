@@ -11,6 +11,7 @@
     "main": "gulpfile.babel.js",
     "scripts": {
         "test": "gulp favicon && gulp svg-sprite && gulp build && gulp w3c",
+        "validate": "node npm-scripts/validate.js",
         "prepare": "gulp check-for-favicon-update"
     },
     "author": "Ewa Pettke",
@@ -29,7 +30,7 @@
         "browser-sync": "^2.18.8",
         "del": "^2.2.2",
         "gulp": "^3.9.1",
-        "gulp-autoprefixer": "^3.1.0",
+        "gulp-autoprefixer": "^4.0.0",
         "gulp-babel": "^6.1.2",
         "gulp-cache": "^0.4.6",
         "gulp-concat": "^2.6.0",
@@ -45,7 +46,7 @@
         "gulp-svg-sprite": "^1.3.6",
         "gulp-uglify": "^2.1.2",
         "gulp-w3cjs": "^1.3.0",
-        "imagemin-guetzli": "^0.1.5",
+        "imagemin-guetzli": "^1.0.0",
         "imagemin-pngquant": "^5.0.0",
         "jshint": "^2.9.2",
         "jshint-stylish": "^2.2.0"
