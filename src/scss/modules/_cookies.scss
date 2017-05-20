@@ -5,7 +5,8 @@
     bottom: 0;
     transition: transform .3s linear;
     font-size: .8em;
-    background-color: rgba($fill-dark, .1);
+    box-shadow: 0 0 1rem rgba($fill-dark, .3);
+
     a {
         @extend %content-link;
     }

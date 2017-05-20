@@ -7,7 +7,7 @@ $padding-desktop: $padding-mobile * 4;
 $mobile-max: 1024px;
 $desktop-min: 1025px;
 
-$accent: #2a95f3;
+$accent: #205ea4;
 $accent-dark: darken($accent, 15%);
 
 $error: #db4437;
@@ -17,5 +17,5 @@ $fill-light: #fff;
 $fill-dark: #000;
 
 :root {
-	--color-var: $accent;
+    --color-var: $accent;
 }
