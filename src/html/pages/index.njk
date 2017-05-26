@@ -2,14 +2,15 @@
 {% extends "base.njk" %}
 {% import 'macros/menu.njk' as menu %}
 {% block content %}
-	<header class="header">
-		{{menu.active('home')}}
+	<header class="main-header">
+		<div class="container">
+			{{menu.active('')}}
+		</div>
 	</header>
 	<main>
-		<a href="https://github.com/ewape/gulp-boilerplate" class="icon-main" rel="nofollow" target="_blank">
-			<svg class="icon icon-github">
-				<use xlink:href="#icon-github"></use>
-			</svg>
-		</a>
+		{% include 'sections/main.njk' %}
+		{% include 'sections/main.njk' %}
+		{% include 'sections/main.njk' %}
+		{% include 'sections/main.njk' %}
 	</main>
 {% endblock %}
