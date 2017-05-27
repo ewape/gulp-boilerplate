@@ -9,7 +9,7 @@ install:
 branches:
   only:
     - master
-	- in-progress
+    - in-progress
 
 cache:
   directories:
