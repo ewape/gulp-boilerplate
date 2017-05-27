@@ -92,7 +92,7 @@ gulp.task('vendors-js', () => {
     gulp.src([
             'node_modules/jquery/dist/jquery.min.js'
         ])
-        .pipe(concat('vendors.js'))
+        .pipe(concat('libs.js'))
         .pipe(gulp.dest(paths.temp + 'js'));
 });
 
@@ -101,18 +101,18 @@ gulp.task('minify-scripts', () => {
             paths.src + 'js/vendors/*.js',
             paths.src + 'js/app.js'
         ])
-        .pipe(concat('app.js'))
         .pipe(sourcemaps.init())
+        .pipe(concat('main.js'))
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(babel())
         .pipe(uglify())
-        .pipe(sourcemaps.write(''))
+        .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.temp + 'js'));
 });
 
 gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
-    gulp.src([paths.temp + 'js/vendors.js', paths.temp + 'js/app.js'])
+    gulp.src([paths.temp + 'js/libs.js', paths.temp + 'js/main.js'])
         .pipe(sourcemaps.init({
             loadMaps: true
         }))
