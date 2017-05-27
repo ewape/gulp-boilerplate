@@ -25,7 +25,7 @@
         const addEvents = () => {
             button.addEventListener('click', toggleMenu);
             if (singlePage) {
-                Array.from(menu.childNodes).map((link) => link.addEventListener('click', menuClick));
+                Array.prototype.slice.call(menu.childNodes).map((link) => link.addEventListener('click', menuClick));
             }
         };
 
