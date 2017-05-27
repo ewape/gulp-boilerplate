@@ -5,7 +5,7 @@ const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
-    config = require('./config/config'),
+    config = require('./gulp-config/config'),
     del = require('del'),
     googleWebFonts = require('gulp-google-webfonts'),
     imagemin = require('gulp-imagemin'),
@@ -25,11 +25,11 @@ const gulp = require('gulp'),
     paths = config.paths,
     autoprefixerOptions = config.css.autoprefixerOptions,
 
-    faviconConfig = require('./config/favicon').faviconConfig,
+    faviconConfig = require('./gulp-config/favicon').faviconConfig,
     faviconDataFile = faviconConfig.markupFile,
     fontOptions = paths.font,
 
-    imgConfig = require('./config/images'),
+    imgConfig = require('./gulp-config/images'),
     imageminOptions = imgConfig.imageminOptions,
     svgConfig = imgConfig.svgConfig;
 

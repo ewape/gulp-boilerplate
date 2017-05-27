@@ -15,8 +15,8 @@ module.exports = {
         }
     },
     css: require('./css'),
-    "faviconDataFile": "./config/faviconData.json",
-    "fontList": "./config/fonts.list",
+    "faviconDataFile": "./gulp-config/faviconData.json",
+    "fontList": "./gulp-config/fonts.list",
     paths: {
         "dist": "./dist/",
         "src": "./src/",
