@@ -31,8 +31,7 @@
     "devDependencies": {
         "babel-cli": "^6.16.0",
         "babel-core": "^6.24.1",
-        "babel-preset-env": "^1.4.0",
-        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-env": "^1.5.1",
         "babel-register": "^6.24.1",
         "browser-sync": "^2.18.8",
         "del": "^2.2.2",
@@ -62,17 +61,15 @@
     },
     "babel": {
         "presets": [
-            [
-                "env",
-                {
-                    "targets": {
-                        "browsers": [
-                            "last 2 versions",
-                            "android >= 4.4"
-                        ]
-                    }
-                }
-            ]
+            ["env", {
+                "targets": {
+                    "browsers": [
+                        "last 2 versions",
+                        "android >= 4.4"
+                    ]
+                },
+                "modules": false
+            }]
         ]
     }
 }

@@ -5,7 +5,7 @@ const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
-    config = require('./config/config.json'),
+    config = require('./config/config'),
     del = require('del'),
     googleWebFonts = require('gulp-google-webfonts'),
     imagemin = require('gulp-imagemin'),
@@ -23,12 +23,15 @@ const gulp = require('gulp'),
     w3cjs = require('gulp-w3cjs'),
 
     paths = config.paths,
-    autoprefixerOptions = require('./config/css').autoprefixerOptions,
+    autoprefixerOptions = config.css.autoprefixerOptions,
+
     faviconConfig = require('./config/favicon').faviconConfig,
     faviconDataFile = faviconConfig.markupFile,
-    fontOptions = config.paths.font,
-    imageminOptions = require('./config/images').imageminOptions,
-    svgConfig = require('./config/images').svgConfig;
+    fontOptions = paths.font,
+
+    imgConfig = require('./config/images'),
+    imageminOptions = imgConfig.imageminOptions,
+    svgConfig = imgConfig.svgConfig;
 
 gulp.task('default', ['watch']);
 gulp.task('build', ['styles', 'scripts', 'html', 'images', 'copy']);
@@ -36,7 +39,7 @@ gulp.task('clean', ['clean-folders']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', ['browser-sync'], () => {
-    gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
+    gulp.watch(paths.src + 'js/**/*.js', ['scripts:watch']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
     gulp.watch(paths.src + 'html/**/*.+(html|njk)', ['html']);
@@ -51,7 +54,7 @@ gulp.task('browser-sync', () => {
     });
 });
 
-gulp.task('clean-folders', () => del.sync([paths.dist, paths.build]));
+gulp.task('clean-folders', () => del.sync([paths.dist, paths.temp]));
 
 gulp.task('html', () => {
     gulp.src([paths.src + 'html/pages/**/*.+(html|njk)'])
@@ -90,7 +93,7 @@ gulp.task('vendors-js', () => {
             'node_modules/jquery/dist/jquery.min.js'
         ])
         .pipe(concat('vendors.js'))
-        .pipe(gulp.dest(paths.build + 'js'));
+        .pipe(gulp.dest(paths.temp + 'js'));
 });
 
 gulp.task('minify-scripts', () => {
@@ -98,18 +101,28 @@ gulp.task('minify-scripts', () => {
             paths.src + 'js/vendors/*.js',
             paths.src + 'js/app.js'
         ])
+        .pipe(concat('app.js'))
         .pipe(sourcemaps.init())
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(babel())
         .pipe(uglify())
-        .pipe(concat('app.js'))
-        .pipe(sourcemaps.write('/'))
-        .pipe(gulp.dest(paths.build + 'js'));
+        .pipe(sourcemaps.write(''))
+        .pipe(gulp.dest(paths.temp + 'js'));
 });
 
 gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
-    gulp.src([paths.build + 'js/vendors.js', paths.build + 'js/app.js'])
+    gulp.src([paths.temp + 'js/vendors.js', paths.temp + 'js/app.js'])
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
+        .pipe(concat('app.min.js'))
+        .pipe(sourcemaps.write('/'))
+        .pipe(gulp.dest(paths.dist + 'js'));
+});
+
+gulp.task('scripts:watch', ['minify-scripts'], () => {
+    gulp.src([paths.temp + 'js/vendors.js', paths.temp + 'js/app.js'])
         .pipe(sourcemaps.init({
             loadMaps: true
         }))
@@ -133,7 +146,7 @@ gulp.task('images-jpg', () => {
 });
 
 gulp.task('fonts', () => {
-    gulp.src('./config/fonts.list')
+    gulp.src(config.fontList)
         .pipe(googleWebFonts(paths.font))
         .pipe(gulp.dest(paths.src + 'fonts'));
 });

@@ -2,6 +2,8 @@
 dist/
 lib/
 build/
+temp/
+src/fonts/
 docs/
 /*.html
 node_modules
@@ -10,3 +12,4 @@ gulpfile.babel.js.orig
 *.orig
 .vscode/
 tests/
+npm-scripts
