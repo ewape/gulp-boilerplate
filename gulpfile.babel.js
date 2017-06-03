@@ -122,7 +122,7 @@ gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
 });
 
 gulp.task('scripts:watch', ['minify-scripts'], () => {
-    gulp.src([paths.temp + 'js/vendors.js', paths.temp + 'js/app.js'])
+    gulp.src([paths.temp + 'js/libs.js', paths.temp + 'js/main.js'])
         .pipe(sourcemaps.init({
             loadMaps: true
         }))
