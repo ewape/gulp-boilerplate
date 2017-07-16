@@ -1,0 +1,54 @@
+<section id="demo" class="section">
+	<div class="container">
+		<h1>Heading 1</h1>
+		<h2>Heading 2</h2>
+		<h3>Heading 3</h3>
+		<h4>Heading 4</h4>
+		<h5>Heading 5</h5>
+		<h6>Heading 6</h6>
+		</div>
+
+		<div class="container">
+
+		<h1>Form elements</h1>
+		<form name="client_form" method="post" action="/send-message" novalidate="" class="contact-form">
+			<div class="form-row">
+				<label class="form-label" for="client_form_name">Name</label>
+				<input type="text" id="client_form_name" name="client_form[name]" class="form-input" required>
+			</div>
+
+			<div class="form-row">
+				<label class="form-label" for="client_form_email">Email</label>
+				<input type="email" id="client_form_email" name="client_form[email]" class="form-input" required >
+			</div>
+
+			<div class="form-row">
+				<label class="form-label" for="client_form_phone">Phone (optional)</label>
+				<input type="text" id="client_form_phone" name="client_form[phone]" class="form-input">
+			</div>
+
+			<div class="form-row">
+				<label class="form-label" for="client_form_description">Message</label>
+				<textarea id="client_form_description" name="client_form[description]" class="form-input autosize" required></textarea>
+			</div>
+
+			<div class="form-row checkbox-styled">
+				<input type="checkbox" id="client_checkbox" name="client_form[checkbox]" class="form-input" required data-parsley-errors-messages-disabled>
+				<label class="form-label" for="client_checkbox">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, corporis!</label>
+			</div>
+
+			<div class="form-row checkbox-styled">
+				<input type="radio" id="client_radio-1" name="client_form[radio]" class="form-input">
+				<label class="form-label" for="client_radio-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, corporis! <span class="required-mark">*</span></label>
+			</div>
+
+			<div class="form-row checkbox-styled">
+				<input type="radio" id="client_radio-2" name="client_form[radio]" class="form-input">
+				<label class="form-label" for="client_radio-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, corporis!</label>
+			</div>
+
+			<button class="btn" type="submit">Submit</button>
+
+		</form>
+	</div>
+</section>

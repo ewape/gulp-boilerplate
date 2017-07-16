@@ -1,5 +1,7 @@
 $font-1: 'Open Sans', sans-serif;
 
+$main-color: #2f2f2f;
+
 $padding-mobile: 2rem;
 $padding-tablet: $padding-mobile * 2;
 $padding-desktop: $padding-mobile * 4;
@@ -23,6 +25,7 @@ $fill-light: #fff;
 $fill-dark: #000;
 
 $transition: .3s linear;
+$form-border: #dedede;
 
 :root {
     --color-var: $accent;

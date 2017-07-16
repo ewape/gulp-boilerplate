@@ -7,13 +7,14 @@ body {
     font-family: $font-1;
     line-height: 1.4;
     padding-top: $menu-height;
+    color: $main-color;
 }
 
 .menu-open {
     overflow: hidden;
 }
 
-* {
+*, :before, :after {
     box-sizing: border-box;
 }
 
@@ -30,6 +31,7 @@ h6,
 .h5,
 .h6 {
     font-weight: 700;
+    margin: 0.67em 0;
 }
 
 h1,
@@ -65,10 +67,12 @@ h6,
 a {
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
+    color: $accent;
     &:hover,
     &:active,
     &:focus {
         outline: 0;
+        color: darken($accent, 10%);
     }
     main & {
         @extend %content-link;

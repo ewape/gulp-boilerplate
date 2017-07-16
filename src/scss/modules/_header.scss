@@ -14,18 +14,22 @@
     }
 
     .brand {
-        height: $menu-height - 10px;
+        height: 100%;
         width: $menu-height - 10px;
         display: block;
         transition: height $transition, width $transition;
+
+        .icon {
+            &:hover {
+                fill: $accent;
+            }
+        }
     }
 
     .menu-scrolled & {
-        background-color: rgba(#fff, 0.8);
         height: $menu-height - 10px;
 
         .brand {
-            height: $menu-height - 20px;
             width: $menu-height - 20px;
         }
 
@@ -74,7 +78,7 @@
 
 .nav-btn {
     position: absolute;
-    top: $padding-mobile;
+    top: 2.2rem;
     right: $padding-mobile;
     z-index: 101;
     border: 0 none;
@@ -87,7 +91,7 @@
         display: block;
         height: 0;
         width: 100%;
-        border-bottom: 4px solid $accent;
+        border-bottom: 2px solid $accent;
         position: absolute;
         left: 0;
         transform-origin: 0% 50%;
@@ -102,7 +106,7 @@
         }
 
         &:nth-child(2) {
-            top: 10px;
+            top: 8px;
 
             .menu-open & {
                 transform: scale(0);
@@ -110,7 +114,7 @@
         }
 
         &:last-child {
-            top: 20px;
+            top: 16px;
 
             .menu-open & {
                 top: 21px;
@@ -125,6 +129,10 @@
                 border-color: $fill-light;
             }
         }
+    }
+
+    .menu-scrolled & {
+        top: 1.7rem;
     }
 }
 

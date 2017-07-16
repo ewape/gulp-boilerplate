@@ -92,6 +92,8 @@ gulp.task('vendors-js', () => {
     gulp.src([
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/scrollmonitor/scrollMonitor.js',
+            'node_modules/autosize/dist/autosize.min.js',
+            'node_modules/parsleyjs/dist/parsley.min.js',
             'node_modules/lazysizes/lazysizes.min.js'
         ])
         .pipe(concat('libs.js'))
