@@ -1,5 +1,4 @@
 module.exports = {
-    //config: {
     data: {
         "lang": "pl",
         "title": "Project title",
@@ -15,8 +14,8 @@ module.exports = {
         }
     },
     css: require('./css'),
-    "faviconDataFile": "./gulp-config/faviconData.json",
-    "fontList": "./gulp-config/fonts.list",
+    "faviconDataFile": "./gulp/config/faviconData.json",
+    "fontList": "./gulp/config/fonts.list",
     paths: {
         "dist": "./dist/",
         "src": "./src/",
@@ -28,5 +27,4 @@ module.exports = {
             "cssFilename": "_fonts.scss"
         }
     }
-
 };
