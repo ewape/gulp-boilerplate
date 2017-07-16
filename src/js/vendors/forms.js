@@ -39,7 +39,6 @@ Parsley.setLocale('pl');
 
         const validateForm = () => {
             const $form = $('.contact-form');
-            console.log($form);
             $form.parsley();
         };
 

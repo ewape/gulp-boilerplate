@@ -13,3 +13,4 @@ gulpfile.babel.js.orig
 .vscode/
 tests/
 npm-scripts
+*.php

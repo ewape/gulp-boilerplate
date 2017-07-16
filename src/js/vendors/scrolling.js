@@ -59,14 +59,6 @@
             sections.map((section) => {
                 let elementWatcher = scrollMonitor.create(section, -getHeaderHeight());
 
-                // elementWatcher.stateChange(function() {
-                //     // if (!this.isBelowViewport && this.isInViewport) {
-                //     if (this.isInViewport) {
-                //         setActiveLink('#' + this.watchItem.id);
-                //         locationChange(section);
-                //     }
-                // });
-
                 elementWatcher.enterViewport(function() {
                     setActiveLink('#' + this.watchItem.id);
                     locationChange(section);
