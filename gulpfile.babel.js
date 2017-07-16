@@ -27,7 +27,6 @@ const gulp = require('gulp'),
 
     faviconConfig = require('./gulp/config/favicon').faviconConfig,
     faviconDataFile = faviconConfig.markupFile,
-    fontOptions = paths.font,
 
     imgConfig = require('./gulp/config/images'),
     imageminOptions = imgConfig.imageminOptions,
