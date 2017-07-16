@@ -1,91 +1,88 @@
 %align-all {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 %align-v {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 %align-h {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .visible-desktop {
-	@media (max-width: $mobile-max) {
-		display: none !important;
-	}
+    @media (max-width: $mobile-max) {
+        display: none !important;
+    }
 }
 
 .visible-mobile {
-	@media (min-width: $desktop-min) {
-		display: none !important;
-	}
+    @media (min-width: $desktop-min) {
+        display: none !important;
+    }
 }
 
 .hidden {
-	display: none !important;
+    display: none !important;
 }
 
 .success {
-	color: $success;
+    color: $success;
 }
 
 .error {
-	color: $error;
+    color: $error;
 }
 
 %underline {
-	position: relative;
+    position: relative;
 
-	&::after {
-		content: '';
-		height: 0;
-		border-bottom: 3px solid;
-		border-bottom: 3px solid var(--color-var);
-		position: absolute;
-		right: 0;
-		left: 0;
-		bottom: -5px;
-		transform: translateY(-5px) scaleX(0);
-		transition: all .15s linear;
-	}
+    &::after {
+        content: '';
+        height: 0;
+        border-bottom: 3px solid;
+        border-bottom: 3px solid var(--color-var);
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: -5px;
+        transform: translateY(-5px) scaleX(0);
+        transition: all .15s linear;
+    }
 
-	&.active {
-		&::after {
-			transform: translateY(0) scaleX(1);
-		}
-	}
-
+    &.active {
+        &::after {
+            transform: translateY(0) scaleX(1);
+        }
+    }
 }
 
 %content-link {
-	text-decoration: underline;
-	color: $accent;
+    text-decoration: underline;
+    color: $accent;
 
-		&:hover,
-		&:active,
-		&:focus {
-			color: $accent-dark;
-		}
+    &:hover,
+    &:active,
+    &:focus {
+        color: $accent-dark;
+    }
 }
 
 
 @media (min-width: $desktop-min) {
 
-	%underline {
-
-		&:hover {
-			&::after {
-				transform: translateY(0) scaleX(1);
-			}
-		}
-	}
-
+    %underline {
+        &:hover {
+            &::after {
+                transform: translateY(0) scaleX(1);
+            }
+        }
+    }
 }
