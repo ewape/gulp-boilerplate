@@ -79,6 +79,18 @@ To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file]
 
 ### Dependencies
 
+#### Libraries included
+
+- [jQuery](https://github.com/jquery/jquery)
+- [normalize-scss](https://github.com/JohnAlbin/normalize-scss)
+##### Lazy loading images
+- [lazysizes](https://github.com/aFarkas/lazysizes)
+##### Scroll detection
+- [scrollMonitor](https://github.com/stutrek/scrollMonitor) detect element position in viewport
+##### Forms
+- [Parsley.js](https://github.com/guillaumepotier/Parsley.js/) - form validation
+- [autosize](https://github.com/jackmoore/autosize) - textarea auto grow
+
 #### Installing npm dependencies
 ```sh
 $ npm i <devDependency-name> -D
