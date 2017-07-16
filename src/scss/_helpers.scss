@@ -43,6 +43,7 @@
 
 %underline {
     position: relative;
+
     &::after {
         content: '';
         height: 0;
