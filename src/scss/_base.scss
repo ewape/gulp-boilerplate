@@ -9,6 +9,10 @@ body {
     padding-top: $menu-height;
 }
 
+.menu-open {
+    overflow: hidden;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -69,4 +73,9 @@ a {
     main & {
         @extend %content-link;
     }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }

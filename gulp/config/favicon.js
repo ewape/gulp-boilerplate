@@ -3,7 +3,7 @@ let config = require('./config');
 
 module.exports = {
     faviconConfig: {
-        masterPicture: "src/images/icons/svg.svg",
+        masterPicture: "src/images/icons/github.svg",
         dest: config.paths.src + 'favicon',
         iconsPath: config.data.url + 'dist/favicon/',
         design: {

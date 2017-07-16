@@ -1,11 +1,19 @@
 {% macro active(activePage = 'home') %}
-	<a href="index.html" class="brand">
-		<img src="dist/images/icons/svg.svg" alt="{{title}}">
+	<a href="#" class="brand">
+		<svg class="icon icon-github">
+			<use xlink:href="#icon-github"></use>
+		</svg>
 	</a>
 	<nav class="main-menu">
 		<ul>
 			<li>
-				<a href="index.html"><span class="{%if activePage == 'home' -%} active {%- endif %}">Home</span></a>
+				<a href="#" class="{%if activePage == 'home' -%} active {%- endif %}"><span>Home</span></a>
+			</li>
+			<li>
+				<a href="#section-1" class="{%if activePage == 'section-1' -%} active {%- endif %}"><span>Section 1</span></a>
+			</li>
+			<li>
+				<a href="#section-2" class="{%if activePage == 'section-2' -%} active {%- endif %}"><span>Section 2</span></a>
 			</li>
 		</ul>
 	</nav>

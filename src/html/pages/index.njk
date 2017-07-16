@@ -4,10 +4,12 @@
 {% block content %}
 	<header class="main-header">
 		<div class="container">
-			{{menu.active('')}}
+			{{menu.active('home')}}
 		</div>
 	</header>
 	<main>
 		{% include 'sections/main.njk' %}
+		{% include 'sections/section-1.njk' %}
+		{% include 'sections/section-2.njk' %}
 	</main>
 {% endblock %}

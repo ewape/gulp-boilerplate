@@ -1,4 +1,4 @@
-section {
+.section {
     position: relative;
     min-height: 80vh;
 }
@@ -7,4 +7,10 @@ section {
     max-width: 1170px;
     padding: 0 $padding-mobile;
     margin: 0 auto;
+}
+
+@media (min-width: $desktop-min) {
+    .section {
+        min-height: calc(100vh - 60px);
+    }
 }
