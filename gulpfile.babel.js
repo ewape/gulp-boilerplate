@@ -197,6 +197,15 @@ gulp.task('check-for-favicon-update', () => {
 
 gulp.task('w3c', () => {
     gulp.src('./*.html')
-        .pipe(w3cjs())
+        .pipe(w3cjs({
+            verifyMessage: function(type, message) {
+                // add exception for lazyload images
+                if (message.indexOf('Element “img” is missing required attribute “src”') === 0) {
+                    return false;
+                }
+                // allow message to pass through
+                return true;
+            }
+        }))
         .pipe(w3cjs.reporter());
 });
