@@ -18,7 +18,7 @@
     - [Templating](#templating)
     - [Dependencies](#dependencies)
     - [Rebuilding project files](#rebuilding-project-files)
-  - [Options](#options)
+  - [Configuration](#configuration)
   - [License](#license)
 
 
@@ -93,17 +93,7 @@ $ gulp build
 ```
 
 
-## Options
-
-- `autoprefixerOptions` Autoprefixer options
-- `faviconConfig` favicon image settings
-- `imageminOptions` image compression using Imagemin
-- `svgConfig` svg sprite settings
-
-config.json  
-- `data` variables available in nunjucks templates, including [Open Graph](http://ogp.me/) protocol settings
-- `fontOptions` font related directory paths
-- `paths` project directory structure
+## Configuration
 
 
 font.list  
@@ -118,19 +108,6 @@ Supported formats:
       Roboto:300,400,700&subset=latin-ext
       Lato:300,400,700&subset=latin-ext
 
-
-### Options by type
-
-Usage			  | Variable			| File		
----			  | ---				| ---			
-Sprite		  	  | `svgConfig`	    		| [gulpfile.babel.js](https://github.com/ewape/gulp-boilerplate/blob/master/gulpfile.babel.js#L33)		
-Favicon		    	  | `faviconConfig`		| [gulpfile.babel.js](https://github.com/ewape/gulp-boilerplate/blob/master/gulpfile.babel.js#L60)
-&nbsp;      		  | `faviconImage`  		| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L17)	
-Fonts       		  | `fontOptions`		| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L18)
-&nbsp;       		  |  - 		    		| [font.list](https://github.com/ewape/gulp-boilerplate/blob/master/fonts.list)	
-Templating   		  | `data`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L2)
-CSS prefixes   	  | `autoprefixerOptions`	| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L23)
-Project directories    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
 
 ## License
 [MIT License](https://en.wikipedia.org/wiki/MIT_License)
