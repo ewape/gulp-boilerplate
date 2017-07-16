@@ -108,7 +108,8 @@ $ gulp build
 ## Configuration
 
 
-font.list  
+#### font.list  
+
 This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download .woff files from [Google Fonts](https://fonts.google.com/) and update @font-face declarations in ./src/scss/modules/_fonts.scss.  
 Supported formats:
 
