@@ -1,3 +1,5 @@
+let css = require('./css');
+
 module.exports = {
     data: {
         "lang": "pl",
@@ -13,7 +15,7 @@ module.exports = {
             "image_height": 200
         }
     },
-    css: require('./css'),
+    css: css,
     "faviconDataFile": "./gulp/config/faviconData.json",
     "fontList": "./gulp/config/fonts.list",
     paths: {

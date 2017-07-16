@@ -14,7 +14,9 @@ body {
     overflow: hidden;
 }
 
-*, :before, :after {
+*,
+:before,
+:after {
     box-sizing: border-box;
 }
 
@@ -31,7 +33,7 @@ h6,
 .h5,
 .h6 {
     font-weight: 700;
-    margin: 0.67em 0;
+    margin: .67em 0;
 }
 
 h1,
@@ -75,6 +77,7 @@ a {
         outline: 0;
         color: darken($accent, 10%);
     }
+
     main & {
         @extend %content-link;
     }
