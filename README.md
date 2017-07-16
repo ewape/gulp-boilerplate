@@ -91,7 +91,7 @@ To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file]
 - [Parsley.js](https://github.com/guillaumepotier/Parsley.js/) - form validation
 - [autosize](https://github.com/jackmoore/autosize) - textarea auto grow
 
-#### Installing npm dependencies
+#### Installing dependencies via npm
 ```sh
 $ npm i <devDependency-name> -D
 $ npm i <dependency-name> --save
