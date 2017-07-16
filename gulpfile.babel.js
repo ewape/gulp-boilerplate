@@ -157,7 +157,7 @@ gulp.task('fonts', () => {
 
 gulp.task('copy', () => {
     gulp.src(paths.src + 'fonts/*')
-        .pipe(gulp.dest(paths.dist + 'fonts'))
+        .pipe(gulp.dest(paths.dist + 'fonts'));
     gulp.src(paths.src + 'favicon/*')
         .pipe(cache(imagemin(imageminOptions)))
         .pipe(gulp.dest(paths.dist + 'favicon'));
