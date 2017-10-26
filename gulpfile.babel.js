@@ -150,10 +150,7 @@ gulp.task('html', () => {
             data: config.data,
             path: [paths.src + 'html/templates']
         }))
-        .pipe(gulp.dest('./'))
-        .pipe(notify({
-            message: 'HTML ready'
-        }));
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('styles', () => {
@@ -161,7 +158,10 @@ gulp.task('styles', () => {
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed'
-        }).on('error', sass.logError))
+        }).on('error', notify.onError({
+            message: '<%= error.message %>',
+            sound: false
+        })))
         .pipe(autoprefixer(autoprefixerOptions))
         .pipe(rename({
             suffix: '.min'
@@ -170,9 +170,6 @@ gulp.task('styles', () => {
         .pipe(gulp.dest(paths.dist + 'css'))
         .pipe(browserSync.stream({
             match: '**/*.css'
-        }))
-        .pipe(notify({
-            message: 'Styles ready'
         }));
 });
 
