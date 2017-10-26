@@ -18,7 +18,7 @@
     - [Templating](#templating)
     - [Dependencies](#dependencies)
     - [Rebuilding project files](#rebuilding-project-files)
-  - [Options](#options)
+  - [Configuration](#configuration)
   - [License](#license)
 
 
@@ -79,7 +79,19 @@ To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file]
 
 ### Dependencies
 
-#### Installing npm dependencies
+#### Libraries included
+
+- [jQuery](https://github.com/jquery/jquery)
+- [normalize-scss](https://github.com/JohnAlbin/normalize-scss)
+##### Lazy loading images
+- [lazysizes](https://github.com/aFarkas/lazysizes)
+##### Scroll detection
+- [scrollMonitor](https://github.com/stutrek/scrollMonitor) detect element position in viewport
+##### Forms
+- [Parsley.js](https://github.com/guillaumepotier/Parsley.js/) - form validation
+- [autosize](https://github.com/jackmoore/autosize) - textarea auto grow
+
+#### Installing dependencies via npm
 ```sh
 $ npm i <devDependency-name> -D
 $ npm i <dependency-name> --save
@@ -93,22 +105,11 @@ $ gulp build
 ```
 
 
-## Options
+## Configuration
 
 
-gulpfile.babel.js:
-- `svgConfig` svg sprite settings
-- `faviconConfig` favicon images settings
+#### font.list  
 
-config.json: 
-- `data` variables available in nunjucks templates, including [Open Graph](http://ogp.me/) protocol settings
-- `faviconImage` favicon image path
-- `fontOptions` font related directory paths
-- `autoprefixerOptions` Autoprefixer options
-- `paths` project directory structure
-
-
-font.list  
 This file is used by [gulp-google-webfonts](https://github.com/battlesnake/gulp-google-webfonts) to download .woff files from [Google Fonts](https://fonts.google.com/) and update @font-face declarations in ./src/scss/modules/_fonts.scss.  
 Supported formats:
 
@@ -120,19 +121,6 @@ Supported formats:
       Roboto:300,400,700&subset=latin-ext
       Lato:300,400,700&subset=latin-ext
 
-
-### Options by type
-
-Usage			  | Variable			| File		
----			  | ---				| ---			
-Sprite		  	  | `svgConfig`	    		| [gulpfile.babel.js](https://github.com/ewape/gulp-boilerplate/blob/master/gulpfile.babel.js#L33)		
-Favicon		    	  | `faviconConfig`		| [gulpfile.babel.js](https://github.com/ewape/gulp-boilerplate/blob/master/gulpfile.babel.js#L60)
-&nbsp;      		  | `faviconImage`  		| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L17)	
-Fonts       		  | `fontOptions`		| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L18)
-&nbsp;       		  |  - 		    		| [font.list](https://github.com/ewape/gulp-boilerplate/blob/master/fonts.list)	
-Templating   		  | `data`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L2)
-CSS prefixes   	  | `autoprefixerOptions`	| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L23)
-Project directories    	  | `paths`			| [config.json](https://github.com/ewape/gulp-boilerplate/blob/master/config.json#L26)
 
 ## License
 [MIT License](https://en.wikipedia.org/wiki/MIT_License)

@@ -15,7 +15,7 @@
             policyUrl: '/cookies-policy.html'
         };
 
-        const readCookie = () => localStorage.getItem(options.cookieKey);
+        const readCookie = () => window.localStorage.getItem(options.cookieKey);
 
         const setCookie = () => {
             let acceptBtn = document.getElementById(options.btnId),
@@ -23,7 +23,7 @@
 
             acceptBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                localStorage.setItem(options.cookieKey, 1);
+                window.localStorage.setItem(options.cookieKey, 1);
                 messageContainer.classList.add(options.cookieKey);
             });
         };

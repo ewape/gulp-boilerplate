@@ -9,8 +9,10 @@ install:
 branches:
   only:
     - master
+    - in-progress
 
 cache:
   directories:
   - node_modules
   - src/favicon
+  - src/docs

@@ -1,20 +1,31 @@
 $font-1: 'Open Sans', sans-serif;
 
+$main-color: #2f2f2f;
+
 $padding-mobile: 2rem;
 $padding-tablet: $padding-mobile * 2;
 $padding-desktop: $padding-mobile * 4;
 
-$mobile-max: 1024px;
+$mobile-max: 600px;
+$tablet-max: 1024px;
 $desktop-min: 1025px;
+$desktop-md: 1280px;
+$desktop-lg: 1600px;
 
 $accent: #205ea4;
 $accent-dark: darken($accent, 15%);
+
+$menu-bg: #f1f1f1;
+$menu-height: 60px;
 
 $error: #db4437;
 $success: #4caf50;
 
 $fill-light: #fff;
 $fill-dark: #000;
+
+$transition: .3s linear;
+$form-border: #dedede;
 
 :root {
     --color-var: $accent;

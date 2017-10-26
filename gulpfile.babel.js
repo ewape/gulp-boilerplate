@@ -5,9 +5,8 @@ const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     cache = require('gulp-cache'),
     concat = require('gulp-concat'),
-    config = require('./config.json'),
+    config = require('./config/config'),
     del = require('del'),
-    faviconDataFile = config.faviconDataFile,
     googleWebFonts = require('gulp-google-webfonts'),
     imagemin = require('gulp-imagemin'),
     imageminGuetzli = require('imagemin-guetzli'),
@@ -24,102 +23,14 @@ const gulp = require('gulp'),
     w3cjs = require('gulp-w3cjs'),
 
     paths = config.paths,
-    autoprefixerOptions = config.autoprefixerOptions,
+    autoprefixerOptions = config.css.autoprefixerOptions,
 
-    fontOptions = config.fontOptions,
+    faviconConfig = require('./config/favicon').faviconConfig,
+    faviconDataFile = faviconConfig.markupFile,
 
-    imageminOptions = {
-        verbose: true,
-        plugins: [
-            pngquant({
-                speed: 10,
-                quality: "65-80"
-            })
-        ]
-    },
-
-    svgConfig = {
-        //log: 'debug', // info, verbose, debug
-        dest: '.',
-        mode: {
-            symbol: {
-                inline: true,
-                sprite: '../../' + paths.src + 'html/templates/partials/symbol.njk',
-                example: {
-                    dest: '../../' + paths.docs + 'symbol.html'
-                }
-            }
-        },
-        shape: {
-            dimension: {
-                maxWidth: 100,
-                maxHeight: 100
-            },
-            id: {
-                generator: 'icon-%s',
-                whitespace: '-'
-            },
-            spacing: {
-                padding: 0
-            }
-        }
-    },
-
-    faviconConfig = {
-        masterPicture: config.faviconImage,
-        dest: paths.src + 'favicon',
-        iconsPath: config.data.url + 'dist/favicon/',
-        design: {
-            ios: {
-                pictureAspect: 'backgroundAndMargin',
-                backgroundColor: '#ffffff',
-                margin: '10%',
-                assets: {
-                    ios6AndPriorIcons: false,
-                    ios7AndLaterIcons: false,
-                    precomposedIcons: false,
-                    declareOnlyDefaultIcon: true
-                }
-            },
-            desktopBrowser: {},
-            windows: {
-                pictureAspect: 'noChange',
-                backgroundColor: '#2d89ef',
-                onConflict: 'override',
-                assets: {
-                    windows80Ie10Tile: false,
-                    windows10Ie11EdgeTiles: {
-                        small: false,
-                        medium: true,
-                        big: false,
-                        rectangle: false
-                    }
-                }
-            },
-            androidChrome: {
-                pictureAspect: 'noChange',
-                themeColor: '#ffffff',
-                manifest: {
-                    name: config.data.title,
-                    // short_name: config.data.title,
-                    display: 'standalone',
-                    start_url: "/",
-                    orientation: 'portrait',
-                    onConflict: 'override',
-                    declared: true
-                },
-                assets: {
-                    legacyIcon: false,
-                    lowResolutionIcons: false
-                }
-            }
-        },
-        settings: {
-            scalingAlgorithm: 'Mitchell',
-            errorOnImageTooSmall: true
-        },
-        markupFile: faviconDataFile
-    };
+    imgConfig = require('./config/images'),
+    imageminOptions = imgConfig.imageminOptions,
+    svgConfig = imgConfig.svgConfig;
 
 gulp.task('default', ['watch']);
 gulp.task('build', ['styles', 'scripts', 'html', 'images', 'copy']);
@@ -127,7 +38,7 @@ gulp.task('clean', ['clean-folders']);
 gulp.task('favicon', ['inject-favicon-markups']);
 
 gulp.task('watch', ['browser-sync'], () => {
-    gulp.watch(paths.src + 'js/**/*.js', ['scripts']);
+    gulp.watch(paths.src + 'js/**/*.js', ['scripts:watch']);
     gulp.watch(paths.src + 'scss/**/*.scss', ['styles']);
     gulp.watch(paths.src + 'images/**/*.{jpg,jpeg,png,gif,svg,ico}', ['images']);
     gulp.watch(paths.src + 'html/**/*.+(html|njk)', ['html']);
@@ -142,7 +53,7 @@ gulp.task('browser-sync', () => {
     });
 });
 
-gulp.task('clean-folders', () => del.sync([paths.dist, paths.build]));
+gulp.task('clean-folders', () => del.sync([paths.dist, paths.temp]));
 
 gulp.task('html', () => {
     gulp.src([paths.src + 'html/pages/**/*.+(html|njk)'])
@@ -175,10 +86,14 @@ gulp.task('styles', () => {
 
 gulp.task('vendors-js', () => {
     gulp.src([
-            'node_modules/jquery/dist/jquery.min.js'
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/scrollmonitor/scrollMonitor.js',
+            'node_modules/autosize/dist/autosize.min.js',
+            'node_modules/parsleyjs/dist/parsley.min.js',
+            'node_modules/lazysizes/lazysizes.min.js'
         ])
-        .pipe(concat('vendors.js'))
-        .pipe(gulp.dest(paths.build + 'js'));
+        .pipe(concat('libs.js'))
+        .pipe(gulp.dest(paths.temp + 'js'));
 });
 
 gulp.task('minify-scripts', () => {
@@ -187,17 +102,27 @@ gulp.task('minify-scripts', () => {
             paths.src + 'js/app.js'
         ])
         .pipe(sourcemaps.init())
+        .pipe(concat('main.js'))
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(babel())
         .pipe(uglify())
-        .pipe(concat('app.js'))
         .pipe(sourcemaps.write('/'))
-        .pipe(gulp.dest(paths.build + 'js'));
+        .pipe(gulp.dest(paths.temp + 'js'));
 });
 
 gulp.task('scripts', ['vendors-js', 'minify-scripts'], () => {
-    gulp.src([paths.build + 'js/vendors.js', paths.build + 'js/app.js'])
+    gulp.src([paths.temp + 'js/libs.js', paths.temp + 'js/main.js'])
+        .pipe(sourcemaps.init({
+            loadMaps: true
+        }))
+        .pipe(concat('app.min.js'))
+        .pipe(sourcemaps.write('/'))
+        .pipe(gulp.dest(paths.dist + 'js'));
+});
+
+gulp.task('scripts:watch', ['minify-scripts'], () => {
+    gulp.src([paths.temp + 'js/libs.js', paths.temp + 'js/main.js'])
         .pipe(sourcemaps.init({
             loadMaps: true
         }))
@@ -221,14 +146,14 @@ gulp.task('images-jpg', () => {
 });
 
 gulp.task('fonts', () => {
-    gulp.src('./fonts.list')
-        .pipe(googleWebFonts(fontOptions))
+    gulp.src(config.fontList)
+        .pipe(googleWebFonts(paths.font))
         .pipe(gulp.dest(paths.src + 'fonts'));
 });
 
 gulp.task('copy', () => {
     gulp.src(paths.src + 'fonts/*')
-        .pipe(gulp.dest(paths.dist + 'fonts'))
+        .pipe(gulp.dest(paths.dist + 'fonts'));
     gulp.src(paths.src + 'favicon/*')
         .pipe(cache(imagemin(imageminOptions)))
         .pipe(gulp.dest(paths.dist + 'favicon'));
@@ -263,13 +188,22 @@ gulp.task('check-for-favicon-update', () => {
     let currentVersion = JSON.parse(fs.readFileSync(faviconDataFile)).version;
     realFavicon.checkForUpdates(currentVersion, (err) => {
         if (err) {
-            throw err;
+            console.log('\x1b[31m', 'To update favicon run: \n gulp favicon && gulp build');
         }
     });
 });
 
 gulp.task('w3c', () => {
     gulp.src('./*.html')
-        .pipe(w3cjs())
+        .pipe(w3cjs({
+            verifyMessage: function(type, message) {
+                // add exception for lazyload images
+                if (message.indexOf('Element “img” is missing required attribute “src”') === 0) {
+                    return false;
+                }
+                // allow message to pass through
+                return true;
+            }
+        }))
         .pipe(w3cjs.reporter());
 });

@@ -1,28 +1,207 @@
-%btn-base {
-	-webkit-appearance: none;
-	background-color: transparent;
-	border: 2px solid $accent;
-	border-radius: 0;
-	color: $accent;
-	font-family: $font-1;
-	line-height: 1;
-	cursor: pointer;
+input {
+    &:focus {
+        outline: 0;
+    }
+}
 
-	&:active,
-	&:focus,
-	&:hover {
-		outline: 0;
-		box-shadow: none;
-		border-color: $accent-dark;
-		color: $accent-dark;
-	}
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+%btn-base {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid $accent;
+    border-radius: 0;
+    color: $accent;
+    font-family: $font-1;
+    line-height: 1;
+    cursor: pointer;
+
+    &:active,
+    &:focus,
+    &:hover {
+        outline: 0;
+        box-shadow: none;
+        border-color: $accent-dark;
+        color: $accent-dark;
+    }
 }
 
 .btn {
-	@extend %btn-base;
-	padding: 1rem 3rem;
-	white-space: nowrap;
-	display: inline-block;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+    @extend %btn-base;
+    padding: 1rem 3rem;
+    white-space: nowrap;
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    margin: 2rem 0;
+    transition: opacity $transition;
+    position: relative;
+
+    &.checkbox-styled {
+        margin: .5rem 0;
+    }
+}
+
+.form-label {
+    color: $main-color;
+    font-family: $font-1;
+
+    .label-error & {
+        color: $accent;
+    }
+
+    .is-dirty & {
+        color: $main-color;
+    }
+}
+
+.form-input {
+    border: 0;
+    border-bottom: 1px solid $form-border;
+    border-radius: 0;
+    box-shadow: none;
+    outline: 0;
+    padding: .5rem 1.5rem;
+    width: 100%;
+    min-height: 5rem;
+    font-family: $font-1;
+    line-height: 1.4;
+
+    .label-error & {
+        border-color: $accent;
+    }
+}
+
+.form-description {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.form-required {
+    color: $error;
+    font-weight: bold;
+}
+
+.required-mark {
+    color: $error;
+}
+
+.parsley-errors-list {
+    list-style: none;
+    color: $error;
+    font-size: 1.4rem;
+    position: absolute;
+    right: 0;
+    top: 1px;
+    line-height: 1.1;
+    text-align: right;
+    margin: 0;
+}
+
+.parsley-error {
+    border-radius: 0;
+    border-color: $error;
+}
+
+.checkbox-styled {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+
+     ::selection {
+        background: transparent;
+        color: $main-color;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        width: 0;
+        height: 0;
+    }
+
+    input[type=checkbox] {
+        &:checked {
+            +label {
+                &:before {
+                    background-image: url('../images/checkmark.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 90% auto;
+                    border-color: $accent;
+                    background-color: $accent;
+                }
+            }
+        }
+    }
+
+    input[type=radio] {
+        &:checked {
+            +label {
+                &:before {
+                    border-color: $accent;
+                    background-color: $accent;
+                    border-width: 2px;
+                    box-shadow: inset 0 0 0 3px #fff;
+                }
+            }
+        }
+
+        +label {
+            &:before {
+                border-radius: 50%;
+                box-shadow: inset 0 0 0 3px #fff;
+            }
+        }
+    }
+
+    label {
+        cursor: pointer;
+        font-size: 1.2rem;
+        line-height: 1.4;
+        display: block;
+        width: 100%;
+        position: relative;
+        padding-left: 4rem;
+        text-align: left;
+        min-height: 3rem;
+        padding-top: .3rem;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 1.8rem;
+            height: 1.8rem;
+            border: 2px solid darken($accent, 15%);
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+
+    &.parsley-error {
+        label {
+            color: $error;
+            &:before {
+                border-color: $error;
+            }
+        }
+
+        +.parsley-errors-list {
+            margin-top: -2rem;
+        }
+    }
+
+    .parsley-errors-list {
+        top: 6px;
+    }
 }

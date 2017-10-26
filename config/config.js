@@ -1,5 +1,7 @@
-{
-    "data": {
+let css = require('./css');
+
+module.exports = {
+    data: {
         "lang": "pl",
         "title": "Project title",
         "description": "Project description",
@@ -13,20 +15,18 @@
             "image_height": 200
         }
     },
-    "faviconDataFile": "faviconData.json",
-    "faviconImage": "src/images/icons/github.svg",
-    "fontOptions": {
-        "fontsDir": "../fonts",
-        "cssDir": "../scss/modules/",
-        "cssFilename": "_fonts.scss"
-    },
-    "autoprefixerOptions": {
-        "browsers": ["last 2 versions", "> 1%", "ie >= 11", "android >= 4.4"]
-    },
-    "paths": {
+    css: css,
+    "faviconDataFile": "./config/faviconData.json",
+    "fontList": "./config/fonts.list",
+    paths: {
         "dist": "./dist/",
         "src": "./src/",
-        "build": "./build/",
-        "docs": "./docs/"
+        "temp": "./temp/",
+        "docs": "./docs/",
+        "font": {
+            "fontsDir": "../fonts",
+            "cssDir": "../scss/modules/",
+            "cssFilename": "_fonts.scss"
+        }
     }
-}
+};
