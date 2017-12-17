@@ -12,6 +12,7 @@ tests/
 npm-scripts
 *.php
 .vscode
+config/faviconData.json
 
 
 ### Node ###
