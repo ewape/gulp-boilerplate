@@ -75,7 +75,6 @@ $ gulp w3c
 
 ### Templating
 This project uses Mozilla's [Nunjucks templating](https://mozilla.github.io/nunjucks/templating.html).  
-To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file](https://raw.githubusercontent.com/mogga/sublime-nunjucks/master/Nunjucks.tmLanguage) as Nunjucks.tmLanguage in Sublime Text 3/Packages/Nunjucks Syntax directory.
 
 ### Dependencies
 
@@ -94,7 +93,7 @@ To add Nunjucks syntax definition to Sublime Text 3 save contents of [this file]
 #### Installing dependencies via npm
 ```sh
 $ npm i <devDependency-name> -D
-$ npm i <dependency-name> --save
+$ npm i <dependency-name> -S
 ```
 
 ### Rebuilding project files
