@@ -10,9 +10,8 @@
     },
     "main": "gulpfile.babel.js",
     "scripts": {
-        "test": "gulp favicon && gulp svg-sprite && gulp build && gulp w3c",
-        "validate": "node npm-scripts/validate.js",
-        "prepare": "gulp check-for-favicon-update"
+        "test": "gulp build",
+        "validate": "node npm-scripts/validate.js"
     },
     "author": "Ewa Pettke",
     "license": "MIT",
@@ -22,25 +21,25 @@
     "dependencies": {
         "autosize": "^4.0.0",
         "jquery": "^3.1.0",
-        "lazysizes": "^4.0.0-rc3",
+        "lazysizes": "^4.0.0",
         "normalize-scss": "^7.0.0",
         "parsleyjs": "^2.7.2",
         "scrollmonitor": "^1.2.3"
     },
     "devDependencies": {
+        "@babel/core": "^7.0.0-beta.35",
+        "@babel/preset-env": "^7.0.0-beta.35",
         "babel-cli": "^6.16.0",
-        "babel-core": "^6.25.0",
-        "babel-preset-env": "^1.5.1",
         "babel-register": "^6.24.1",
         "browser-sync": "^2.18.12",
         "del": "^3.0.0",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^4.0.0",
-        "gulp-babel": "^6.1.2",
-        "gulp-cache": "^0.4.6",
+        "gulp-babel": "^7.0.0",
+        "gulp-cache": "^1.0.1",
         "gulp-concat": "^2.6.0",
         "gulp-google-webfonts": "0.0.14",
-        "gulp-imagemin": "^3.3.0",
+        "gulp-imagemin": "^4.0.0",
         "gulp-jshint": "^2.0.1",
         "gulp-notify": "^3.0.0",
         "gulp-nunjucks-render": "^2.2.1",
@@ -58,20 +57,8 @@
         "npm-run-all": "^4.0.2",
         "sass-lint": "^1.10.2"
     },
-    "babel": {
-        "presets": [
-            [
-                "env",
-                {
-                    "targets": {
-                        "browsers": [
-                            "last 2 versions",
-                            "android >= 4.4"
-                        ]
-                    },
-                    "modules": false
-                }
-            ]
-        ]
-    }
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
 }

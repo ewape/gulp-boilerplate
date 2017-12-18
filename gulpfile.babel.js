@@ -104,8 +104,14 @@ gulp.task('minify-scripts', () => {
         .pipe(sourcemaps.init())
         .pipe(concat('main.js'))
         .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'))
-        .pipe(babel())
+        .pipe(jshint.reporter('jshint-stylish')).on('error', notify.onError({
+            message: '<%= error.message %>',
+            sound: false
+        }))
+        .pipe(babel()).on('error', notify.onError({
+            message: '<%= error.message %>',
+            sound: false
+        }))
         .pipe(uglify())
         .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest(paths.temp + 'js'));
@@ -131,18 +137,11 @@ gulp.task('scripts:watch', ['minify-scripts'], () => {
         .pipe(gulp.dest(paths.dist + 'js'));
 });
 
-gulp.task('images', ['images-jpg'], () => {
-    gulp.src([paths.src + 'images/**/*.{png,gif,ico,svg}'])
+gulp.task('images', () => {
+    gulp.src([paths.src + 'images/**/*.{jpg,jpeg,png,gif,ico,svg}'])
         .pipe(cache(imagemin(imageminOptions)))
         .pipe(gulp.dest(paths.dist + 'images'))
         .pipe(browserSync.stream());
-});
-
-gulp.task('images-jpg', () => {
-    gulp.src(paths.src + 'images/**/*.{jpg,jpeg}')
-        .pipe(imagemin([imageminGuetzli()]))
-        .pipe(cache(imagemin(imageminOptions)))
-        .pipe(gulp.dest(paths.dist + 'images'));
 });
 
 gulp.task('fonts', () => {
